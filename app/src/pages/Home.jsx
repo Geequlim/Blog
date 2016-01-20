@@ -9,7 +9,9 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        本站正在维护中，请稍后访问...
+        This site is under developping...
+        <br/>
+        You may visit here later :)
       </div>
     );
   }
