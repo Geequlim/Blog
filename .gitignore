@@ -1,0 +1,12 @@
+node_modules
+.sass-cache
+.jekyll-metadata
+npm-debug.log
+semantic/*
+semantic.json
+assets/main.css.map
+
+assets/libs
+assets/bundle.js
+assets/libs
+assets/main.css

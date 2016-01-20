@@ -1,0 +1,21 @@
+@import "base";
+@import "layout";
+@import "syntax-highlighting";
+
+body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+
+.content {
+  display: flex;
+  padding: 1em;
+  min-height: 640px;
+}
+
+.footer {
+  display: flex;
+  align-self: flex-end;
+}

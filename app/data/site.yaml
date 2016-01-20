@@ -1,0 +1,13 @@
+# Site settings
+title: My Blog
+subtitle: This is my blog site
+description: > # Awesome blog site powered by React
+url: "http://geequlim.com"
+
+author:
+    name: Geequlim
+    description: 一介码夫
+    email: geequlim@gmail.com
+    twitter_username: Geequlim
+    github_username:  Geequlim
+    weibo_userpage: http://weibo.com/lymean
