@@ -1,11 +1,18 @@
 @import "base";
 @import "layout";
-@import "syntax-highlighting";
+@import "highligh-tomorrow-night-eighties";
 
 body {
   display: flex;
   flex: 1;
   flex-direction: column;
+}
+
+pre {
+  background: #969c9f;
+  padding: 2px 2px;
+  border-radius: 6px;
+  overflow-x:visible;
 }
 
 

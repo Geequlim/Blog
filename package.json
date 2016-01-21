@@ -21,6 +21,7 @@
     "history": "^1.17.0",
     "jquery": "^2.2.0",
     "json-loader": "^0.5.4",
+    "raw-loader": "^0.5.1",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
     "react-icons": "^1.0.3",

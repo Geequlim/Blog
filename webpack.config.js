@@ -4,7 +4,7 @@ module.exports = {
   },
   output: {
     path: 'assets',
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   resolve: {
     extensions: ['', '.js', '.jsx']

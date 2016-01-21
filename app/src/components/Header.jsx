@@ -13,6 +13,7 @@ class Header extends React.Component {
       <header>
         <div className="ui secondary pointing menu">
           <Link className="item" to="/">Home</Link>
+          <Link className="item" to="/posts">Posts</Link>
           <Link className="item" to="/about">About</Link>
         </div>
       </header>

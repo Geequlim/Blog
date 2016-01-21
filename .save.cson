@@ -1,3 +1,6 @@
 "**/*.jsx": "webpack"
 "**/*.js": "webpack"
+"**/*.yml": "webpack"
+"**/*.yaml": "webpack"
+"**/*.md": "webpack"
 "**/*.scss": "sass app/sass/main.scss assets/main.css"

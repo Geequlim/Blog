@@ -12,4 +12,5 @@ cp -r ./node_modules/semantic-ui/dist/components\
       ./node_modules/semantic-ui/dist/semantic.min.css\
       assets/libs/semantic
 
+cp app/src/highlight.js assets/libs
 cp ./node_modules/jquery/dist/jquery.min.js assets/libs
