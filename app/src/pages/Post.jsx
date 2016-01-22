@@ -1,6 +1,18 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
+import marked from 'marked';
+import MarkdownArea from '../components/MarkdownArea.jsx';
 import posts from 'json!yaml!../../data/posts.yaml';
+
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  gfm: true,
+  tables: true,
+  breaks: false,
+  pedantic: false,
+  sanitize: false,
+  smartLists: true,
+  smartypants: true
+});
 
 class Post extends React.Component {
   constructor(props) {
@@ -25,24 +37,16 @@ class Post extends React.Component {
     return post;
   }
 
-  highlightCode() {
-    if (this.post.content.indexOf('```') !== -1) {
-      const els = document.querySelectorAll('pre code');
-      for (let i = 0; i < els.length; i++) {
-        window.hljs.highlightBlock(els[i]);
-      }
-    }
-  }
-
-  componentDidMount() {
-    this.highlightCode();
-  }
-
   render() {
     return (
-      <div>
-        <h2>{this.post.title}</h2>
-        <ReactMarkdown source={this.post.content}/>
+      <div className="post-content ui stacked raised segments">
+        <div className="ui segment">
+          <h1>{this.post.title}</h1>
+        </div>
+        <div className="ui segment">
+          <MarkdownArea>{this.post.content}</MarkdownArea>
+        </div>
+
       </div>
     );
   }

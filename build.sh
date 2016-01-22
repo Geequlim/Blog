@@ -2,7 +2,7 @@
 
 # compile
 webpack
-sass app/sass/main.scss assets/main.css
+sass app/sass/main.scss assets/main.css --style expanded
 
 # copy libraries
 mkdir -p assets/libs/semantic

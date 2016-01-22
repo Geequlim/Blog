@@ -1,21 +1,25 @@
-- title: I love atom
-  subtitle: I have fall in love with atom text editor
-  publishAt: 2016-01-21 12:10:00
-  file: posts/AtomEditor.md
+- title: Doxygen注释规范
+  subtitle:
+  publishAt: '2015-08-25 13:35:10'
+  file: posts/Doxygen注释规范.md
   categories:
-    - Editors
-    - Develop Tools
+    - 技术
   tags:
-    - Atom
-    - Text Editor
+    - 代码规范
+    - 文档设计
+  description: >
+    Doxygen是个非常简单实用的工具，通过它可以快速读取源代码来生成各种形式的文档。本文并不打算展开讨论Doxygen的配置和使用，因为[官方文档](http://www.stack.nl/~dimitri/doxygen/manual/index.html)已经描述得足够详尽了，本文是对代码进行Doxygen文档化注释的规范说明。
 
-- title: Atom is a good text editor
-  subtitle: I have fall in love with atom text editor
-  publishAt: 2016-01-21 12:10:00
-  file: posts/AtomEditor.md
+- title: 【转】Lua语言速成
+  subtitle:
+  publishAt: '2015-07-16 14:22:11'
+  file: posts/【转】Lua语言速成.markdown
   categories:
-    - Editors
-    - Develop Tools
+    - 技术
+    - 脚本
   tags:
-    - Atom
-    - Text Editor
+    - 脚本语言
+    - 编程语言
+    - Lua
+  description: >
+    #### 本文转自 [**X分钟速成Y**](http://learnxinyminutes.com/docs/zh-cn/lua-cn/)

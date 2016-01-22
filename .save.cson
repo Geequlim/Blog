@@ -3,4 +3,4 @@
 "**/*.yml": "webpack"
 "**/*.yaml": "webpack"
 "**/*.md": "webpack"
-"**/*.scss": "sass app/sass/main.scss assets/main.css"
+"**/*.scss": "sass app/sass/main.scss assets/main.css --style expanded"

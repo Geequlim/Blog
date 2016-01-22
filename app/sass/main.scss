@@ -1,5 +1,4 @@
 @import "base";
-@import "layout";
 @import "highligh-tomorrow-night-eighties";
 
 body {
@@ -8,18 +7,63 @@ body {
   flex-direction: column;
 }
 
-pre {
-  background: #969c9f;
-  padding: 2px 2px;
-  border-radius: 6px;
-  overflow-x:visible;
+.post-content {
+
+    margin: $spacing-unit;
+    padding: $spacing-unit;
+    box-shadow: 3px 5px 12px 6px #666666;
+    border-radius: 10px;
+    max-width: 96%;
+    min-width: 86%;
+    padding: 20px;
+    h1 {
+      font-size: 36px;
+      text-shadow: 2px 2px 2px #575757;
+    }
+    h2 {
+        font-size: 32px;
+        text-shadow: 2px 2px 2px #575757;
+    }
+
+    h3 {
+        font-size: 26px;
+        text-shadow: 2px 2px 1px #575757;
+    }
+
+    h4 {
+        font-size: 20px;
+        text-shadow: 1px 1px 1px #575757;
+
+    }
+
+    h5 {
+      font-size: 18px;
+      text-shadow: 1px 1px 1px #575757;
+    }
+
+    h6 {
+      font-size: 16px;
+      text-shadow: 1px 1px 0px #575757;
+    }
 }
+
+.post-list {
+  width: auto;
+  height: auto;  
+}
+
+.post-item {
+  margin: 10px;
+}
+
+
 
 
 .content {
   display: flex;
   padding: 1em;
   min-height: 640px;
+  justify-content: center;
 }
 
 .footer {
