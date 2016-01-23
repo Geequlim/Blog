@@ -41,12 +41,11 @@ class Post extends React.Component {
     return (
       <div className="post-content ui stacked raised segments">
         <div className="ui segment">
-          <h1>{this.post.title}</h1>
+          <p className="ui medium header">{this.post.title}</p>
         </div>
-        <div className="ui segment">
+        <div className="ui segment post-content">
           <MarkdownArea>{this.post.content}</MarkdownArea>
         </div>
-
       </div>
     );
   }

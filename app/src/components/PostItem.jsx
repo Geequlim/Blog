@@ -36,15 +36,13 @@ class PostItem extends React.Component {
         {this.props.post.tags.map((item) => <Tag key={item} query="tag">{item}</Tag>)}
       </span>
     );
-    let publistAt = new Date(this.props.post.publishAt);
-    publistAt = `${publistAt.getFullYear()}年${publistAt.getMonth()+1}月${publistAt.getDate()}日 ${publistAt.getHours()}:${publistAt.getMinutes()}:${publistAt.getSeconds()}`;
 
     return (
       <div className="post-item">
         <div className="ui segments">
-          <div className="ui segment large header">{this.props.post.title}</div>
+          <div className="ui segment medium header">{this.props.post.title}</div>
           <div className="ui segment">
-            <p>发表于 {publistAt}</p>
+            <p>发表于 {this.props.post.publishAt}</p>
             <div>分类：{categories}</div>
             <div>标签：{tags}</div>
             <MarkdownArea>{this.props.post.description}</MarkdownArea>

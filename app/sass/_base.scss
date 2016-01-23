@@ -64,15 +64,6 @@ figcaption {
     font-size: $small-font-size;
 }
 
-
-
-/**
- * Lists
- */
-ul, ol {
-    margin-left: $spacing-unit;
-}
-
 li {
     > ul,
     > ol {
@@ -112,8 +103,9 @@ a {
  */
 blockquote {
     color: darken($grey-color, 10%);
-    border-left: 4px solid $grey-color;
-    padding-left: $spacing-unit / 2;
+    border-left: 3px solid $grey-color;
+    padding-left: 0.8em;
+    margin-left: 1em;
 }
 
 
