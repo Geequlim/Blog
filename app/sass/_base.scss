@@ -1,4 +1,22 @@
-@import "variables";
+// Variables
+$base-font-weight: 400;
+$small-font-size: 14px;
+$base-font-size: 16px;
+$base-line-height: 1.5;
+$base-font-family: "微软雅黑", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif , Monospace;
+$text-color: #343434;
+$background-color: white;
+$spacing-unit: 1em;
+$brand-color: #42b5fa;
+$grey-color: grey;
+$grey-green-light: #c4d9c1;
+$grey-blue-light: #b3bec4;
+$grey-color-light: lighten($grey-color, 30%);
+$grey-color-dark: darken($grey-color, 30%);
+$purple-visited: #cb119c;
+$lighten-green: #43995e;
+$desktop-min-width: 768px;
+
 
 /**
  * Reset some basic elements
@@ -6,7 +24,7 @@
 body, h1, h2, h3, h4, h5, h6,
 p, blockquote, pre, hr,
 dl, dd, ol, ul, figure {
-    line-height: 1.5;
+    line-height: $base-line-height;
 }
 hr {
   height: 0.6px;
@@ -132,52 +150,5 @@ pre {
         border: 0;
         padding-right: 0;
         padding-left: 0;
-    }
-}
-
-
-/**
- * Wrapper
- */
-.wrapper {
-    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
-    max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: $spacing-unit;
-    padding-left: $spacing-unit;
-    @extend %clearfix;
-}
-
-
-
-/**
- * Clearfix
- */
-%clearfix {
-
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-}
-
-
-
-/**
- * Icons
- */
-.icon {
-
-    > svg {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        vertical-align: middle;
-
-        path {
-            fill: $grey-color;
-        }
     }
 }

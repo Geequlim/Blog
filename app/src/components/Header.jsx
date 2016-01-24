@@ -6,7 +6,6 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-    console.log(props.windowWidth);
   }
 
   render() {
@@ -18,29 +17,12 @@ class Header extends React.Component {
       }
       return className;
     };
-    const searchBox = (
-      <div className="ui item right fluid category search">
-        <div className="ui icon input">
-          <input className="prompt" type="text" placeholder="Search posts..."/>
-          <i className="search icon"></i>
-        </div>
-        <div className="results"></div>
-      </div>
-    );
 
     return (
       <div className="ui secondary attached menu">
         <Link className={getItemStyle('/')} to="/">Home</Link>
         <Link className={getItemStyle('/posts')} to="/posts">Posts</Link>
         <Link className={getItemStyle('/about')} to="/about">About</Link>
-          <div className="right menu">
-            <div className="item">
-              <div className="ui icon input">
-                <input type="text" placeholder="Search..."/>
-                <i className="search link icon"></i>
-              </div>
-            </div>
-          </div>
       </div>
     );
   }

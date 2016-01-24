@@ -8,58 +8,123 @@ body {
 }
 
 .post-content {
+    @mixin cal-header($baseSize) {
+      $shadow-size: 1px;
+      @if $baseSize >= 20px {
+        $shadow-size: 2px;
+      }
+      font-size: $baseSize;
+      text-shadow: $shadow-size $shadow-size $shadow-size #575757;
+      @media (min-width: $desktop-min-width) {
+        font-size: $baseSize+8;
+      }
+    };
     width: 100%;
+
     h1 {
-      font-size: 26px;
-      text-shadow: 2px 2px 2px #575757;
+      @include cal-header(26px);
     }
     h2 {
-        font-size: 24px;
-        text-shadow: 2px 2px 2px #575757;
+      @include cal-header(24px);
     }
 
     h3 {
-        font-size: 22px;
-        text-shadow: 2px 2px 1px #575757;
+      @include cal-header(22px);
     }
 
     h4 {
-        font-size: 20px;
-        text-shadow: 1px 1px 1px #575757;
-
+      @include cal-header(20px);
     }
 
     h5 {
-      font-size: 18px;
-      text-shadow: 1px 1px 1px #575757;
+      @include cal-header(18px);
     }
 
     h6 {
-      font-size: 16px;
-      text-shadow: 1px 1px 0px #575757;
+      @include cal-header(16px);
     }
-}
 
-.post-list {
-  width: auto;
-  height: auto;
+    .MarkdownArea {
+      @media only screen and (min-width: $desktop-min-width) {
+        padding: 2*$spacing-unit;
+      }
+    }
 }
 
 .post-item {
   margin: 10px;
 }
 
-
-
-
 .content {
   display: flex;
-  padding: 1em;
-  min-height: 640px;
-  justify-content: center;
+  min-height: 100%;
+  flex-direction: column;
+
+  .main-body {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: $spacing-unit;
+  }
+
+  .page-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    @media only screen and (min-width: 768px){
+      max-width: 90%;
+    }
+
+    .tag-label {
+      margin: 3px;
+    }
+
+    .pargraph {
+      padding: 5px;
+    }
+
+    .posts-page {
+      width: 100%;
+      justify-content: space-around;
+      .posts-list {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+      }
+      .right-panel {
+        margin: $spacing-unit;
+        text-align: center;
+        display: none;
+        @media (min-width: $desktop-min-width) {
+          display: block;
+          float: right;
+          max-width: 240px;
+        }
+      }
+      .tag-group {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+      }
+    }
+  }
+
+  .tag-button {
+    margin: 2px;
+  }
+
+  .left-panel {
+    display: flex;
+  }
+
 }
+
+
 
 .footer {
   display: flex;
-  align-self: flex-end;
+  align-self: stretch;
 }
