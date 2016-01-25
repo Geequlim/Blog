@@ -1,5 +1,5 @@
 import React from 'react';
-import HotLink from './HotLink.jsx';
+import {Link} from 'react-router';
 
 class PostTag extends React.Component {
   constructor(props) {
@@ -35,12 +35,12 @@ class PostTag extends React.Component {
   render() {
     return (
       <span>
-        <HotLink
+        <Link
           className={`ui ${this.color} ${this.size} label tag-label`}
           to="/posts"
           query={this.query}>
           {this.props.children}
-        </HotLink>
+        </Link>
       </span>
     );
   }

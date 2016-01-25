@@ -8,19 +8,36 @@ import NotFound from './pages/NotFound.jsx';
 import Entery from './pages/Entery.jsx';
 import {Router, Route, IndexRoute} from 'react-router';
 import createHistory from 'history/lib/createHashHistory';
-let history = createHistory({
-  queryKey: false
-});
-const router = (
-  <Router history={history} >
-    <Route path="/" component={Entery}>
-      <IndexRoute component={Home}/>
-      <Route path="posts" component={Posts}></Route>
-      <Route path="post" component={Post}></Route>
-      <Route path="about" component={About}></Route>
-      <Route path="*" component={NotFound}/>
-    </Route>
-  </Router>
-);
+// import createHistory from 'history/lib/createBrowserHistory';
 
-ReactDOM.render(router, document.getElementById('app'));
+class Application extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.history = createHistory({queryKey: false});
+  }
+
+  onRouteUpdate() {
+    // update hole page when route updated
+    this.setState({location: window.location});
+  }
+
+  render() {
+    return (
+      <Router
+        key={this.state.location}
+        history={this.history}
+        onUpdate={this.onRouteUpdate.bind(this)}>
+        <Route path="/" component={Entery}>
+          <IndexRoute component={Home}/>
+          <Route path="posts" component={Posts}></Route>
+          <Route path="post" component={Post}></Route>
+          <Route path="about" component={About}></Route>
+          <Route path="*" component={NotFound}/>
+        </Route>
+      </Router>
+    );
+  }
+}
+
+ReactDOM.render(<Application/>, document.getElementById('app'));

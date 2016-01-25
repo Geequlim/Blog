@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="893px" height="458px" viewBox="0 0 893 458" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
+    <title>UI架构解析</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="UI架构解析" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g sketch:type="MSLayerGroup">
+            <g id="底层" transform="translate(0.000000, 416.000000)">
+                <g id="软件渲染">
+                    <rect id="Rectangle-16" stroke="#979797" fill="#D8D8D8" sketch:type="MSShapeGroup" x="0" y="0" width="199.849858" height="42" rx="3"></rect>
+                    <text sketch:type="MSTextLayer" font-family="PingFang SC" font-size="20" font-weight="normal" fill="#4A4A4A">
+                        <tspan x="59.9249292" y="27">软件渲染</tspan>
+                    </text>
+                </g>
+                <g id="软件渲染-copy" transform="translate(227.677054, 0.000000)">
+                    <rect id="Rectangle-16" stroke="#979797" fill="#D8D8D8" sketch:type="MSShapeGroup" x="0" y="0" width="199.849858" height="42" rx="3"></rect>
+                    <text id="硬件加速渲染" sketch:type="MSTextLayer" font-family="PingFang SC" font-size="20" font-weight="normal" fill="#4A4A4A">
+                        <tspan x="39.9249292" y="27">硬件加速渲染</tspan>
+                    </text>
+                </g>
+                <g id="软件渲染-copy-2" transform="translate(448.000000, 0.000000)">
+                    <rect id="Rectangle-16" stroke="#979797" fill="#D8D8D8" sketch:type="MSShapeGroup" x="0" y="0" width="214.312081" height="42" rx="3"></rect>
+                    <text id="事件转换接口" sketch:type="MSTextLayer" font-family="PingFang SC" font-size="19.9849858" font-weight="normal" fill="#4A4A4A">
+                        <tspan x="50.1560406" y="26.9954958">事件转换接口</tspan>
+                    </text>
+                </g>
+                <g id="软件渲染-copy-3" transform="translate(693.150142, 0.000000)">
+                    <rect id="Rectangle-16" stroke="#979797" fill="#D8D8D8" sketch:type="MSShapeGroup" x="0" y="0" width="199.849858" height="42" rx="3"></rect>
+                    <text id="文件读写接口" sketch:type="MSTextLayer" font-family="PingFang SC" font-size="20" font-weight="normal" fill="#4A4A4A">
+                        <tspan x="39.9249292" y="27">文件读写接口</tspan>
+                    </text>
+                </g>
+            </g>
+            <g id="事件驱动状态" transform="translate(445.000000, 356.000000)">
+                <rect id="Rectangle-5" stroke="#8B572A" fill="#DE9657" sketch:type="MSShapeGroup" x="0.5" y="0" width="445.5" height="44.5625" rx="3"></rect>
+                <text sketch:type="MSTextLayer" font-family="PingFang SC" font-size="20" font-weight="normal" fill="#4A4A4A">
+                    <tspan x="163.25" y="28.28125">事件驱动状态</tspan>
+                </text>
+            </g>
+            <g id="绘图" transform="translate(0.000000, 358.000000)">
+                <rect id="Rectangle-5" stroke="#8B572A" fill="#DE9657" sketch:type="MSShapeGroup" x="0" y="0" width="429" height="44.5625" rx="3"></rect>
+                <text sketch:type="MSTextLayer" font-family="PingFang SC" font-size="20" font-weight="normal" fill="#4A4A4A">
+                    <tspan x="194.5" y="28.28125">绘图</tspan>
+                </text>
+            </g>
+            <g id="文字" transform="translate(609.000000, 113.290666)">
+                <rect id="Rectangle-2" stroke="#C35185" fill="#E95397" sketch:type="MSShapeGroup" x="0" y="0" width="284" height="71.0106579" rx="3"></rect>
+                <text sketch:type="MSTextLayer" font-family="PingFang SC" font-size="24" font-weight="normal" fill="#4A4A4A">
+                    <tspan x="118" y="42.705329">文字</tspan>
+                </text>
+            </g>
+            <g id="容器" transform="translate(1.000000, 113.290666)">
+                <rect id="Rectangle-3" stroke="#F6A623" fill="#EFC37B" sketch:type="MSShapeGroup" x="0" y="0" width="164" height="71.0106579" rx="3"></rect>
+                <text sketch:type="MSTextLayer" font-family="PingFang SC" font-size="24" font-weight="normal" fill="#4A4A4A">
+                    <tspan x="58" y="42.705329">容器</tspan>
+                </text>
+            </g>
+            <g id="UI组件" transform="translate(0.000000, 56.000000)">
+                <rect id="Rectangle-5" stroke="#22826D" fill="#6AD2BB" sketch:type="MSShapeGroup" x="0" y="0" width="891" height="46" rx="3"></rect>
+                <text id="组件" sketch:type="MSTextLayer" font-family="PingFang SC" font-size="21" font-weight="normal" fill="#4A4A4A">
+                    <tspan x="424.5" y="29.3">组件</tspan>
+                </text>
+            </g>
+            <g id="状态驱动样式" transform="translate(0.000000, 300.000000)">
+                <rect id="Rectangle-5" stroke="#4990E2" fill="#67A1E5" sketch:type="MSShapeGroup" x="0" y="0" width="891" height="44.5625" rx="3"></rect>
+                <text sketch:type="MSTextLayer" font-family="PingFang SC" font-size="20" font-weight="normal" fill="#4A4A4A">
+                    <tspan x="385.5" y="28.28125">状态驱动样式</tspan>
+                </text>
+            </g>
+            <g id="绘图方式" transform="translate(1.000000, 248.000000)">
+                <g id="位图" transform="translate(470.000000, 0.671733)">
+                    <rect id="Rectangle-5" stroke="#979797" fill="#D8D8D8" sketch:type="MSShapeGroup" x="0" y="0" width="275" height="42.284" rx="3"></rect>
+                    <text sketch:type="MSTextLayer" font-family="PingFang SC" font-size="18.6" font-weight="normal" fill="#4A4A4A">
+                        <tspan x="118.5" y="25.28">位图</tspan>
+                    </text>
+                </g>
+                <g id="TrueType文字" transform="translate(755.000000, 0.671733)">
+                    <rect id="Rectangle-6" stroke="#979797" fill="#D8D8D8" sketch:type="MSShapeGroup" x="0" y="0" width="136" height="42.284" rx="3"></rect>
+                    <text sketch:type="MSTextLayer" font-family="PingFang SC" font-size="18" font-weight="normal" fill="#4A4A4A">
+                        <tspan x="10.5" y="25.182">TrueType文字</tspan>
+                    </text>
+                </g>
+                <g id="几何形状" transform="translate(0.000000, 0.671733)">
+                    <rect id="Rectangle-6" stroke="#979797" fill="#D8D8D8" sketch:type="MSShapeGroup" x="0" y="0" width="313" height="42.284" rx="3"></rect>
+                    <text sketch:type="MSTextLayer" font-family="PingFang SC" font-size="18" font-weight="normal" fill="#4A4A4A">
+                        <tspan x="120.5" y="25.182">几何形状</tspan>
+                    </text>
+                </g>
+                <g id="九宫格缩放图" transform="translate(323.000000, 0.671733)">
+                    <rect id="Rectangle-6" stroke="#979797" fill="#D8D8D8" sketch:type="MSShapeGroup" x="0" y="0" width="136" height="42.284" rx="3"></rect>
+                    <text sketch:type="MSTextLayer" font-family="PingFang SC" font-size="18" font-weight="normal" fill="#4A4A4A">
+                        <tspan x="14" y="25.182">九宫格缩放图</tspan>
+                    </text>
+                </g>
+            </g>
+            <g id="图片-copy" transform="translate(178.000000, 111.000000)">
+                <rect id="Rectangle-1" stroke="#82B44B" fill="#89D733" sketch:type="MSShapeGroup" x="0" y="0" width="418" height="73.3013243" rx="3"></rect>
+                <text id="图片" sketch:type="MSTextLayer" font-family="PingFang SC" font-size="24" font-weight="normal" fill="#4A4A4A">
+                    <tspan x="185" y="43.8506622">图形</tspan>
+                </text>
+            </g>
+            <g id="缩放方式" transform="translate(0.000000, 195.000000)">
+                <g id="缩放友好型" transform="translate(0.000000, 1.640000)">
+                    <rect id="Rectangle-10" stroke="#255082" fill="#4990E2" sketch:type="MSShapeGroup" x="0" y="0" width="459" height="42.8571429" rx="3"></rect>
+                    <text sketch:type="MSTextLayer" font-family="PingFang SC" font-size="18" font-weight="normal" fill="#4A4A4A">
+                        <tspan x="184.5" y="21.6785714">缩放友好型</tspan>
+                    </text>
+                </g>
+                <g id="缩放友好型-copy" transform="translate(755.000000, 0.311428)">
+                    <rect id="Rectangle-10" stroke="#255082" fill="#4990E2" sketch:type="MSShapeGroup" x="0" y="0" width="136" height="42.8571429" rx="3"></rect>
+                    <text id="缩放友好型" sketch:type="MSTextLayer" font-family="PingFang SC" font-size="18" font-weight="normal" fill="#4A4A4A">
+                        <tspan x="23" y="22.2142857">缩放友好型</tspan>
+                    </text>
+                </g>
+                <g id="非缩放友好型" transform="translate(470.000000, 1.640000)">
+                    <rect id="Rectangle-11" stroke="#8B572A" fill="#C58750" sketch:type="MSShapeGroup" x="0" y="0" width="275" height="40.4799107" rx="3"></rect>
+                    <text sketch:type="MSTextLayer" font-family="PingFang SC" font-size="17.4375" font-weight="normal" fill="#4A4A4A">
+                        <tspan x="85" y="21.566476">非缩放友好型</tspan>
+                    </text>
+                </g>
+            </g>
+            <g id="界面">
+                <rect id="Rectangle-5" stroke="#AE58F9" fill="#CF6DE3" sketch:type="MSShapeGroup" x="0" y="0" width="891" height="46" rx="3"></rect>
+                <text sketch:type="MSTextLayer" font-family="PingFang SC" font-size="21" font-weight="normal" fill="#4A4A4A">
+                    <tspan x="424.5" y="29.3">界面</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

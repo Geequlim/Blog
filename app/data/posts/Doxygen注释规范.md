@@ -1,5 +1,5 @@
 Doxygen是个非常简单实用的工具，通过它可以快速读取源代码来生成各种形式的文档。本文并不打算展开讨论Doxygen的配置和使用，因为[官方文档](http://www.stack.nl/~dimitri/doxygen/manual/index.html)已经描述得足够详尽了，本文是对代码进行Doxygen文档化注释的规范说明。
-
+<!-- more -->
 # 标签格式
 Doxygen支持两种约定文档化标签的语法
 - Doxygen标签格式： `\tag 内容...`

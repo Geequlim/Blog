@@ -1,53 +1,65 @@
 import React from 'react';
 import {Link} from 'react-router';
-import PostTage from './PostTag.jsx';
+import PostTag from './PostTag.jsx';
 import MarkdownArea from '../components/MarkdownArea.jsx';
-import '../timeago';
+import app from '../app';
+import timeago from '../timeago';
 
 class PostItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+    const content = require(`raw!../../data/${this.props.post.file}`);
+    if (content && content.length && content.indexOf(app.site.end_description) !== -1) {
+      this.description = content.substring(0, content.indexOf(app.site.end_description));
+    } else {
+      this.description = '';
+    }
   }
 
   render() {
     const categories = (
       <span className="ui labels">
         {this.props.post.categories.map((item) => (
-          <PostTage
-            size="small"
-            key={item}
-            query="category">
+          <PostTag size="small" key={item} query="category">
             {item}
-          </PostTage>
+          </PostTag>
         ))}
       </span>
     );
     const tags = (
       <span className="ui tag labels">
-        {this.props.post.tags.map((item) => <PostTage size="small" key={item} query="tag">{item}</PostTage>)}
+        {this.props.post.tags.map((item) => <PostTag size="small" key={item} query="tag">{item}</PostTag>)}
       </span>
     );
 
     return (
       <div className="post-item">
         <div className="ui segments">
-          <div className="ui segment medium header">{this.props.post.title}</div>
           <div className="ui segment">
-            <p>发表于
-              {this.props.post.publishAt}</p>
-            <div className="tag-group">分类：{categories}</div>
-            <div className="tag-group">标签：{tags}</div>
-            <div className="pargraph">
-              <MarkdownArea>{this.props.post.description}</MarkdownArea>
+            <h2 className="ui medium header">
+              {this.props.post.title}
+            </h2>
+            <div className="post-item-header-tags">
+              <p>
+                <span className="ui label">
+                    发表于{timeago(this.props.post.publishAt)}
+                </span>
+              </p>
+              <div className="tag-group">{categories}</div>
             </div>
           </div>
           <div className="ui segment">
-            <Link
-              className="positive ui button"
-              to="/post"
-              query={{publishAt: this.props.post.publishAt, title: this.props.post.title}}
-              >
+            <div className="tag-group">{tags}</div>
+            <div className="pargraph">
+              <MarkdownArea>{this.description}</MarkdownArea>
+            </div>
+          </div>
+          <div className="ui segment">
+            <Link className="positive ui button" to="/post" query={{
+              publishAt: this.props.post.publishAt,
+              title: this.props.post.title
+            }}>
               阅读全文
             </Link>
           </div>

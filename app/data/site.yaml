@@ -3,6 +3,7 @@ title: My Blog
 subtitle: This is my blog site
 description: > # Awesome blog site powered by React
 url: "http://geequlim.com"
+end_description: <!-- more -->
 
 author:
     name: Geequlim

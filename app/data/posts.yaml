@@ -1,5 +1,13 @@
+- title: 关于UI框架的思考
+  publishAt: 2015-10-27 19:04:03
+  file: posts/关于UI框架的思考.md
+  categories:
+    - 设计
+    - 哲思
+  tags:
+    - UI设计
+
 - title: Doxygen注释规范
-  subtitle:
   publishAt: '2015-08-25 13:35:10'
   file: posts/Doxygen注释规范.md
   categories:
@@ -7,11 +15,8 @@
   tags:
     - 代码规范
     - 文档设计
-  description: >
-    Doxygen是个非常简单实用的工具，通过它可以快速读取源代码来生成各种形式的文档。本文并不打算展开讨论Doxygen的配置和使用，因为[官方文档](http://www.stack.nl/~dimitri/doxygen/manual/index.html)已经描述得足够详尽了，本文是对代码进行Doxygen文档化注释的规范说明。
 
 - title: 【转】Lua语言速成
-  subtitle:
   publishAt: '2015-07-16 14:22:11'
   file: posts/【转】Lua语言速成.markdown
   categories:
@@ -21,5 +26,24 @@
     - 脚本语言
     - 编程语言
     - Lua
-  description: >
-    #### 本文转自 [**X分钟速成Y**](http://learnxinyminutes.com/docs/zh-cn/lua-cn/)
+
+- title: 使用C++获取制定目录下的文件路径
+  publishAt: '2014-11-21 23:12:00'
+  file: posts/使用C++获取指定目录下的文件路径.markdown
+  categories:
+    - C/C++
+    - 技术
+  tags:
+    - C/C++
+    - I/O
+
+- title: Json数据操作之JsonPreference
+  publishAt: '2015-05-17 17:06:10'
+  file: posts/Json数据操作之JsonPreference.md
+  categories:
+    - C/C++
+    - 技术
+  tags:
+    - C/C++
+    - Json
+    - 数据格式

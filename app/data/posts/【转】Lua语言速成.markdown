@@ -1,5 +1,5 @@
 #### 本文转自 [**X分钟速成Y**](http://learnxinyminutes.com/docs/zh-cn/lua-cn/)
-
+<!-- more -->
 ---
 
 ```lua
