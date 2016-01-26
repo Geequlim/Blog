@@ -171,7 +171,6 @@ int var2; ///< ….text….
   - 对关键的控制结构进行注释；
   - 对数据和函数的边界、使用前提等进行注释。
 
---------------------------------------------------------------------------------
 
 参考文献：
 - [文档化开发注释规范](http://wiki.woodpecker.org.cn/moin/CodeCommentingRule#DoxygenApiTag.dox.2BXjh1KFR9TuQ-)
