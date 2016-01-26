@@ -33,6 +33,7 @@ class PostItem extends React.Component {
       </span>
     );
 
+    const thread= encodeURI(this.props.post.publishAt + this.props.post.title);
     return (
       <div className="post-item">
         <div className="ui segments">
@@ -56,10 +57,9 @@ class PostItem extends React.Component {
             </div>
           </div>
           <div className="ui segment">
-            <Link className="positive ui button" to="/post" query={{
-              publishAt: this.props.post.publishAt,
-              title: this.props.post.title
-            }}>
+            <Link
+              className="positive ui button"
+              to={`/post/${thread}`}>
               阅读全文
             </Link>
           </div>

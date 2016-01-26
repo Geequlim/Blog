@@ -8,7 +8,7 @@
     - UI设计
 
 - title: Doxygen注释规范
-  publishAt: '2015-08-25 13:35:10'
+  publishAt: 2015-08-25 13:35:10
   file: posts/Doxygen注释规范.md
   categories:
     - 技术
@@ -17,7 +17,7 @@
     - 文档设计
 
 - title: 【转】Lua语言速成
-  publishAt: '2015-07-16 14:22:11'
+  publishAt: 2015-07-16 14:22:11
   file: posts/【转】Lua语言速成.markdown
   categories:
     - 技术
@@ -27,8 +27,8 @@
     - 编程语言
     - Lua
 
-- title: 使用C++获取制定目录下的文件路径
-  publishAt: '2014-11-21 23:12:00'
+- title: C++获取文件路径
+  publishAt: 2014-11-21 23:12:00
   file: posts/使用C++获取指定目录下的文件路径.markdown
   categories:
     - C/C++
@@ -38,7 +38,7 @@
     - I/O
 
 - title: Json数据操作之JsonPreference
-  publishAt: '2015-05-17 17:06:10'
+  publishAt: 2015-05-17 17:06:10
   file: posts/Json数据操作之JsonPreference.md
   categories:
     - C/C++

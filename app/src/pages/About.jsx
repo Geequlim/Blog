@@ -1,4 +1,5 @@
 import React from 'react';
+import RichTextEditor from "../components/RichTextEditor.jsx";
 
 class About extends React.Component {
   constructor(props) {
@@ -9,7 +10,9 @@ class About extends React.Component {
   render() {
     return (
       <div className="ui fluid container">
-        About Page
+        <RichTextEditor placeholder="">
+          :apple: :green_apple:
+        </RichTextEditor>
       </div>
     );
   }

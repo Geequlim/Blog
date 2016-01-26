@@ -31,7 +31,7 @@ class Application extends React.Component {
         <Route path="/" component={Entery}>
           <IndexRoute component={Home}/>
           <Route path="posts" component={Posts}></Route>
-          <Route path="post" component={Post}></Route>
+          <Route path="post/:thread" component={Post}></Route>
           <Route path="about" component={About}></Route>
           <Route path="*" component={NotFound}/>
         </Route>

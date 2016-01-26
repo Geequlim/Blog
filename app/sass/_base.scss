@@ -136,19 +136,18 @@ pre,
 code {
     border-radius: 3px;
     background-color: $code-color;
+    border-radius: 3px;
     padding: 2px 5px;
 }
 
 pre {
     background: $code-color;
-    padding: 5px 5px;
-    border-radius: 6px;
-    overflow-x:visible;
-    overflow-x: auto;
-
+    padding: 2px;
+    border-radius: 5px;
     > code {
-        border: 0;
-        padding-right: 0;
-        padding-left: 0;
+      border-radius: 5px;
+      white-space: pre;
+      word-wrap: normal;
+      word-break: keep-all;
     }
 }

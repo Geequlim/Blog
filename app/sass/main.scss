@@ -59,7 +59,6 @@ body {
   display: flex;
   min-height: 100%;
   flex-direction: column;
-
   .main-body {
     display: flex;
     flex: 1;
@@ -75,6 +74,9 @@ body {
     align-items: center;
     @media only screen and (min-width: 768px){
       max-width: 90%;
+    }
+    @media only screen and (min-width: 1280px){
+      max-width: 1120px;
     }
 
     .tag-label {
@@ -116,6 +118,13 @@ body {
       flex-direction: row;
       flex-wrap: wrap;
       margin: 2px;
+    }
+    .rich-editor-content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      width: 100%;
+      min-height: 100px;
     }
   }
 

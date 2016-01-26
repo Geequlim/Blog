@@ -2,6 +2,8 @@ import React from 'react';
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
 import SidePanel from '../components/SidePanel.jsx';
+require('../emoji');
+import $ from 'jquery';
 
 class Entery extends React.Component {
   constructor(props) {
@@ -18,6 +20,8 @@ class Entery extends React.Component {
       const windowHeigh = window.height;
       this.setState({windowHeigh});
     });
+    // Replace emoji to images
+    $('.content').each((i, d) => $(d).emoji());
   }
 
   componentWillUnmount() {
@@ -33,7 +37,6 @@ class Entery extends React.Component {
       <div className="content">
         <Header {...this.state}/>
         <div className="main-body">
-          {leftSidePanel}
           <div className="page-body">
             {this.props.children}
           </div>

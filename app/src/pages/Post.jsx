@@ -4,7 +4,7 @@ import MarkdownArea from '../components/MarkdownArea.jsx';
 import posts from 'json!yaml!../../data/posts.yaml';
 import timeago from '../timeago';
 import PostTag from '../components/PostTag.jsx';
-
+import NotFound from './NotFound.jsx';
 marked.setOptions({
   renderer: new marked.Renderer(),
   gfm: true,
@@ -20,8 +20,9 @@ class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-    const {query} = props.location;
-    this.post = this.getPostByQuery(query);
+    console.log(props);
+    this.thread = props.params.thread;
+    this.post = this.getPostByQuery(this.thread);
     if (this.post && this.post.file) {
       this.post.content = require(`raw!../../data/${this.post.file}`);
     }
@@ -31,7 +32,7 @@ class Post extends React.Component {
     let post = null;
     if (query && posts && posts.length) {
       posts.map((p) => {
-        if (query.title === p.title && query.publishAt === p.publishAt) {
+        if (p.publishAt + p.title === query) {
           post = p;
         }
       });
@@ -40,6 +41,9 @@ class Post extends React.Component {
   }
 
   render() {
+    if (!this.post) {
+      return <NotFound/>;
+    }
     const categories = (
       <span className="ui labels">
         {this.post.categories.map((item) => (
@@ -58,15 +62,15 @@ class Post extends React.Component {
       <div className="post-content ui stacked raised segments">
         <div className="ui segment">
           <h1>{this.post.title}</h1>
-            <div className="post-item-header-tags">
-              <p>
-                <span className="ui label">
-                    发表于{timeago(this.post.publishAt)}
-                </span>
-              </p>
-              <div className="tag-group">{categories}</div>
-            </div>
-            <div className="ui large label tag-group">{"\t"}{tags}</div>
+          <div className="post-item-header-tags">
+            <p>
+              <span className="ui label">
+                发表于{timeago(this.post.publishAt)}
+              </span>
+            </p>
+            <div className="tag-group">{categories}</div>
+          </div>
+          <div className="ui large label tag-group">{"\t"}{tags}</div>
         </div>
         <div className="ui segment MarkdownArea">
           <MarkdownArea>{this.post.content}</MarkdownArea>
