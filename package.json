@@ -4,7 +4,7 @@
   "description": "Geequlim's blog site",
   "main": "index.js",
   "scripts": {
-    "start": "sh build.sh && google-chrome-stable http://localhost:4000 && http-server -p 4000"
+    "start": "sh build.sh && google-chrome-stable http://localhost:1088 && http-server -p 1088"
   },
   "keywords": [
     "blog",

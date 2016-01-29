@@ -143,7 +143,27 @@ body {
   cursor: pointer;
 }
 
+
+
 .footer {
   display: flex;
-  align-self: stretch;
+  flex-direction: column;
+  border-top-width: 1.5px;
+  border-color: #555555;
+  border-top-style: solid;
+  align-content: center;
+  padding: $spacing-unit;
+  .info {
+    white-space: pre;
+    word-spacing: normal;
+    word-wrap: normal;
+    word-break: keep-all;
+    margin-right: 1.5 * $spacing-unit;
+    margin-bottom: 1.5 * $spacing-unit;
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
 }
