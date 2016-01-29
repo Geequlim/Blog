@@ -9,16 +9,16 @@ class Entery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      windowWidth: window.innerWidth
+      windowWidth: window.innerWidth,
+      windowHeigh: window.innerHeight
     };
   }
 
   componentDidMount() {
     window.addEventListener('resize', () => {
       const windowWidth = window.innerWidth;
-      this.setState({windowWidth});
-      const windowHeigh = window.height;
-      this.setState({windowHeigh});
+      const windowHeigh = window.innerHeight;
+      this.setState({windowWidth, windowHeigh});
     });
     // Replace emoji to images
     $('.content').each((i, d) => $(d).emoji());
@@ -35,7 +35,7 @@ class Entery extends React.Component {
     }
     return (
       <div className="content">
-        <Header {...this.state}/>
+        <Header path={this.props.location.pathname} {...this.state}/>
         <div className="main-body">
           <div className="page-body">
             {this.props.children}

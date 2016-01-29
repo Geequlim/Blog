@@ -39,19 +39,19 @@ class RichTextEditor extends React.Component {
     );
     return (
       <div className={this.props.className}>
-        <div className="ui top attached tabular menu">
-          <button
+        <div className="ui top attached tabular secondary pointing menu">
+          <div
             onClick={() => this.setState({showPreview: false})}
             className={`item ${this.state.showPreview ? '' : 'active'}`}>
             编辑
-          </button>
-          <button
+          </div>
+          <div
             onClick={() => {
               this.setState({showPreview: true})
             }}
             className={`item ${this.state.showPreview ? 'active' : ''}`}>
             预览
-          </button>
+          </div>
         </div>
         <div className="ui bottom attached segment">
           <div className="rich-editor-content">

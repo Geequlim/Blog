@@ -1,6 +1,7 @@
 # Site settings
 title: My Blog
 subtitle: This is my blog site
+logo: assets/images/logo.jpg
 description: > # Awesome blog site powered by React
 url: "http://geequlim.com"
 end_description: <!-- more -->

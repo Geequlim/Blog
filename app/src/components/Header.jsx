@@ -5,26 +5,79 @@ import {Link} from 'react-router';
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      windowWidth: window.innerWidth,
+      windowHeigh: window.innerHeight,
+      toggleMobileMenu: false
+    };
+  }
+
+  asMobilePhone() {
+    return this.state.windowWidth < 768;
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', () => {
+      const windowWidth = window.innerWidth;
+      const windowHeigh = window.innerHeight;
+      this.setState({windowWidth, windowHeigh});
+    });
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
   }
 
   render() {
     const getItemStyle = (routeName) => {
       let className = 'item';
-      const curRot = this.props.curRoute;
-      if (curRot === routeName || (curRot !== '/' && routeName.indexOf(curRot) !== -1)) {
-        className += ' active';
+      if (!this.asMobilePhone()) {
+        const curRot = this.props.path;
+        if (curRot === routeName || (curRot !== '/' && routeName.indexOf(curRot) !== -1)) {
+          className += ' active';
+        }
       }
       return className;
     };
 
-    return (
-      <div className="ui secondary attached menu">
-        <Link className={getItemStyle('/')} to="/">Home</Link>
-        <Link className={getItemStyle('/posts')} to="/posts">Posts</Link>
-        <Link className={getItemStyle('/about')} to="/about">About</Link>
+    const menu = (
+      <div className="ui stackable secondary pointing menu">
+        <Link className={getItemStyle('/')} to="/">
+          {this.asMobilePhone() ? <i className="home icon"/> : null}
+          {this.asMobilePhone() ? 'Home' : site.title}
+        </Link>
+        <Link className={getItemStyle('/posts')} to="/posts">
+          <i className="newspaper icon"></i>
+          Blog
+        </Link>
+        <Link className={getItemStyle('/about')} to="/about">
+          <i className="info icon"></i>
+          About
+        </Link>
+        <div className="right item">
+          <div className="ui icon input">
+            <input type="text" placeholder="Search..."/>
+            <i className="search icon"></i>
+          </div>
+        </div>
       </div>
     );
+    const mobileMenu = (
+      <div className="header">
+        <div className="ui secondary menu">
+          <Link className="item" to="/">{site.title}</Link>
+          <a
+            onClick={() => this.setState({toggleMobileMenu: !this.state.toggleMobileMenu})}
+            onTab={() => this.setState({toggleMobileMenu: !this.state.toggleMobileMenu})}
+            className="right item">
+            <i className={`${this.state.toggleMobileMenu ? 'close' : 'sidebar'} icon`}/>
+          </a>
+        </div>
+        {this.asMobilePhone() && this.state.toggleMobileMenu ? menu : null}
+      </div>
+    );
+
+    return this.asMobilePhone() ? mobileMenu : menu;
   }
 
   renderPageTitle(page) {
