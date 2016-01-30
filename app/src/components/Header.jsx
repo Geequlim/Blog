@@ -56,7 +56,7 @@ class Header extends React.Component {
         </Link>
         <div className="right item">
           <div className="ui icon input">
-            <input type="text" placeholder="Search..."/>
+            <input className="st-default-search-input" type="text" placeholder="Search..."/>
             <i className="search icon"></i>
           </div>
         </div>
