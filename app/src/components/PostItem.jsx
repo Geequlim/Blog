@@ -36,7 +36,7 @@ class PostItem extends React.Component {
     const thread= encodeURI(this.props.post.publishAt + this.props.post.title);
     return (
       <div className="post-item">
-        <div className="ui segments">
+        <div className="ui raised stacked segments">
           <div className="ui segment">
             <h2 className="ui medium header">
               {this.props.post.title}

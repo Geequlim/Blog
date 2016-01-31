@@ -4,7 +4,7 @@
   "description": "Geequlim's blog site",
   "main": "index.js",
   "scripts": {
-    "start": "sh build.sh && google-chrome-stable http://localhost:1088 && http-server -p 1088"
+    "start": "sh build.sh && google-chrome-stable http://localhost:1088 && node server.js"
   },
   "keywords": [
     "blog",
@@ -20,6 +20,7 @@
     "component-ago": "git+https://github.com/chemzqm/ago.git",
     "css-loader": "^0.23.1",
     "eslint-plugin-react": "^3.14.0",
+    "express": "^4.13.4",
     "history": "^1.17.0",
     "jquery": "^2.2.0",
     "json-loader": "^0.5.4",

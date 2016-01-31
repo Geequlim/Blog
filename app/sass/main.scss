@@ -136,10 +136,28 @@ body {
     display: flex;
   }
 
+  .nav-post {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: baseline;
+    align-items: flex-start;
+    @media only screen and (min-width: 768px) {
+      flex-direction: row;
+    }
+    .nav-label {
+      display: flex;
+      margin: 3px 0px;
+      @media only screen and (min-width: 768px) {
+        margin: 0px 3px;
+      }
+    }
+  }
+
 }
 
 
-.header {
+.touchable {
   cursor: pointer;
 }
 

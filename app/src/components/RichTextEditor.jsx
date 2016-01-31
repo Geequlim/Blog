@@ -11,7 +11,7 @@ class RichTextEditor extends React.Component {
     };
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate() {
     $('#previewer').each((i, d) => $(d).emoji());
   }
 
@@ -39,7 +39,7 @@ class RichTextEditor extends React.Component {
     );
     return (
       <div className={this.props.className}>
-        <div className="ui top attached tabular secondary pointing menu">
+        <div className="ui top attached tabular secondary pointing menu touchable">
           <div
             onClick={() => this.setState({showPreview: false})}
             className={`item ${this.state.showPreview ? '' : 'active'}`}>

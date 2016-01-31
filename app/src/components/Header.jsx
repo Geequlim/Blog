@@ -63,7 +63,7 @@ class Header extends React.Component {
       </div>
     );
     const mobileMenu = (
-      <div className="header">
+      <div className="touchable">
         <div className="ui secondary menu">
           <Link className="item" to="/">{site.title}</Link>
           <a
