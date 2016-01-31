@@ -4,7 +4,7 @@
   "description": "Geequlim's blog site",
   "main": "index.js",
   "scripts": {
-    "start": "sh build.sh && google-chrome-stable http://localhost:1088 && node server.js"
+    "start": "sudo node server.js"
   },
   "keywords": [
     "blog",

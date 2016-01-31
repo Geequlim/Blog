@@ -24,6 +24,5 @@ module.exports = {
       test: /\.yml|yaml$/,
       loader: 'yaml-loader'
     }]
-  },
-  devtool: '#cheap-module-eval-source-map'
+  }
 };

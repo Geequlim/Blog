@@ -1,6 +1,6 @@
 const express = require('express');
 const path    = require('path');
-const port    = process.env.PORT || 1088;
+const port    = 80;
 const app     = express();
 
 // For static assets
