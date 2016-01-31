@@ -104,7 +104,6 @@ class Post extends React.Component {
           {previous}
           {next}
         </div>
-        <div id="disqus_thread"></div>
       </div>
     );
   }
