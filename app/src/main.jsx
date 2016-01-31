@@ -8,10 +8,8 @@ import NotFound from './pages/NotFound.jsx';
 import Entery from './pages/Entery.jsx';
 import Search from './pages/Search.jsx';
 import {Router, Route, IndexRoute} from 'react-router';
-import site from 'json!yaml!../data/site.yaml';
 import createHistory from 'history/lib/createBrowserHistory';
-// import createHistory from 'history/lib/createMemoryHistory';
-// import createHistory from 'history/lib/createHashHistory';
+import site from 'json!yaml!../data/site.yaml';
 
 class Application extends React.Component {
   constructor(props) {
