@@ -7,6 +7,38 @@
   tags:
     - Linux
     - 科学上网
+
+- title: Javascript学习笔记
+  publishAt: 2015-11-27 2:00:00
+  file: posts/Javascript学习笔记.md
+  categories:
+    - 技术
+    - 脚本
+  tags:
+    - Web开发
+    - 脚本语言
+    - Javascript
+
+- title: 创建BGFX渲染窗口
+  publishAt: 2015-11-06 17:00:00
+  file: posts/bgfx/创建BGFX渲染窗口.md
+  categories:
+    - 技术
+    - 图形学相关
+  tags:
+    - BGFX
+    - 图形学
+
+- title: BGFX图形渲染库
+  publishAt: 2015-11-05 18:00:00
+  file: posts/bgfx/BGFX图形渲染库.md
+  categories:
+    - 技术
+    - 图形学相关
+  tags:
+    - BGFX
+    - 图形学
+
 - title: 关于UI框架的思考
   publishAt: 2015-10-27 19:04:03
   file: posts/关于UI框架的思考.md
@@ -16,6 +48,14 @@
   tags:
     - UI设计
 
+- title: 海盗大亨5汉化
+  publishAt: 2015-10-25T08:38:48.247Z
+  file: posts/游戏/海盗大亨5汉化.md
+  categories:
+    - 游戏
+  tags:
+    - 游戏
+
 - title: Doxygen注释规范
   publishAt: 2015-08-25 13:35:10
   file: posts/Doxygen注释规范.md
@@ -24,6 +64,15 @@
   tags:
     - 代码规范
     - 文档设计
+
+- title: 遵循本心
+  publishAt: 2015-08-03T02:38:48.247Z
+  file: posts/生活感悟/遵循本心.md
+  categories:
+    - 生活感悟
+  tags:
+    - 随笔
+    - 自省
 
 - title: 【转】Lua语言速成
   publishAt: 2015-07-16 14:22:11
@@ -39,7 +88,6 @@
   publishAt: 2015-05-17 17:06:10
   file: posts/Json数据操作之JsonPreference.md
   categories:
-    - C/C++
     - 技术
   tags:
     - C/C++
@@ -50,7 +98,6 @@
   publishAt: 2014-11-21 23:12:00
   file: posts/使用C++获取指定目录下的文件路径.markdown
   categories:
-    - C/C++
     - 技术
   tags:
     - C/C++

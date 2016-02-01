@@ -4,5 +4,4 @@ class App {
     this.site = site;
   }
 }
-
 export default new App();
