@@ -1,11 +1,26 @@
 import React from 'react';
 import marked from 'marked';
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  gfm: true,
+  tables: true,
+  breaks: false,
+  pedantic: false,
+  sanitize: false,
+  smartLists: true,
+  smartypants: true
+});
 import $ from 'jquery';
 
 class MarkdownArea extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    // Convert markdown to html
+    let content = marked(props.children);
+    // Covert class blocks to divs
+    content = content.replace(/<!-- class="(.*)" -->/g, '<div class="$1">');
+    content = content.replace(/<!-- endclass -->/g, '</div>');
+    this.state = {content};
   }
 
   highlightCode() {
@@ -25,12 +40,9 @@ class MarkdownArea extends React.Component {
   }
 
   render() {
-    return (
-      <div
-        className={this.props.className}
-        dangerouslySetInnerHTML={{__html: marked(this.props.children)}}
-      />
-    );
+    return (<div className={this.props.className} dangerouslySetInnerHTML={{
+      __html: this.state.content
+    }}/>);
   }
 }
 

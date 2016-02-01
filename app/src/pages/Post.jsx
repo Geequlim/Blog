@@ -1,22 +1,10 @@
 import React from 'react';
-import marked from 'marked';
 import {Link} from 'react-router';
 import MarkdownArea from '../components/MarkdownArea.jsx';
 import posts from 'json!yaml!../../data/posts.yaml';
 import timeago from '../timeago';
 import PostTag from '../components/PostTag.jsx';
 import NotFound from './NotFound.jsx';
-
-marked.setOptions({
-  renderer: new marked.Renderer(),
-  gfm: true,
-  tables: true,
-  breaks: false,
-  pedantic: false,
-  sanitize: false,
-  smartLists: true,
-  smartypants: true
-});
 
 class Post extends React.Component {
   constructor(props) {
