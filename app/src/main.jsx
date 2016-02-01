@@ -21,7 +21,6 @@ class Application extends React.Component {
   onRouteUpdate() {
     // update hole page when route updated
     this.setState({location: window.location});
-    console.log(window.location);
     switch (window.location.pathname) {
       case '/posts':
         document.title = 'Blog';

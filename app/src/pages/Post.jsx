@@ -22,7 +22,6 @@ class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-    console.log(props);
     this.thread = props.params.thread;
     this.post = this.getPostByQuery(this.thread);
     if (this.post && this.post.file) {
@@ -35,7 +34,7 @@ class Post extends React.Component {
     let post = null;
     if (query && posts && posts.length) {
       posts.map((p) => {
-        if (p.publishAt + p.title === query) {
+        if (encodeURI(p.publishAt + p.title) === query) {
           post = p;
         }
       });
@@ -65,7 +64,7 @@ class Post extends React.Component {
     let previous = null;
     if (curPostIndex > 0) {
       const post = posts[curPostIndex - 1];
-      const thread = encodeURI(post.publishAt + post.title);
+      const thread = encodeURI(encodeURI(post.publishAt + post.title));
       previous = (
         <Link className="ui large blue label nav-label" to={`/post/${thread}`}>
           {post.title}
@@ -75,7 +74,7 @@ class Post extends React.Component {
     let next = null;
     if (curPostIndex >= 0 && curPostIndex < posts.length - 1) {
       const post = posts[curPostIndex + 1];
-      const thread = encodeURI(post.publishAt + post.title);
+      const thread = encodeURI(encodeURI(post.publishAt + post.title));
       next = (
         <Link className="ui large blue label nav-label" to={`/post/${thread}`}>
           {post.title}
