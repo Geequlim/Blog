@@ -33,7 +33,7 @@ class PostItem extends React.Component {
       </span>
     );
 
-    const thread= encodeURI(this.props.post.publishAt + this.props.post.title);
+    const thread = encodeURI(encodeURI(this.props.post.publishAt + this.props.post.title));
     return (
       <div className="post-item">
         <div className="ui raised stacked segments">
