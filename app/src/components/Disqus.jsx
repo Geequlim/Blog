@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import app from '../app';
 class Disqus extends React.Component {
   constructor(props) {
     super(props);
@@ -7,10 +8,10 @@ class Disqus extends React.Component {
   }
 
   componentDidMount() {
-    const disqusShortname = 'geequlim';
+    const url = `http://${app.site.disqusShortName}.disqus.com/embed.js`;
     $.ajax({
       type: 'GET',
-      url: `http://${disqusShortname}.disqus.com/embed.js`,
+      url,
       dataType: 'script',
       cache: true
     });

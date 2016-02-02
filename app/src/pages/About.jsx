@@ -1,18 +1,16 @@
 import React from 'react';
-import RichTextEditor from '../components/RichTextEditor.jsx';
 import Disqus from '../components/Disqus.jsx';
-import service from '../service';
+import Duoshuo from '../components/Duoshuo.jsx';
 class About extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-    service.test();
   }
-
   render() {
     return (
-      <div>
-          此页待装修...
+      <div className="post-content">
+        此页待装修...
+        <Disqus thread="1234567"/>
       </div>
     );
   }

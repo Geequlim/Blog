@@ -1,11 +1,13 @@
 # Site settings
 title: 一介码夫
-subtitle: >
-  业精于勤，荒于嬉；行成于思，毁于随。
+subtitle:
+  - 业精于勤，荒于嬉；
+  - 行成于思，毁于随。
 logo: /assets/images/logo.jpg
 description: >
   本站是Geequlim个人网站，使用React开发而成，博客模块使用GFM格式的Markdown书写。
 url: "http://geequlim.com"
+disqusShortName: geequlim
 end_description: <!-- more -->
 
 author:

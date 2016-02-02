@@ -13,7 +13,6 @@ class Post extends React.Component {
     super(props);
     this.state = {};
     this.thread = props.params.thread;
-    console.log(this.thread);
     this.post = this.getPostByQuery(this.thread);
     if (this.post && this.post.file) {
       document.title = this.post.title;
@@ -74,9 +73,9 @@ class Post extends React.Component {
     }
 
     return (
-      <div>
+      <div className="post-content">
         <div className="post-content ui raised segments">
-          <div className="ui piled segment">
+          <div className="ui segment">
             <h1>{this.post.title}</h1>
             <div className="post-item-header-tags">
               <p>
@@ -88,15 +87,15 @@ class Post extends React.Component {
             </div>
             <div className="ui large label tag-group">{"\t"}{tags}</div>
           </div>
-          <div className="ui raised segment MarkdownArea">
+          <div className="ui segment MarkdownArea">
             <MarkdownArea>{this.post.content}</MarkdownArea>
           </div>
-          <div className={`ui piled segment nav-post ${window.innerWidth >= 768 ? 'row' : ''}`}>
+          <div className={`ui stacked segment nav-post ${window.innerWidth >= 768 ? 'row' : ''}`}>
             {previous}
             {next}
           </div>
         </div>
-        <Disqus />
+        <Disqus thread={this.thread}/>
       </div>
     );
   }

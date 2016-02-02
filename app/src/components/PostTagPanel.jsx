@@ -1,7 +1,7 @@
 import React from 'react';
 import allPosts from 'json!yaml!../../data/posts.yaml';
 import PostTag from './PostTag.jsx';
-
+import app from '../app';
 class PostTagPanel extends React.Component {
   constructor(props) {
     super(props);
@@ -22,16 +22,16 @@ class PostTagPanel extends React.Component {
     return (
       <div className="right-panel">
         <div className="ui segments">
-          <h3 lassName="ui segment">Categories</h3>
+          <h3 lassName="ui segment">{app.string.categories}</h3>
           <div className="ui segment ui labels tag-group">
-            <PostTag key="all">All</PostTag>
+            <PostTag key="all">{app.string.all}</PostTag>
             {this.categories.map((item) => <PostTag key={item} query="category">{item}</PostTag>)}
           </div>
         </div>
         <div className="ui segments">
-          <h3 lassName="ui segment">Tags</h3>
+          <h3 lassName="ui segment">{app.string.tags}</h3>
           <div className="ui segment tag-group tag labels">
-            <PostTag key="all">All</PostTag>
+            <PostTag key="all">{app.string.all}</PostTag>
             {this.tags.map((item) => <PostTag key={item} query="tag">{item}</PostTag>)}
           </div>
         </div>
