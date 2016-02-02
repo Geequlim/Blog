@@ -5,6 +5,8 @@ import posts from 'json!yaml!../../data/posts.yaml';
 import timeago from '../timeago';
 import PostTag from '../components/PostTag.jsx';
 import NotFound from './NotFound.jsx';
+import Disqus from '../components/Disqus.jsx';
+import app from '../app';
 
 class Post extends React.Component {
   constructor(props) {
@@ -79,7 +81,7 @@ class Post extends React.Component {
             <div className="post-item-header-tags">
               <p>
                 <span className="ui label">
-                  发表于{timeago(this.post.publishAt)}
+                  {app.string.publishAt}{timeago(this.post.publishAt)}
                 </span>
               </p>
               <div className="tag-group">{categories}</div>
@@ -94,7 +96,7 @@ class Post extends React.Component {
             {next}
           </div>
         </div>
-        <div className="ds-thread" data-thread-key={this.thread} data-title={this.post.title} data-url={window.location.href}></div>
+        <Disqus />
       </div>
     );
   }

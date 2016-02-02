@@ -1,5 +1,5 @@
 import React from 'react';
-import site from 'json!yaml!../../data/site.yaml';
+import app from '../app';
 
 class Footer extends React.Component {
   constructor(props) {
@@ -13,55 +13,61 @@ class Footer extends React.Component {
 
   render() {
     return (
-      <div className={`footer ${window.innerWidth < 768 ? '' : 'row'}`}>
-        <div className="info">
-          <p className="ui medium header">{site.title}</p>
-          <p className="ui small header">{site.subtitle}</p>
+      <div className="footer">
+        <div className={`footer-container ${window.innerWidth < 768 ? '' : 'row'}`}>
+          <div className="first">
+            <p className="title inline">{app.site.title}</p>
+            <p className="subtitle">{app.site.subtitle}</p>
+          </div>
+          <div className="medium">
+            <p>{app.site.description}</p>
+          </div>
+          <div className="last">
+            <div>
+              <img className="ui right spaced mini avatar image" src={app.site.author.avatar}/>
+              <h3 className="subtitle inline">{app.string.contact}{app.site.author.name}</h3>
+            </div>
+            <div className="center">
+              { app.site.author.github_username ?
+                (
+                  <p className="ui label icon-btn">
+                    <a href={`https://github.com/${app.site.author.github_username}`}>
+                      <i className="big github icon"/>
+                    </a>
+                  </p>
+                ) : null
+              }
+              { app.site.author.email ?
+                (
+                  <p className="ui teal label icon-btn">
+                    <a href={`mailto:${app.site.author.email}`}>
+                      <i className="big mail icon"/>
+                    </a>
+                  </p>
+                ) : null
+              }
+              { app.site.author.twitter_username ?
+                (
+                  <p className="ui blue label icon-btn">
+                    <a href={`https://twitter.com/${app.site.author.twitter_username}`}>
+                      <i className="big twitter icon"/>
+                    </a>
+                  </p>
+                ) : null
+              }
+              { app.site.author.weibo_userpage && app.site.author.weibo_username ?
+                (
+                  <p className="ui red label icon-btn">
+                    <a href={app.site.author.weibo_userpage}>
+                      <i className="big weibo icon"/>
+                    </a>
+                  </p>
+                ) : null
+              }
+            </div>
+          </div>
         </div>
-        <div className="info">
-          <p>Find {site.author.name} in social network</p>
-          { site.author.email ?
-            (
-              <p>
-                <i className="mail icon"/>
-                <a href={`mailto:${site.author.email}`}>{site.author.email}</a>
-              </p>
-            ) : null
-          }
-          { site.author.github_username ?
-            (
-              <p className="ui label">
-                <i className="github icon"/>
-                <a href={`https://github.com/${site.author.github_username}`}>
-                  {site.author.github_username}
-                </a>
-              </p>
-            ) : null
-          }
-          { site.author.twitter_username ?
-            (
-              <p className="ui blue label">
-                <i className="twitter icon"/>
-                <a href={`https://twitter.com/${site.author.twitter_username}`}>
-                  {site.author.github_username}
-                </a>
-              </p>
-            ) : null
-          }
-          { site.author.weibo_userpage && site.author.weibo_username ?
-            (
-              <p className="ui red label">
-                <i className="weibo icon"/>
-                <a href={site.author.weibo_userpage}>
-                  {site.author.weibo_username}
-                </a>
-              </p>
-            ) : null
-          }
-        </div>
-        <div className="column">
-          <p>{site.description}</p>
-        </div>
+        <p>&copy; 2016 geequlim.com | Powered by <a href="https://github.com/Geequlim/Blog">Blog</a></p>
       </div>
     );
   }
