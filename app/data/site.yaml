@@ -1,15 +1,17 @@
 # Site settings
-title: Your awesome title
-subtitle: This is my blog site
-logo: assets/images/logo.jpg
+title: 一介码夫
+subtitle: >
+  业精于勤，荒于嬉；行成于思，毁于随。
+logo: /assets/images/logo.jpg
 description: >
-  Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+  本站是Geequlim个人网站，使用React开发而成，博客模块使用GFM格式的Markdown书写。
 url: "http://geequlim.com"
 end_description: <!-- more -->
 
 author:
     name: Geequlim
     description: 一介码夫
+    avatar: /assets/images/logo.jpg
     email: geequlim@gmail.com
     twitter_username: Geequlim
     github_username:  Geequlim

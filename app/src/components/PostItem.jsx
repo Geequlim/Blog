@@ -44,7 +44,7 @@ class PostItem extends React.Component {
             <div className="post-item-header-tags">
               <p>
                 <span className="ui label">
-                    发表于{timeago(this.props.post.publishAt)}
+                    {app.string.publishAt}{timeago(this.props.post.publishAt)}
                 </span>
               </p>
               <div className="tag-group">{categories}</div>
@@ -60,7 +60,7 @@ class PostItem extends React.Component {
             <Link
               className="positive ui button"
               to={`/post/${thread}`}>
-              阅读全文
+              {app.string.readMore}
             </Link>
           </div>
         </div>

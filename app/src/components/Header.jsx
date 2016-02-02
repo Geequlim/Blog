@@ -1,5 +1,5 @@
 import React from 'react';
-import site from 'json!yaml!../../data/site.yaml';
+import app from '../app';
 import {Link} from 'react-router';
 
 class Header extends React.Component {
@@ -43,20 +43,30 @@ class Header extends React.Component {
     const menu = (
       <div className="ui stackable secondary pointing menu">
         <Link className={getItemStyle('/')} to="/">
-          {this.asMobilePhone() ? <i className="home icon"/> : null}
-          {this.asMobilePhone() ? 'Home' : site.title}
+          <div className="title">
+            {this.asMobilePhone() ? <i className="home icon"/> : null}
+            {this.asMobilePhone() ? 'Home' : app.site.title}
+          </div>
         </Link>
         <Link className={getItemStyle('/posts')} to="/posts">
-          <i className="newspaper icon"></i>
-          Blog
+          <div className="title">
+            <i className="browser icon"></i>
+            {app.string.blog}
+          </div>
         </Link>
         <Link className={getItemStyle('/about')} to="/about">
-          <i className="info icon"></i>
-          About
+          <div className="title">
+            <i className="info circle icon"></i>
+            {app.string.about}
+          </div>
         </Link>
         <div className="right item">
           <div className="ui icon input">
-            <input className="st-default-search-input" type="text" placeholder="Search..."/>
+            <input
+              className="st-default-search-input"
+              type="text"
+              placeholder={app.string.search}
+            />
             <i className="search icon"></i>
           </div>
         </div>
@@ -65,19 +75,25 @@ class Header extends React.Component {
     const mobileMenu = (
       <div className="touchable">
         <div className="ui secondary menu">
-          <Link className="item" to="/">{site.title}</Link>
+          <Link className="item" to="/"><p className="title">{app.site.title}</p></Link>
           <a
             onClick={() => this.setState({toggleMobileMenu: !this.state.toggleMobileMenu})}
             onTab={() => this.setState({toggleMobileMenu: !this.state.toggleMobileMenu})}
             className="right item">
-            <i className={`${this.state.toggleMobileMenu ? 'close' : 'sidebar'} icon`}/>
+            <p className="title">
+              <i className={`${this.state.toggleMobileMenu ? 'close' : 'sidebar'} icon`}/>
+            </p>
           </a>
         </div>
         {this.asMobilePhone() && this.state.toggleMobileMenu ? menu : null}
       </div>
     );
 
-    return this.asMobilePhone() ? mobileMenu : menu;
+    return (
+      <div className="header-panel">
+        {this.asMobilePhone() ? mobileMenu : menu}
+      </div>
+    );
   }
 
   renderPageTitle(page) {
