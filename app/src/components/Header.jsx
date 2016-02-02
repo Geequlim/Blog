@@ -45,7 +45,7 @@ class Header extends React.Component {
         <Link className={getItemStyle('/')} to="/">
           <div className="title">
             {this.asMobilePhone() ? <i className="home icon"/> : null}
-            {this.asMobilePhone() ? 'Home' : app.site.title}
+            {this.asMobilePhone() ? app.string.home : app.site.title}
           </div>
         </Link>
         <Link className={getItemStyle('/posts')} to="/posts">

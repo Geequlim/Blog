@@ -1,3 +1,4 @@
+home: 首页
 blog: 博客
 about: 关于
 contact: 联系
@@ -6,3 +7,4 @@ tags: 文章标签
 readMore: 查看全文
 publishAt: 发表于
 search: 站内搜索
+all: 全部

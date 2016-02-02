@@ -14,10 +14,10 @@ class Footer extends React.Component {
   render() {
     return (
       <div className="footer">
-        <div className={`footer-container ${window.innerWidth < 768 ? '' : 'row'}`}>
+        <div className={`footer-container ${window.innerWidth < 768 ? 'column' : 'row'}`}>
           <div className="first">
             <p className="title inline">{app.site.title}</p>
-            <p className="subtitle">{app.site.subtitle}</p>
+            {app.site.subtitle.map((t) => <p key={t} className="subtitle">{t}</p>)}
           </div>
           <div className="medium">
             <p>{app.site.description}</p>
@@ -67,7 +67,13 @@ class Footer extends React.Component {
             </div>
           </div>
         </div>
-        <p>&copy; 2016 geequlim.com | Powered by <a href="https://github.com/Geequlim/Blog">Blog</a></p>
+        <br/>
+        <div className="copy-right">
+          <p>
+            &copy; 2016 geequlim.com | Powered by&nbsp;
+            <a href="https://github.com/Geequlim/Blog">Blog</a>
+          </p>
+        </div>
       </div>
     );
   }
