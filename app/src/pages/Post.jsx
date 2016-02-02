@@ -11,6 +11,7 @@ class Post extends React.Component {
     super(props);
     this.state = {};
     this.thread = props.params.thread;
+    console.log(this.thread);
     this.post = this.getPostByQuery(this.thread);
     if (this.post && this.post.file) {
       document.title = this.post.title;
@@ -71,26 +72,29 @@ class Post extends React.Component {
     }
 
     return (
-      <div className="post-content ui raised segments">
-        <div className="ui piled segment">
-          <h1>{this.post.title}</h1>
-          <div className="post-item-header-tags">
-            <p>
-              <span className="ui label">
-                发表于{timeago(this.post.publishAt)}
-              </span>
-            </p>
-            <div className="tag-group">{categories}</div>
+      <div>
+        <div className="post-content ui raised segments">
+          <div className="ui piled segment">
+            <h1>{this.post.title}</h1>
+            <div className="post-item-header-tags">
+              <p>
+                <span className="ui label">
+                  发表于{timeago(this.post.publishAt)}
+                </span>
+              </p>
+              <div className="tag-group">{categories}</div>
+            </div>
+            <div className="ui large label tag-group">{"\t"}{tags}</div>
           </div>
-          <div className="ui large label tag-group">{"\t"}{tags}</div>
+          <div className="ui raised segment MarkdownArea">
+            <MarkdownArea>{this.post.content}</MarkdownArea>
+          </div>
+          <div className={`ui piled segment nav-post ${window.innerWidth >= 768 ? 'row' : ''}`}>
+            {previous}
+            {next}
+          </div>
         </div>
-        <div className="ui raised segment MarkdownArea">
-          <MarkdownArea>{this.post.content}</MarkdownArea>
-        </div>
-        <div className={`ui piled segment nav-post ${window.innerWidth >= 768 ? 'row' : ''}`}>
-          {previous}
-          {next}
-        </div>
+        <div className="ds-thread" data-thread-key={this.thread} data-title={this.post.title} data-url={window.location.href}></div>
       </div>
     );
   }
