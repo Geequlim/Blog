@@ -38,12 +38,16 @@ Javascript通过 var 或 let 定义变量。
 var a = 3;
 ```
 
-<div class="green_box">
-    <p class="green_title">变量作用域</p>
-    <div class="box_content">
-        在函数中生命的变量处于函数作用域，函数外声明的变量处于全局作用域；使用ES6中的let关键字可以定义代码块作用域内的变量。
-    </div>
-</div>
+<!-- class="panel panel-info" -->
+<!-- class="panel-heading" -->
+<!-- class="panel-title" -->
+##### 变量作用域
+<!-- endclass -->
+<!-- endclass -->
+<!-- class="panel-body" -->
+在函数中生命的变量处于函数作用域，函数外声明的变量处于全局作用域；使用ES6中的let关键字可以定义代码块作用域内的变量。
+<!-- endclass -->
+<!-- endclass -->
 
 #### 常量(ECMAScript 6)
 
