@@ -2,10 +2,15 @@ import React from 'react';
 import allPosts from 'json!yaml!../../data/posts.yaml';
 import PostItem from '../components/PostItem.jsx';
 import PostTagPanel from '../components/PostTagPanel.jsx';
+
+const postsAPage = 6;
+const pages = Math.ceil(allPosts.length/postsAPage);
+
 class Posts extends React.Component {
   constructor(props) {
     super(props);
     this.state = {posts: this.getPosts()};
+    console.log(`找到文章${allPosts.length}篇，共${pages}页`);
   }
 
   getPosts() {
