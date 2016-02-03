@@ -9,7 +9,7 @@ class PostItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-    fetch(`/app/data/${this.props.post.file}`)
+    fetch(this.props.post.file)
       .then((response) => response.text())
       .then((content) => {
         if (content && content.length && content.indexOf(app.site.end_description) !== -1) {

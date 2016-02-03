@@ -15,7 +15,6 @@ import $ from 'jquery';
 class MarkdownArea extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props.children);
     // Convert markdown to html
     let content = marked(props.children ? props.children : '');
     // Covert class blocks to divs

@@ -9,7 +9,6 @@ import Entery from './pages/Entery.jsx';
 import Search from './pages/Search.jsx';
 import {Router, Route, IndexRoute} from 'react-router';
 import createHistory from 'history/lib/createBrowserHistory';
-import site from 'json!yaml!../data/site.yaml';
 import app from './app';
 
 class Application extends React.Component {
@@ -37,9 +36,9 @@ class Application extends React.Component {
         document.title = 'About';
         break;
       case '/':
-        document.title = site.title;
-        break;
       default:
+        document.title = app.site.title;
+        break;
     }
   }
 

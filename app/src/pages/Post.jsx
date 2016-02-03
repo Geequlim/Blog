@@ -14,7 +14,7 @@ class Post extends React.Component {
     this.post = this.getPostByQuery(this.thread);
     if (this.post && this.post.file) {
       document.title = this.post.title;
-      fetch(`/app/data/${this.post.file}`)
+      fetch(this.post.file)
         .then((response) => response.text())
         .then((content) => this.setState({content}))
         .catch((err) => console.log(err));

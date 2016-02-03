@@ -6,7 +6,7 @@ class App {
   constructor() {
     this.site = site;
     this.string = string;
-    fetch('/app/data/posts.yaml')
+    fetch('/assets/posts.yaml')
       .then((response) => response.text())
       .then((value) => {
         this.posts = yaml.load(value);
