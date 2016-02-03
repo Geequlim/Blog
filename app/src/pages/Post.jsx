@@ -91,8 +91,8 @@ class Post extends React.Component {
             <MarkdownArea>{this.post.content}</MarkdownArea>
           </div>
           <div className={`ui stacked segment nav-post ${window.innerWidth >= 768 ? 'row' : ''}`}>
-            {previous}
             {next}
+            {previous}
           </div>
         </div>
         <Disqus thread={this.thread}/>

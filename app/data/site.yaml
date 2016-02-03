@@ -9,7 +9,7 @@ description: >
 url: "http://geequlim.com"
 disqusShortName: geequlim
 end_description: <!-- more -->
-
+postPerPage: 6
 author:
     name: Geequlim
     description: 一介码夫
