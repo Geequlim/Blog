@@ -9,12 +9,15 @@ class PostItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-    const content = require(`raw!../../data/${this.props.post.file}`);
-    if (content && content.length && content.indexOf(app.site.end_description) !== -1) {
-      this.description = content.substring(0, content.indexOf(app.site.end_description));
-    } else {
-      this.description = '';
-    }
+    fetch(`/app/data/${this.props.post.file}`)
+      .then((response) => response.text())
+      .then((content) => {
+        if (content && content.length && content.indexOf(app.site.end_description) !== -1) {
+          const description = content.substring(0, content.indexOf(app.site.end_description));
+          this.setState({description});
+        }
+      })
+      .catch((err) => console.log(err));
   }
 
   render() {
@@ -53,7 +56,7 @@ class PostItem extends React.Component {
           <div className="ui segment">
             <div className="tag-group">{tags}</div>
             <div className="pargraph">
-              <MarkdownArea>{this.description}</MarkdownArea>
+              {this.state.description?<MarkdownArea>{this.state.description}</MarkdownArea>:null}
             </div>
           </div>
           <div className="ui segment">
