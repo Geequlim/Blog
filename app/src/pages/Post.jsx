@@ -1,29 +1,30 @@
 import React from 'react';
 import {Link} from 'react-router';
 import MarkdownArea from '../components/MarkdownArea.jsx';
-import posts from 'json!yaml!../../data/posts.yaml';
 import timeago from '../timeago';
 import PostTag from '../components/PostTag.jsx';
-import NotFound from './NotFound.jsx';
 import Disqus from '../components/Disqus.jsx';
 import app from '../app';
 
 class Post extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {content: ''};
     this.thread = props.params.thread;
     this.post = this.getPostByQuery(this.thread);
     if (this.post && this.post.file) {
       document.title = this.post.title;
-      this.post.content = require(`raw!../../data/${this.post.file}`);
+      fetch(this.post.file)
+        .then((response) => response.text())
+        .then((content) => this.setState({content}))
+        .catch((err) => console.log(err));
     }
   }
 
   getPostByQuery(query) {
     let post = null;
-    if (query && posts && posts.length) {
-      posts.map((p) => {
+    if (query && app.posts && app.posts.length) {
+      app.posts.map((p) => {
         if (encodeURI(p.publishAt + p.title) === query) {
           post = p;
         }
@@ -34,7 +35,7 @@ class Post extends React.Component {
 
   render() {
     if (!this.post) {
-      return <NotFound/>;
+      return <div>Loading</div>;
     }
     const categories = (
       <span className="ui labels">
@@ -50,10 +51,10 @@ class Post extends React.Component {
         {this.post.tags.map((item) => <PostTag size="small" key={item} query="tag">{item}</PostTag>)}
       </span>
     );
-    const curPostIndex = posts.indexOf(this.post);
+    const curPostIndex = app.posts.indexOf(this.post);
     let previous = null;
     if (curPostIndex > 0) {
-      const post = posts[curPostIndex - 1];
+      const post = app.posts[curPostIndex - 1];
       const thread = encodeURI(encodeURI(post.publishAt + post.title));
       previous = (
         <Link className="ui large blue label nav-label" to={`/post/${thread}`}>
@@ -62,8 +63,8 @@ class Post extends React.Component {
       );
     }
     let next = null;
-    if (curPostIndex >= 0 && curPostIndex < posts.length - 1) {
-      const post = posts[curPostIndex + 1];
+    if (curPostIndex >= 0 && curPostIndex < app.posts.length - 1) {
+      const post = app.posts[curPostIndex + 1];
       const thread = encodeURI(encodeURI(post.publishAt + post.title));
       next = (
         <Link className="ui large blue label nav-label" to={`/post/${thread}`}>
@@ -88,7 +89,7 @@ class Post extends React.Component {
             <div className="ui large label tag-group">{"\t"}{tags}</div>
           </div>
           <div className="ui segment MarkdownArea">
-            <MarkdownArea>{this.post.content}</MarkdownArea>
+            {this.state.content ? <MarkdownArea>{this.state.content}</MarkdownArea> : null}
           </div>
           <div className={`ui stacked segment nav-post ${window.innerWidth >= 768 ? 'row' : ''}`}>
             {next}

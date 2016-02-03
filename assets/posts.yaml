@@ -1,6 +1,6 @@
 - title: Linux上搭建Shadowsocks服务器
   publishAt: Mon Feb 01 2016 09:38:03 GMT+0800 (CST)
-  file: posts/Linux上搭建Shadowsocks服务器.md
+  file: /assets/posts/Linux上搭建Shadowsocks服务器.md
   categories:
     - 技术
     - Linux
@@ -10,7 +10,7 @@
 
 - title: Javascript学习笔记
   publishAt: 2015-11-27 2:00:00
-  file: posts/Javascript学习笔记.md
+  file: /assets/posts/Javascript学习笔记.md
   categories:
     - 技术
     - 脚本
@@ -21,7 +21,7 @@
 
 - title: 创建BGFX渲染窗口
   publishAt: 2015-11-06 17:00:00
-  file: posts/bgfx/创建BGFX渲染窗口.md
+  file: /assets/posts/bgfx/创建BGFX渲染窗口.md
   categories:
     - 技术
     - 图形学相关
@@ -31,7 +31,7 @@
 
 - title: BGFX图形渲染库
   publishAt: 2015-11-05 18:00:00
-  file: posts/bgfx/BGFX图形渲染库.md
+  file: /assets/posts/bgfx/BGFX图形渲染库.md
   categories:
     - 技术
     - 图形学相关
@@ -41,7 +41,7 @@
 
 - title: NanoVG状态堆栈
   publishAt: 2015-10-29 19:00:00
-  file: posts/nanovg/NanoVG状态堆栈.md
+  file: /assets/posts/nanovg/NanoVG状态堆栈.md
   categories:
     - 技术
     - 图形学相关
@@ -51,7 +51,7 @@
 
 - title: NanoVG路径API详解
   publishAt: 2015-10-29 13:00:00
-  file: posts/nanovg/NanoVG路径API详解.md
+  file: /assets/posts/nanovg/NanoVG路径API详解.md
   categories:
     - 技术
     - 图形学相关
@@ -61,7 +61,7 @@
 
 - title: 搭建基于GLFW的NanoVG绘图环境
   publishAt: 2015-10-28 21:00:00
-  file: posts/nanovg/搭建基于GLFW的NanoVG绘图环境.md
+  file: /assets/posts/nanovg/搭建基于GLFW的NanoVG绘图环境.md
   categories:
     - 技术
     - 图形学相关
@@ -71,7 +71,7 @@
 
 - title: 关于UI框架的思考
   publishAt: 2015-10-27 19:04:03
-  file: posts/关于UI框架的思考.md
+  file: /assets/posts/关于UI框架的思考.md
   categories:
     - 设计
     - 哲思
@@ -80,7 +80,7 @@
 
 - title: 海盗大亨5汉化
   publishAt: 2015-10-25T08:38:48.247Z
-  file: posts/游戏/海盗大亨5汉化.md
+  file: /assets/posts/游戏/海盗大亨5汉化.md
   categories:
     - 游戏
   tags:
@@ -88,7 +88,7 @@
 
 - title: Doxygen注释规范
   publishAt: 2015-08-25 13:35:10
-  file: posts/Doxygen注释规范.md
+  file: /assets/posts/Doxygen注释规范.md
   categories:
     - 技术
   tags:
@@ -97,7 +97,7 @@
 
 - title: 遵循本心
   publishAt: 2015-08-03T02:38:48.247Z
-  file: posts/生活感悟/遵循本心.md
+  file: /assets/posts/生活感悟/遵循本心.md
   categories:
     - 生活感悟
   tags:
@@ -106,7 +106,7 @@
 
 - title: 【转】Lua语言速成
   publishAt: 2015-07-16 14:22:11
-  file: posts/【转】Lua语言速成.markdown
+  file: /assets/posts/【转】Lua语言速成.markdown
   categories:
     - 技术
     - 脚本
@@ -116,7 +116,7 @@
     - Lua
 - title: Json数据操作之JsonPreference
   publishAt: 2015-05-17 17:06:10
-  file: posts/Json数据操作之JsonPreference.md
+  file: /assets/posts/Json数据操作之JsonPreference.md
   categories:
     - 技术
   tags:
@@ -126,7 +126,7 @@
 
 - title: C++获取文件路径
   publishAt: 2014-11-21 23:12:00
-  file: posts/使用C++获取指定目录下的文件路径.markdown
+  file: /assets/posts/使用C++获取指定目录下的文件路径.markdown
   categories:
     - 技术
   tags:

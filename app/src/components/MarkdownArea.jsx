@@ -16,7 +16,7 @@ class MarkdownArea extends React.Component {
   constructor(props) {
     super(props);
     // Convert markdown to html
-    let content = marked(props.children);
+    let content = marked(props.children ? props.children : '');
     // Covert class blocks to divs
     content = content.replace(/<!-- class="(.*)" -->/g, '<div class="$1">');
     content = content.replace(/<!-- endclass -->/g, '</div>');

@@ -9,29 +9,25 @@ import Entery from './pages/Entery.jsx';
 import Search from './pages/Search.jsx';
 import {Router, Route, IndexRoute} from 'react-router';
 import createHistory from 'history/lib/createBrowserHistory';
-import site from 'json!yaml!../data/site.yaml';
-// import Duoshuo from 'duoshuo';
-
-// const duoshuo = new Duoshuo({
-//   short_name: 'geequlim.duoshuo.com', // 站点申请的多说二级域名。
-//   secret: 'f74e18973353a92750a7757249008b91', // 站点密钥
-//   sso: {
-//     login: 'http://geequlim.com/login/', // 替换为你自己的回调地址
-//     logout: 'http://geequlim.com/logout/' // 替换为你自己的回调地址
-//   }
-// });
-//
+import app from './app';
 
 class Application extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
     this.history = createHistory({queryKey: false});
+    app.setOnAppStateChangedListener(this.forceUpdateApp.bind(this));
+  }
+
+  forceUpdateApp() {
+    const location = (new Date()).getTime() + Math.random();
+    this.setState({location});
   }
 
   onRouteUpdate() {
     // update hole page when route updated
-    this.setState({location: window.location});
+    const location = window.location;
+    this.setState({location});
     switch (window.location.pathname) {
       case '/posts':
         document.title = 'Blog';
@@ -40,9 +36,9 @@ class Application extends React.Component {
         document.title = 'About';
         break;
       case '/':
-        document.title = site.title;
-        break;
       default:
+        document.title = app.site.title;
+        break;
     }
   }
 
