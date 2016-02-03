@@ -66,6 +66,10 @@ body {
     justify-content: space-around;
     padding: $spacing-unit;
   }
+  .pagination {
+    display: flex;
+    align-self: center;
+  }
 
   .page-body {
     display: flex;
