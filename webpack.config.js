@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 module.exports = {
   entry: {
     bundle: './app/src/main.jsx'
@@ -23,6 +24,15 @@ module.exports = {
     }, {
       test: /\.yml|yaml$/,
       loader: 'yaml-loader'
-    }]
+    }],
+    plugins: [
+      new webpack.optimize.UglifyJsPlugin({
+        minimize: true,
+        warnings: false,
+        compress: {
+          warnings: false
+        }
+      })
+    ]
   }
 };
