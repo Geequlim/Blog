@@ -37,15 +37,15 @@ class Post extends React.Component {
   }
 
   render() {
+    if (app.posts && this.post && this.notFound) {
+      return <div className="ui red message">{app.string.postNotFound}</div>;
+    }
     if (!app.posts || !this.post) {
       return (
         <div className="ui raised stacked segment post-content">
           <Loader size="large">{app.string.loadingPost}</Loader>
         </div>
       );
-    }
-    if (this.notFound) {
-      return <div className="ui red message">{app.string.postNotFound}</div>;
     }
     const categories = (
       <span className="ui labels">
