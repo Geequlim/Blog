@@ -107,7 +107,7 @@ function breakfast(dessert, drink, {location,resturant}={}){
     // location 和 resturant 是通过第三个参数解构出来的
     console.log(dessert,drink,location,resturant);
 }
-breakfast(':cake:',':bear:',{location:'昆明',resturant:'农家乐'});
+breakfast(':cake:',':beer:',{location:'昆明',resturant:'农家乐'});
 ```
 
 #### this
@@ -160,7 +160,7 @@ console.log(foods);    // 输出  :cake: :apple: :banana:
 function breakfast(dessert, drink, ...foods) { // 此处的...用作Rest操作
     console.log(dessert,drink,...foods); // 此处的 ... 用作Spread操作
 }
-breakfast(':cake:',':bear:',':apple:',':pear:');
+breakfast(':cake:',':beer:',':apple:',':pear:');
 ```
 <!-- endclass -->
 <!-- endclass -->
@@ -224,7 +224,7 @@ var {firstName: name, lastName} = person;
 ES6 对象表达式，定义对象时属性名和值一样时可以不必写赋值操作(` : `)
 
 ```js
-let dessert = ':cake:' , drink = ':bear:';
+let dessert = ':cake:' , drink = ':beer:';
 let food = {
         dessert,
         drink,
@@ -236,7 +236,7 @@ let food = {
 
 这段代码与之是等价的
 ```js
-var dessert = ':cake:' , drink = ':bear:';
+var dessert = ':cake:' , drink = ':beer:';
 var food = {
         dessert : dessert,
         drink : drink,
