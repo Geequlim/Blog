@@ -5,13 +5,13 @@ import MarkdownArea from '../components/MarkdownArea.jsx';
 import app from '../app';
 import timeago from '../timeago';
 import Loader from '../components/LoadingFlag.jsx';
+import service from '../service';
 
 class PostItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-    fetch(this.props.post.file)
-      .then((response) => response.text())
+    service.fetchText(this.props.post.file)
       .then((content) => {
         if (content && content.length && content.indexOf(app.site.end_description) !== -1) {
           const description = content.substring(0, content.indexOf(app.site.end_description));

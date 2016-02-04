@@ -1,14 +1,14 @@
 import site from 'json!yaml!../data/site.yaml';
 import string from 'json!yaml!../data/string.yaml';
 import yaml from 'js-yaml';
+import service from './service';
 
 class App {
   constructor() {
     this.site = site;
     this.string = string;
     this.posts = null;
-    fetch('/assets/posts.yaml')
-      .then((response) => response.text())
+    service.fetchText('/assets/posts.yaml')
       .then((value) => {
         this.posts = yaml.load(value);
         if (this.onAppStateListener) {

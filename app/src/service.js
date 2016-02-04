@@ -1,26 +1,33 @@
 import $ from 'jquery';
 class Service {
   constructor() {}
-  test() {
-    $.ajax({
-      url: 'http://api.duoshuo.com/users/profile.jsonp?user_id=11204349&callback=?',
-      dataType: 'jsonp',
-      success: function(data) {
-        console.log('JSONP=====>', data);
-      }
+  fetch(url, type = 'GET', dataType = 'JSON', body = '') {
+    const promise = new Promise((resolve, reject) => {
+      $.ajax({
+        type,
+        url,
+        data: body,
+        dataType,
+        success: (data) => resolve(data),
+        error: (err) => reject(err)
+      });
     });
-    const request = new Request('http://api.duoshuo.com/users/profile.json?user_id=11204349', {
-      method: 'GET',
-      mode: 'cors',
-      redirect: 'follow',
-      headers: new Headers({
-        'Content-Type': 'application/json'
-      })
+    return promise;
+  }
+
+  fetchText(url) {
+    const self = this;
+    const promise = new Promise(function(resolve, reject) {
+      self.fetch(url, 'GET', 'text')
+        .then((text) => {
+          if (text && text.length && text.indexOf('<!-- geequlim.com -->') === -1) {
+            resolve(text);
+          } else {
+            reject(`Fetch text[${url}] error!`);
+          }
+        }).catch((err) => reject(err));
     });
-    fetch(request)
-      .then((r) => r.json())
-      .then((v) => console.log('JSON ---->', v))
-      .catch((err) => console.log(err));
+    return promise;
   }
 }
 
