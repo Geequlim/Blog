@@ -5,6 +5,7 @@ import timeago from '../timeago';
 import PostTag from '../components/PostTag.jsx';
 import Disqus from '../components/Disqus.jsx';
 import app from '../app';
+import Loader from '../components/LoadingFlag.jsx';
 
 class Post extends React.Component {
   constructor(props) {
@@ -18,6 +19,8 @@ class Post extends React.Component {
         .then((response) => response.text())
         .then((content) => this.setState({content}))
         .catch((err) => console.log(err));
+    } else {
+      this.notFound = true;
     }
   }
 
@@ -34,8 +37,15 @@ class Post extends React.Component {
   }
 
   render() {
+    if (this.notFound) {
+      return <div className="ui red message">{app.string.postNotFound}</div>;
+    }
     if (!this.post) {
-      return <div>Loading</div>;
+      return (
+        <div className="ui raised stacked segment post-content">
+          <Loader size="large">{app.string.loadingPost}</Loader>
+        </div>
+      );
     }
     const categories = (
       <span className="ui labels">
@@ -89,14 +99,20 @@ class Post extends React.Component {
             <div className="ui large label tag-group">{"\t"}{tags}</div>
           </div>
           <div className="ui segment MarkdownArea">
-            {this.state.content ? <MarkdownArea>{this.state.content}</MarkdownArea> : null}
+            {
+              this.state.content ? (
+                <div className="MarkdownArea">
+                  <MarkdownArea>{this.state.content}</MarkdownArea>
+                  <Disqus thread={this.thread}/>
+                </div>
+              ) : <Loader size="big">{app.string.loadingPostContent}</Loader>
+            }
           </div>
           <div className={`ui stacked segment nav-post ${window.innerWidth >= 768 ? 'row' : ''}`}>
             {next}
             {previous}
           </div>
         </div>
-        <Disqus thread={this.thread}/>
       </div>
     );
   }

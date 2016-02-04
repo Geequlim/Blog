@@ -4,6 +4,7 @@ import PostTag from './PostTag.jsx';
 import MarkdownArea from '../components/MarkdownArea.jsx';
 import app from '../app';
 import timeago from '../timeago';
+import Loader from '../components/LoadingFlag.jsx';
 
 class PostItem extends React.Component {
   constructor(props) {
@@ -56,7 +57,16 @@ class PostItem extends React.Component {
           <div className="ui segment">
             <div className="tag-group">{tags}</div>
             <div className="pargraph">
-              {this.state.description?<MarkdownArea>{this.state.description}</MarkdownArea>:null}
+              {this.state.description ? (
+                <MarkdownArea>{this.state.description}</MarkdownArea>
+              ) : (
+                <div className="ui message">
+                  <div className="content">
+                    <br/><br/><br/>
+                    <Loader>{app.string.loadingPostContent}</Loader>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
           <div className="ui segment">

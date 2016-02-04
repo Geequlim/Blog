@@ -8,47 +8,52 @@ body {
 }
 
 .post-content {
-    @mixin cal-header($baseSize) {
-      $shadow-size: 0.5px;
-      @if $baseSize >= 20px {
-        $shadow-size: 1px;
-      }
-      font-size: $baseSize;
-      text-shadow: $shadow-size $shadow-size $shadow-size #575757;
-      @media (min-width: $desktop-min-width) {
-        font-size: $baseSize+6;
-      }
-    };
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  @mixin cal-header($baseSize) {
+    $shadow-size: 0.5px;
+    @if $baseSize >= 20px {
+      $shadow-size: 1px;
+    }
+    font-size: $baseSize;
+    text-shadow: $shadow-size $shadow-size $shadow-size #575757;
+    @media (min-width: $desktop-min-width) {
+      font-size: $baseSize+6;
+    }
+  };
+  h1 {
+    @include cal-header(30px);
+  }
+  h2 {
+    @include cal-header(26px);
+  }
 
-    h1 {
-      @include cal-header(30px);
-    }
-    h2 {
-      @include cal-header(26px);
-    }
+  h3 {
+    @include cal-header(22px);
+  }
 
-    h3 {
-      @include cal-header(22px);
-    }
+  h4 {
+    @include cal-header(18px);
+  }
 
-    h4 {
-      @include cal-header(18px);
-    }
+  h5 {
+    @include cal-header(16px);
+  }
 
-    h5 {
-      @include cal-header(16px);
-    }
+  h6 {
+    @include cal-header(14px);
+  }
 
-    h6 {
-      @include cal-header(14px);
+  .MarkdownArea {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    @media only screen and (min-width: $desktop-min-width) {
+      padding: 2*$spacing-unit;
     }
-
-    .MarkdownArea {
-      @media only screen and (min-width: $desktop-min-width) {
-        padding: 2*$spacing-unit;
-      }
-    }
+  }
 }
 
 .post-item {
