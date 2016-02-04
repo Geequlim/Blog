@@ -6,6 +6,7 @@ import PostTag from '../components/PostTag.jsx';
 import Disqus from '../components/Disqus.jsx';
 import app from '../app';
 import Loader from '../components/LoadingFlag.jsx';
+import service from '../service';
 
 class Post extends React.Component {
   constructor(props) {
@@ -15,8 +16,7 @@ class Post extends React.Component {
     this.post = this.getPostByQuery(this.thread);
     if (this.post && this.post.file) {
       document.title = this.post.title;
-      fetch(this.post.file)
-        .then((response) => response.text())
+      service.fetchText(this.post.file)
         .then((content) => this.setState({content}))
         .catch((err) => console.log(err));
     } else {
