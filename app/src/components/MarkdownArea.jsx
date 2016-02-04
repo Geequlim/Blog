@@ -37,13 +37,11 @@ class MarkdownArea extends React.Component {
     $('table').addClass('ui celled collapsing striped table');
     $('th').addClass('ui center aligned');
     $('img').addClass('ui centered rounded bordered image');
-  }
-
-  componentDidUpdate() {
+    $('.markediv').each((i, d) => $(d).emoji());
   }
 
   render() {
-    return (<div className={this.props.className} dangerouslySetInnerHTML={{
+    return (<div className={`${this.props.className} markediv`} dangerouslySetInnerHTML={{
       __html: this.state.content
     }}/>);
   }
