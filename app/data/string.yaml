@@ -8,3 +8,7 @@ readMore: 查看全文
 publishAt: 发表于
 search: 站内搜索
 all: 全部
+postNotFound: 没有找到相关文章
+loadingPostContent: 加载文章内容中
+loadingPostPreview: 加载内容预览中
+loadingPost: 加载文章信息中

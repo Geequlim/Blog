@@ -3,6 +3,8 @@ import PostItem from '../components/PostItem.jsx';
 import PostTagPanel from '../components/PostTagPanel.jsx';
 import app from '../app';
 import {Link} from 'react-router';
+import Loader from '../components/LoadingFlag.jsx';
+
 class Posts extends React.Component {
   constructor(props) {
     super(props);
@@ -43,6 +45,14 @@ class Posts extends React.Component {
   }
 
   render() {
+    if (!app.posts) {
+      return (
+        <div className="ui raised stacked segment post-content">
+          <Loader size="large">{app.string.loadingPost}</Loader>
+        </div>
+      );
+    }
+
     const pageNavigators = [];
     for (let i = 1; i <= this.pages; i++) {
       const query = JSON.parse(JSON.stringify(this.props.location.query));
@@ -61,14 +71,15 @@ class Posts extends React.Component {
       <div className="posts-page">
         <PostTagPanel/>
         <div className="posts-list">
-          { this.state.posts ?
+          { this.state.posts && this.state.posts.length ?
             (this.state.posts.map((post) => {
               const address = `/post?publishAt=${post.publishAt}&title=${post.title}`;
               return <PostItem key={address} post={post}/>;
-            })) : null
+            })) : (
+              <div className="ui red message">{app.string.postNotFound}</div>
+            )
           }
-          {
-            this.pages > 1 ? (
+          { this.pages > 1 ? (
               <div className="pagination">
                 <div className="ui pagination menu">
                   {pageNavigators.map((p) => p)}
