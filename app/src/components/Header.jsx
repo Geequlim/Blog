@@ -61,7 +61,7 @@ class Header extends React.Component {
           </div>
         </Link>
         <div className="right item">
-          <div className="ui icon input">
+          <div className="ui inverted icon input">
             <input
               className="st-default-search-input"
               type="text"

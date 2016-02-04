@@ -1,6 +1,6 @@
 import React from 'react';
 import Disqus from '../components/Disqus.jsx';
-import Duoshuo from '../components/Duoshuo.jsx';
+import RichTextEditor from '../components/RichTextEditor.jsx';
 class About extends React.Component {
   constructor(props) {
     super(props);
@@ -9,8 +9,7 @@ class About extends React.Component {
   render() {
     return (
       <div className="post-content">
-        此页待装修...
-        <Disqus thread="1234567"/>
+        <RichTextEditor></RichTextEditor>
       </div>
     );
   }
