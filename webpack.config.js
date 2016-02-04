@@ -1,4 +1,7 @@
 const webpack = require('webpack');
+const path = require('path');
+const node_modules = path.resolve(__dirname, 'node_modules');
+const pathToReact = path.resolve(node_modules, 'react/dist/react.min.js');
 module.exports = {
   entry: {
     bundle: './app/src/main.jsx'
@@ -17,12 +20,15 @@ module.exports = {
       loader: 'babel-loader'
     }, {
       test: /\.css$/,
+      exclude: /node_modules/,
       loader: 'style-loader!css-loader'
     }, {
       test: /\.json$/,
+      exclude: /node_modules/,
       loader: 'json-loader'
     }, {
       test: /\.yml|yaml$/,
+      exclude: /node_modules/,
       loader: 'yaml-loader'
     }],
     plugins: [
@@ -33,6 +39,7 @@ module.exports = {
           warnings: false
         }
       })
-    ]
+    ],
+    noParse: [pathToReact]
   }
 };
