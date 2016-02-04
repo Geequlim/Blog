@@ -2,34 +2,40 @@ NanoVG 会将变换设置、填充样式、描边样式、文字和字体样式�
 <!-- more -->
 
 NanoVG使用堆栈的方式，状态的备份和恢复是非常容易的，具体方法如下：
-
-<!-- class="ui segments" -->
-<!-- class="ui segment" -->
+<!-- class="panel panel-default" -->
+<!-- class="panel-heading" -->
+<!-- class="panel-title" -->
 ###### void nvgSave(NVGcontext* ctx)
 <!-- endclass -->
+<!-- endclass -->
 
-<!-- class="ui secondary segment" -->
+<!-- class="panel-body" -->
 将当前NanoVG的状态压入栈中，用于保存当前的状态。
 <!-- endclass -->
 <!-- endclass -->
 
-<!-- class="ui segments" -->
-<!-- class="ui segment" -->
+
+<!-- class="panel panel-default" -->
+<!-- class="panel-heading" -->
+<!-- class="panel-title" -->
 ###### void nvgRestore(NVGcontext* ctx)
 <!-- endclass -->
+<!-- endclass -->
 
-<!-- class="ui secondary segment" -->
+<!-- class="panel-body" -->
 将NanoVG当前的状态恢复为栈顶的状态，执行退栈操作。
 <!-- endclass -->
 <!-- endclass -->
 
-<!-- class="ui segments" -->
-<!-- class="ui segment" -->
+<!-- class="panel panel-default" -->
+<!-- class="panel-heading" -->
+<!-- class="panel-title" -->
 ###### void nvgReset(NVGcontext* ctx)
 <!-- endclass -->
+<!-- endclass -->
 
-<!-- class="ui secondary segment" -->
-将NanoVG当前的状态恢复NanoVG默认状态，不会影响到状态栈。
+<!-- class="panel-body" -->
+将NanoVG当前的状态恢复NanoVG默认状态，不会影响到状态栈
 <!-- endclass -->
 <!-- endclass -->
 

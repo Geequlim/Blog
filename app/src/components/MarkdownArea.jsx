@@ -39,6 +39,9 @@ class MarkdownArea extends React.Component {
     $('img').addClass('ui centered rounded bordered image');
   }
 
+  componentDidUpdate() {
+  }
+
   render() {
     return (<div className={this.props.className} dangerouslySetInnerHTML={{
       __html: this.state.content
