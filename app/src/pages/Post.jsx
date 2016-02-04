@@ -20,7 +20,7 @@ class Post extends React.Component {
         .then((content) => this.setState({content}))
         .catch((err) => console.log(err));
     } else {
-      this.notFound = true;
+      this.notFound = app.posts !== null;
     }
   }
 
@@ -37,10 +37,10 @@ class Post extends React.Component {
   }
 
   render() {
-    if (app.posts && this.post && this.notFound) {
+    if (this.notFound) {
       return <div className="ui red message">{app.string.postNotFound}</div>;
     }
-    if (!app.posts || !this.post) {
+    if (!app.posts) {
       return (
         <div className="ui raised stacked segment post-content">
           <Loader size="large">{app.string.loadingPost}</Loader>

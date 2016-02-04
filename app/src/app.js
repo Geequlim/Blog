@@ -6,6 +6,7 @@ class App {
   constructor() {
     this.site = site;
     this.string = string;
+    this.posts = null;
     fetch('/assets/posts.yaml')
       .then((response) => response.text())
       .then((value) => {
