@@ -43,7 +43,7 @@ class Post extends React.Component {
     if (!app.posts) {
       return (
         <div className="ui raised stacked segment post-content">
-          <Loader size="large">{app.string.loadingPost}</Loader>
+          <Loader>{app.string.loadingPost}</Loader>
         </div>
       );
     }
