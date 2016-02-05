@@ -30,10 +30,10 @@ class Application extends React.Component {
     this.setState({location});
     switch (window.location.pathname) {
       case '/posts':
-        document.title = 'Blog';
+        document.title = app.string.blog;
         break;
       case '/about':
-        document.title = 'About';
+        document.title = app.string.about;
         break;
       case '/':
       default:
