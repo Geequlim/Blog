@@ -103,7 +103,6 @@ class Post extends React.Component {
               this.state.content ? (
                 <div className="MarkdownArea">
                   <MarkdownArea>{this.state.content}</MarkdownArea>
-                  <Disqus thread={this.thread}/>
                 </div>
               ) : <Loader size="big">{app.string.loadingPostContent}</Loader>
             }
@@ -113,6 +112,7 @@ class Post extends React.Component {
             {previous}
           </div>
         </div>
+        {this.state.content ? <Disqus thread={this.thread}/> : null}
       </div>
     );
   }
