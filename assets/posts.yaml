@@ -1,3 +1,11 @@
+- title: 2016上半年技术学习计划
+  publishAt: Tue Feb 16 2016 13:09:31 GMT+0800 (CST)
+  file: /assets/posts/生活/2016上半年技术学习计划.md
+  categories:
+    - 生活
+  tags:
+    - 随笔
+
 - title: Linux上搭建Shadowsocks服务器
   publishAt: Mon Feb 01 2016 09:38:03 GMT+0800 (CST)
   file: /assets/posts/Linux上搭建Shadowsocks服务器.md
@@ -24,7 +32,7 @@
   file: /assets/posts/bgfx/创建BGFX渲染窗口.md
   categories:
     - 技术
-    - 图形学相关
+    - 图形学
   tags:
     - BGFX
     - 图形学
@@ -34,7 +42,7 @@
   file: /assets/posts/bgfx/BGFX图形渲染库.md
   categories:
     - 技术
-    - 图形学相关
+    - 图形学
   tags:
     - BGFX
     - 图形学
@@ -44,7 +52,7 @@
   file: /assets/posts/nanovg/NanoVG状态堆栈.md
   categories:
     - 技术
-    - 图形学相关
+    - 图形学
   tags:
     - NanoVG
     - 图形学
@@ -54,7 +62,7 @@
   file: /assets/posts/nanovg/NanoVG路径API详解.md
   categories:
     - 技术
-    - 图形学相关
+    - 图形学
   tags:
     - NanoVG
     - 图形学
@@ -64,7 +72,7 @@
   file: /assets/posts/nanovg/搭建基于GLFW的NanoVG绘图环境.md
   categories:
     - 技术
-    - 图形学相关
+    - 图形学
   tags:
     - NanoVG
     - 图形学
@@ -97,12 +105,11 @@
 
 - title: 遵循本心
   publishAt: 2015-08-03T02:38:48.247Z
-  file: /assets/posts/生活感悟/遵循本心.md
+  file: /assets/posts/生活/遵循本心.md
   categories:
-    - 生活感悟
+    - 生活
   tags:
     - 随笔
-    - 自省
 
 - title: 【转】Lua语言速成
   publishAt: 2015-07-16 14:22:11
@@ -114,6 +121,7 @@
     - 脚本语言
     - 编程语言
     - Lua
+
 - title: Json数据操作之JsonPreference
   publishAt: 2015-05-17 17:06:10
   file: /assets/posts/Json数据操作之JsonPreference.md
