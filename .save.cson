@@ -2,6 +2,4 @@
 "**/*.js": "webpack"
 "**/*.yml": "webpack"
 "**/*.yaml": "webpack"
-"**/*.md": "webpack"
-"**/*.markdown": "webpack"
 "**/*.scss": "sass app/sass/main.scss assets/main.css --style expanded"
