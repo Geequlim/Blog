@@ -20,7 +20,7 @@ $ wget https://bootstrap.pypa.io/get-pip.py
 
 安装完pip之后，主角Shadowsocks该出场了，使用pip安装Shadowsocks
 ```
-# pip shadowsocks
+# pip install shadowsocks
 ```
 安装完成后，需要进进一步配置，但这些配置并不麻烦，和你在客户端的操作很类似。我们把配置操作都写入`/etc/shadowso.json`这个配置文件中，通过vi编辑器执行以下命令来创建该文件
 ```
