@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
 import SidePanel from '../components/SidePanel.jsx';
+import Home from "./Home.jsx";
 require('../emoji');
 import $ from 'jquery';
 
@@ -36,11 +37,12 @@ class Entery extends React.Component {
     return (
       <div className="content">
         <Header path={this.props.location.pathname} {...this.state}/>
-        <div className="main-body">
-          <div className="page-body">
-            {this.props.children}
-          </div>
-        </div>
+          { this.props.location.pathname === '/'?
+            <Home/>:
+            <div className="main-body">
+              <div className="page-body">{this.props.children}</div>
+            </div>
+          }
         <Footer {...this.state}/>
       </div>
     );
