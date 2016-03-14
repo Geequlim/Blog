@@ -60,16 +60,19 @@ class Header extends React.Component {
             {app.string.about}
           </div>
         </Link>
-        <div className="right item">
-          <div className="ui inverted icon input">
-            <input
-              className="st-default-search-input"
-              type="text"
-              placeholder={app.string.search}
-            />
-            <i className="search icon"></i>
+        {/*
+          <div className="right item">
+            <div className="ui inverted icon input">
+              <input
+                className="st-default-search-input"
+                type="text"
+                placeholder={app.string.search}
+              />
+              <i className="search icon"></i>
+            </div>
           </div>
-        </div>
+        */}
+
       </div>
     );
     const mobileMenu = (

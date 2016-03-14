@@ -8,8 +8,7 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div>
-        主页尚未装修，请直接访问博客 :)
+      <div className="home-page">
       </div>
     );
   }
