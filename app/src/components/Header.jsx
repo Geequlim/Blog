@@ -54,6 +54,12 @@ class Header extends React.Component {
             {app.string.blog}
           </div>
         </Link>
+        <Link className={getItemStyle('/tweets')} to="/tweets">
+          <div className="title">
+            <i className="spy icon"></i>
+            {app.string.tweets}
+          </div>
+        </Link>
         <Link className={getItemStyle('/about')} to="/about">
           <div className="title">
             <i className="info circle icon"></i>
