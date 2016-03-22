@@ -1,4 +1,4 @@
-C++中的可调用类型（Callable type）是能够通过调用操作符“()”执行一定操作的对象,或者能用`std::invoke`来调用的对象（C++17）。本文将从函数、仿函数(functor)、lambda表达式、std::function这四个方面对C++的可调用对象进行探究，并对各种类型的可调用对象之间的关系进行阐述。
+C++中的可调用类型（Callable type）是能够通过调用操作符“()”执行一定操作的对象,或者能用`std::invoke`来调用的对象（C++17）。本文将从函数、仿函数(functor，也被称为函数对象类)、std::function模板类这三个方面对C++的可调用对象进行探究，并对各种类型的可调用对象之间的关系进行阐述。
 <!-- more -->
 
 <!-- class="panel panel-default" -->
@@ -225,7 +225,7 @@ void fcn(int i) {}  // 错误，重复定义了fnc(int)
 // pf 指向一个函数，该函数的参数是两个const string引用，返回bool类型
 bool (*pf)(const string&, const string&);
 ```
-<!-- class="alert alert-info" -->
+<!-- class="ui red segment" -->
 `*pf`两端的括号必不可少。如果不写这对括号，则pf是一个返回bool指针的函数：
 ```c++
 bool* pf(const string&, const string&);
@@ -328,11 +328,46 @@ int main()
 <!-- class="panel panel-default" -->
 <!-- class="panel-heading" -->
 <!-- class="panel-title" -->
-## 仿函数
+## 仿函数(functor，函数对象类)
 <!-- endclass -->
 <!-- endclass -->
 <!-- class="panel-body" -->
+如果类重载了函数调用运算符，则我们可以像使用函数一样使用该类的对象。因为这样的类同时也能存储状态，所以与普通函数相比他们更加灵活。
 
+使用示例：
+```c++
+class PrintString
+{
+private:
+  ostream &os;
+  char sep;
+public:
+  PrintString (ostream &os = cout, char c = ' '):os(o), sep(c) {}
+  void operator()(const string& s) const { os << s << sep; }
+};
+
+PrintString pf;
+pf("Haha~");    // 输出 Haha~ 到标准输出流
+
+vector<string> vs = {"Hello", "World"};
+for_each(vs.begin(), vs.end(), PrintString(cerr)); // 使用cerr输出"Hello World"
+```
+
+<!-- class="alert alert-success" -->
+函数调用运算符必须是成员函数。一个类可以定义多个不同版本的调用运算符，互相之间应该在参数数量或类型上有所区别。
+<!-- endclass -->
+
+<!-- class="panel panel-default" -->
+<!-- class="panel-heading" -->
+<!-- class="panel-title" -->
+## lambda表达式
+<!-- endclass -->
+<!-- endclass -->
+<!-- class="panel-body" -->
+### lambda表达式是函数对象
+
+<!-- endclass -->
+<!-- endclass -->
 <!-- endclass -->
 <!-- endclass -->
 
