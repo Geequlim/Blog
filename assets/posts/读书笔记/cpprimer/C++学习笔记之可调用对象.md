@@ -45,9 +45,9 @@ void f2(void) {} // 显式地定义空形参列表
 指针的行为和其他非引用类型一样。当执行指针拷贝操作时，拷贝的是指针的值。拷贝之后，两个指针是拥有相同值的不同指针。因为指针使我们可以简介地访问它所指的对象，所以通过指针可以修改它所指向对象的值。
 ```c++
 // 该函数接受一个指针，然后将指针所指的值置为0
-void reset(int \*ip)
+void reset(int *ip)
 {
-  \*ip = 0;  // 改变指针ip所指对象的值
+  *ip = 0;  // 改变指针ip所指对象的值
   ip  = 0;  // 只改变了ip的局部拷贝，实参未被改变
 }
 ```
@@ -103,7 +103,7 @@ void fcn(int i) {}  // 错误，重复定义了fnc(int)
 * 使用标记指定数组长度(如使用'\0'表示字符数组结尾)
 * 使用标准库规范
   ```c++
-  void print(const int \*beg, const int \*end);
+  void print(const int *beg, const int *end);
   ```
 * 显示传递一个表示数组大小的形参
   ```c++
@@ -175,7 +175,7 @@ void fcn(int i) {}  // 错误，重复定义了fnc(int)
 * 返回多个值，用接受列表初始化的返回值类型(如std::vector)
 * 尾置返回类型
   ```c++
-  auto func(int i) -> int(\*)[10];
+  auto func(int i) -> int(*)[10];
   ```
 * auto 返回值类型推断
  C++11允许lambda函数根据return语句的表达式类型推断返回类型。C++14为一般的函数也提供了这个能力。C++14还拓展了原有的规则，使得函数体并不是{return expression;}形式的函数也可以使用返回类型推导。  
@@ -279,7 +279,7 @@ bool b2 = (*pf)("hello", "goodbye"); // 等价的调用
   using Func1 = bool(const string&, const string&);
   typedef decltype(lengthCompare) Func2;
   // FuncP、FuncP1 和 FuncP2 是相同的函数指针类型
-  typedef bool (\*FuncP)(const string&, const string&);
+  typedef bool (*FuncP)(const string&, const string&);
   using FuncP1 = bool(*)(const string&, const string&);
   typedef decltype(lengthCompare) *FuncP2;
   ```
@@ -312,13 +312,13 @@ public:
   }
 };
 
-int main(int argc, char \*argv[])
+int main(int argc, char *argv[])
 {
-  int (Foo::\*fptr) (string) = &Foo::f;
+  int (Foo::*fptr) (string) = &Foo::f;
   Foo obj;
-  (obj.\*fptr)("str"); // 通过对象来调用 Foo::f()
-  Foo \*p = &obj;
-  (p->\*fptr)("str"); // 通过指针来调用 Foo::f()
+  (obj.*fptr)("str"); // 通过对象来调用 Foo::f()
+  Foo *p = &obj;
+  (p->*fptr)("str"); // 通过指针来调用 Foo::f()
 }
 ```
 
@@ -494,7 +494,7 @@ cout << f() << endl;   // 输出42
 ```c++
 class unnamed_lambda{
 public:
-  unnamed_lambda(ostram& \_os, char \_c):os(\_os),c(\_c) {}
+  unnamed_lambda(ostram& _os, char _c):os(_os),c(_c) {}
   void operator()(const vector<string>& vs) const
   {
     for (const auto& s : vs)
@@ -515,7 +515,7 @@ auto lambda = [](auto x, auto y) {return x + y;}
 struct unnamed_lambda
 {
   template<typename T, typename U>
-    auto operator()(T x, U y) const {return x + y;}
+  auto operator()(T x, U y) const {return x + y;}
 };
 auto lambda = unnamed_lambda();
 ```
@@ -540,73 +540,229 @@ std::function是一个用于表示可调用对象的模板类。一个std::funct
 #include <iostream>
 
 struct Foo {
-    Foo(int num) : num_(num) {}
-    void print_add(int i) const { std::cout << num_+i << '\n'; }
-    int num_;
+  Foo(int num) : num_(num) {}
+  void print_add(int i) const { std::cout << num_+i << '\n'; }
+  int num_;
 };
 
 void print_num(int i)
 {
-    std::cout << i << '\n';
+  std::cout << i << '\n';
 }
 
 struct PrintNum {
-    void operator()(int i) const
-    {
-        std::cout << i << '\n';
-    }
+  void operator()(int i) const
+  {
+    std::cout << i << '\n';
+  }
 };
 
 int main()
 {
-    // 用于存储普通函数
-    std::function<void(int)> f_display = print_num;
-    f_display(-9);
+  // 用于存储普通函数
+  std::function<void(int)> f_display = print_num;
+  f_display(-9);
 
-    // 储存lambda表达式
-    std::function<void()> f_display_42 = []() { print_num(42); };
-    f_display_42();
+  // 储存lambda表达式
+  std::function<void()> f_display_42 = []() { print_num(42); };
+  f_display_42();
 
-    // store the result of a call to std::bind
-    std::function<void()> f_display_31337 = std::bind(print_num, 31337);
-    f_display_31337();
+  // 储存成员函数指针
+  std::function<void(const Foo&, int)> f_add_display = &Foo::print_add;
+  const Foo foo(314159);
+  f_add_display(foo, 1);
 
-    // 储存成员函数指针
-    std::function<void(const Foo&, int)> f_add_display = &Foo::print_add;
-    const Foo foo(314159);
-    f_add_display(foo, 1);
+  // 储存成员函数
+  std::function<void(const Foo&, int)> f_add_display1 = Foo::print_add;
+  const Foo foo1(1001);
+  f_add_display(&foo1, 1);
 
-    // 储存成员函数
-    std::function<void(const Foo&, int)> f_add_display1 = Foo::print_add;
-    const Foo foo1(1001);
-    f_add_display(&foo1, 1);
-
-    // 存储成员函数及其所属成员
-    using std::placeholders::\_1;
-    std::function<void(int)> f_add_display2= std::bind( &Foo::print_add, foo, \_1 );
-    f_add_display2(2);
-
-    // 存储成员函数及其所属成员指针
-    std::function<void(int)> f_add_display3= std::bind( &Foo::print_add, &foo, \_1 );
-    f_add_display3(3);
-
-    // 储存函数对象
-    std::function<void(int)> f_display_obj = PrintNum();
-    f_display_obj(18);
+  // 储存函数对象
+  std::function<void(int)> f_display_obj = PrintNum();
+  f_display_obj(18);
+  return 0;
 }
 ```
 
 <!-- class="panel panel-default" -->
 <!-- class="panel-heading" -->
 <!-- class="panel-title" -->
-#### 函数适配器std::bind的使用
+#### 可调用对象适配器std::bind函数的使用
 <!-- endclass -->
 <!-- endclass -->
 <!-- class="panel-body" -->
+std::bind函数是一个通用的函数适配器，它接受一个可调用对象，生成一个新的可调用对象来“适应”原对象的参数列表。
 
+调用bind的一般形式为
+```c++
+auto newCallable = bind(callable, arg_list);
+```
+其中，_newCallable_ 是要生成的可调用对象，_arg_list_ 是一个逗号分隔符的参数列表，对应给定的 _callable_ 的参数。即，当我们调用_newCallable_时，_newCallable_ 会调用_callable_，并传递给它_arg_list_中的参数。
+
+###### bind的参数
+bind的参数可用于定义生成的可调用对象的形参列表，也可用于规划调用适配可调用对象的参数顺序。
+```c++
+// g是一个有两个参数的可调用对象
+auto g = bind(f, a, b, _2, c, _1);
+```
+该表达式生成一个新的可调用对象，它有两个参数，分别用占位符`_2`和`_1`表示。这个新的可调用对象将它自己的参数作为第三个和第五个参数传递给`f`。`f`的第一个、第二个和第四个参数分别被绑定到给定的值`a`、`b`和`c`上。传递给`g`的参数按位置绑定到占位符。即，第一个参数绑定到`_1`，第二个参数绑定到`_3`。因此，当我们调用`g`时，其第一个参数将被传递给`f`作为最后一个参数，第二个参数将被传递给`f`作为第三个参数。实际上这个bind调用会将`g(_1, _2)`映射为`f(a, b, _2, c, _1)`。即，对`g`的调用会调用`f`，用`g`的参数代替占位符，再加上绑定的参数`a`、`b`和`c`。例如，调用`g(X, Y)`会调用`f(a, b, Y, c, X)`。
+
+###### 使用bind绑定成员函数
+使用bind可生成包含成员函数所属成员的可调用对象，我们可以使用这个生成的可调用对象来使用绑定的对象调用其成员函数，而不必再次显式的使用该对象。
+```c++
+#include <iostream>
+#include <functional>
+
+struct Foo {
+  Foo(int num) : num_(num) {}
+	void add(int i) { num_ += i; }
+  void print() const { std::cout << num_ << ' '; }
+  int num_;
+};
+int main()
+{
+  Foo foo(10);
+  // 使用拷贝对象，并绑定其成员函数
+  using std::placeholders::_1;
+  std::function<void(int)> f_add= std::bind( &Foo::add, foo, _1 );
+  f_add(2);
+  foo.print();    // 输出 10
+  // 使用对象引用绑定成员函数
+  std::function<void(int)> f_add1= std::bind( &Foo::add, &foo, _1 );
+  f_add1(3);
+  foo.print();    // 输出 13
+  return 0;
+}
+```
+上示代码中输出`10 13`，由此可以看出使用bind绑定成员函数在绑定对象时是否使用`&`的区别。与lambda捕获列表类似，如果绑定对象时在对象前不写`&`将进行对象拷贝。
+<!-- class="alert alert-warning" -->
+与以引用捕获临时变量同理，使用bind以引用的方式绑定成员函数时必须确保在调用生成的可调用对象时绑定的对象有意义。
+<!-- endclass -->
+
+###### 使用ref绑定引用参数
+默认情况下，bind的那些**不是占位符的参数**被拷贝到bind返回的可调用对象中。但是，与lambda类似，有时对有些绑定的参数我们希望以引用的方式传递，或是要绑定的参数无法拷贝。
+
+例如如下的情况，我们需要使用`ref`函数为不是占位符的参数绑定引用。
+```c++
+ostream& print(ostream& os, const string& s, char c)
+{
+  return os << s << c;
+}
+
+// 错误：不能拷贝os
+for_each(words.begin(), words.end(), bind(print, os, _1, ' '));
+// 正确，使用ref生成os对象的引用，防止拷贝
+for_each(words.begin(), words.end(), bind(print, ref(os), _1, ' '));
+```
+函数`ref`返回一个对象，包含给定的引用，池对象是可以拷贝的。标准库中还有一个cref函数，生成一个保存const引用的类。与`bind`一样，函数`ref`和`cref`也定义在头文件functional中。
+
+另一个来自cppreference的例子
+
+```c++
+#include <functional>
+#include <iostream>
+void f(int& n1, int& n2, const int& n3)
+{
+    std::cout << "In function: " << n1 << ' ' << n2 << ' ' << n3 << '\n';
+    ++n1; // increments the copy of n1 stored in the function object
+    ++n2; // increments the main()'s n2
+    // ++n3; // compile error
+}
+int main()
+{
+    int n1 = 1, n2 = 2, n3 = 3;
+    std::function<void()> bound_f = std::bind(f, n1, std::ref(n2), std::cref(n3));
+    n1 = 10;
+    n2 = 11;
+    n3 = 12;
+    std::cout << "Before function: " << n1 << ' ' << n2 << ' ' << n3 << '\n';
+    bound_f();
+    std::cout << "After function: " << n1 << ' ' << n2 << ' ' << n3 << '\n';
+}
+```
 <!-- endclass -->
 <!-- endclass -->
 
+
+##### 函数对象类的引用，使用`ref`函数
+默认情况下使用函数对象初始化一个functon对象是进行拷贝的行为
+```c++
+class callable
+{
+private:
+  int nSum;
+public:
+  int operator()(int i) { return nSum += i;}
+  int sum() const { return nSum; }
+};
+int main()
+{
+  callable counter;
+  function<int(int)> f1 = counter;
+  function<int(int)> f2 = counter;
+  cout << f1(10) << ' ' << f2(10) << counter.sum() << endl;
+  return 0;
+}
+```
+上面程序的输出是：`10 10 0`。我们将同一个函数对象赋值给了两个function，然后分别调用了这两个function，但函数对象中nSum的值并没有被修改。这是因为function的默认行为是拷贝一份传递给它的函数对象，于是f1和f2中保存的都是add对象的拷贝，调用f1和f2后，counter对象中的值并没有被修改。
+
+可以用`ref`函数获取函数对象的可拷贝引用
+```c++
+function<int(int)> f1 = ref(counter);
+function<int(int)> f2 = ref(counter);
+```
+
+##### mem_fn与成员函数
+C++还提供了`std::mem_fn`这样一个模板函数用来绑定成员函数，它生成的可调用对象的第一个参数是该成员函数要被调用的对象，接受这个对象的引用和指针（包括内置智能指针）类型的实参。其用法如下所示
+```c++
+#include <functional>
+#include <iostream>
+struct Foo {
+    void display_greeting() {
+        std::cout << "Hello, world.\n";
+    }
+    void display_number(int i) {
+        std::cout << "number: " << i << '\n';
+    }
+    int data = 7;
+};
+
+int main() {
+    Foo f;
+    auto greet = std::mem_fn(&Foo::display_greeting);
+    greet(f);
+    auto print_num = std::mem_fn(&Foo::display_number);
+    print_num(f, 42);
+    auto access_data = std::mem_fn(&Foo::data);
+    std::cout << "data: " << access_data(f) << '\n';
+}
+```
+
+此外，C++14对该函数的设计有所改变，具体用法上的区别在于
+```c++
+#include <iostream>
+#include <functional>
+struct X {
+    int x;
+
+    int&       easy()      {return x;}
+    int&       get()       {return x;}
+    const int& get() const {return x;}
+};
+
+int main(void)
+{
+    auto a = std::mem_fn        (&X::easy); // no problem at all
+//  auto b = std::mem_fn<int&  >(&X::get ); // no longer works in C++14
+    auto c = std::mem_fn<int&()>(&X::get ); // works with both C++11 and C++14
+    auto d = [] (X& x) {return x.get();};   // another approach to overload resolution
+
+    X x = {33};
+    std::cout << "a() = " << a(x) << '\n';
+    std::cout << "c() = " << c(x) << '\n';
+    std::cout << "d() = " << d(x) << '\n';
+}
+```
 
 <!-- endclass -->
 <!-- endclass -->
