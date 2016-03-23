@@ -168,7 +168,6 @@ void fcn(int i) {}  // 错误，重复定义了fnc(int)
   ```
 
 ### 返回值
-* auto 返回值类型推断
 * 不要返回局部对象的引用或指针
 * 返回临时对象
   * 临时对象有构造和析构的成本，影响程序的效率。
@@ -178,6 +177,31 @@ void fcn(int i) {}  // 错误，重复定义了fnc(int)
   ```c++
   auto func(int i) -> int(\*)[10];
   ```
+* auto 返回值类型推断
+ C++11允许lambda函数根据return语句的表达式类型推断返回类型。C++14为一般的函数也提供了这个能力。C++14还拓展了原有的规则，使得函数体并不是{return expression;}形式的函数也可以使用返回类型推导。  
+ 为了启用返回类型推导，函数声明必须将auto作为返回类型，但没有C++11的后置返回类型说明符：
+ ```c++
+ auto DeduceReturnType();   //返回类型由编译器推断
+ ```
+ 如果函数实现中含有多个return语句，这些表达式必须可以推断为相同的类型。  
+ 使用返回类型推导的函数可以前向声明，但在定义之前不可以使用。它们的定义在使用它们的翻译单元（translation unit）之中必须是可用的。  
+ 这样的函数中可以存在递归，但递归调用必须在函数定义中的至少一个return语句之后：
+ ```c++
+  auto Correct(int i) {
+    if (i == 1)
+      return i;               // 返回类型被推断为int
+    else
+      return Correct(i-1)+i;  // 正确，可以调用
+  }
+
+  auto Wrong(int i)
+  {
+    if(i != 1)
+      return Wrong(i-1)+i;  // 不能调用，之前没有return语句
+    else
+      return i;             // 返回类型被推断为int
+  }
+ ```
 
 ### 内联函数
 使用`inline`关键字声明、定义的内联函数在编译时“内联地”展开，可避免函数调用的开销。
@@ -360,11 +384,141 @@ for_each(vs.begin(), vs.end(), PrintString(cerr)); // 使用cerr输出"Hello Wor
 <!-- class="panel panel-default" -->
 <!-- class="panel-heading" -->
 <!-- class="panel-title" -->
-## lambda表达式
+### lambda表达式
 <!-- endclass -->
 <!-- endclass -->
 <!-- class="panel-body" -->
-### lambda表达式是函数对象
+一个lambda表达式表示一个可调用的代码单元，它的行为类似与一个未命名的函数对象。与任何函数类似，lambda表达式具有一个返回类型、一个参数列表和一个函数体。但与函数不同，lambda表达式可以定义在函数内部。
+
+一个lambda表达式具有如下形式
+```
+[capture list](parameter list) -> return type { function body }
+```
+* _capture list_ 是一个lambda表达式在函数中定义的局部变量的列表，表明该局部变量能被用与这个lambda表达式中
+* _return type_、_parameter list_、_function body_ 与任何函数一样，分别表示返回类型、参数列表和函数体。但与函数不同，lambda必须使用尾置返回来指定返回类型。
+
+我们可以忽略参数列表和返回类型，但必须包括捕获列表和函数体
+```c++
+auto f = []{ return 42;};
+cout << f() << endl;   // 输出42
+```
+* 忽略括号和参数列表等价于指定一个空参数列表
+* 如果忽略返回类型，lambda根据函数体中的代码推断出返回类型。如果函数体只是一个return语句，则
+返回类型从返回的表达式的类型推断而来，否则，返回类型为**void**。
+ <!-- class="alert alert-warning" -->
+ 如果lambda的函数体包含任何单一return语句之外的内容，且未指定返回类型，则返回void。
+ <!-- endclass -->
+* lambda不能有默认参数，因此，一个lambda调用的实参数目永远与形参数目相等。
+#### 捕获列表
+* lambda表达式只有在其捕获列表中补货一个它所在函数中的局部变量，才能在函数体重使用该变量。
+* lambda表达式可以直接使用定义在当前函数之外的名字。
+* 捕获列表只用于局部非static变量，lambda可以直接使用局部static变量。
+* 使用引用的方式捕获变量时需在捕获列表中该变量前添加`&`符号，否则视为按值捕获(拷贝局部变量)
+  按值捕获示例
+  ```c++
+  void func1()
+  {
+    size_t v1 = 42;   //局部变量
+    // 将v1拷贝到名为f的可调用对象
+    auto f = [v1] { return v1; }
+    v1 = 0;
+    auto j = f(); // j为42；f保存了我们创建它时v1的拷贝
+  }
+  ```
+  按引用捕获示例
+  ```c++
+  void func2()
+  {
+    size_t v1 = 42;   //局部变量
+    // 对象f2包含v1的引用
+    auto f2 = [&v1] { return v1; }
+    v1 = 0;
+    auto j = f(); // j为0；f2保存v1的引用，而非拷贝
+  }
+  ```
+* 除了显式列出我们希望使用的来自所在函数的变量外，还可以让编译器根据lambda体中的代码来推断我们要使用哪些变量。为了只是编译器推断捕获列表，应在捕获列表中写一个`&`或`=`，告诉编译器用引用或拷贝的方式捕获用到的局部变量。
+  * 如果我们希望对一部分变量采用一种捕获方式，对某几个采用另一种捕获方式，可以混合使用隐式捕获和显式捕获。
+  * 当我们混合使用隐式捕获和显式捕获时，捕获列表中的第一个元素必须是一个`&`或`=`，用来指定默认捕获方式。
+  ```c++
+  //
+  void printStrings(vector<string>& words,
+                    ostream& os = cout,
+                    char c = ' ')
+  {
+    // os隐式引用捕获；c显式值捕获
+    for_each(words.begin(), words.end(),
+             [&,c](const string& s) { os << s << c; }
+           );
+    // os显式引用捕获；c隐式值捕获
+    for_each(words.begin(), words.end(),
+             [=,&os](const string& s) { os << s << c; }
+           );
+  }
+  ```
+<!-- class="alert alert-warning" -->
+当以引用方式捕获一个变量时，必须保证在lambda执行时被捕获的变量仍是存在的。
+<!-- endclass -->
+
+<!-- class="panel panel-danger" -->
+<!-- class="panel-heading" -->
+<!-- class="panel-title" -->
+###### 尽量保持lambda的变量捕获简单化
+<!-- endclass -->
+<!-- endclass -->
+<!-- class="panel-body" -->
+一个lambda捕获从lambda被创建（即，定义lambda的代码执行时）到lambda自身执行（可能有多次调用）这段时间内保存的相关信息。**确保lambda每次执行的时候这些信息都有预期的意义，这是程序员的责任**。
+
+捕获一个普通变量，如int、string或其他非指针类型，通常可以采用简单的值捕获方式。在此情况下，只需关注变量在捕获时是否有我们所需的值就可以了。
+
+如果我们捕获一个指针或迭代器，或者采用引用捕获方式，旧必须去报在lambda执行时，绑定到迭代器、指针或引用的对象仍然存在。而且，需要保证对象具有预期的值。在lambda从创建到它执行的这段时间内，可能有代码改变绑定的对象的值。也就是说，在指针（或引用）被捕获的时刻，绑定的对象的值是我们期望的，但在lambda执行时，该对象的值可能已经完全不同了。
+<!-- class="alert alert-success" -->
+一般来说，我们应该尽量减少捕获的数据量，来避免潜在的捕获导致的问题。而且，如果可能的话，应该避免捕获指针或引用。
+<!-- endclass -->
+<!-- endclass -->
+<!-- endclass -->
+
+#### lambda表达式是函数对象
+当我们编写一个lambda后，编译器将该表达式翻译成一个未命名的函数对象类的未命名对象。在lambda表达式产生的雷总含有一个重载的函数调用运算符。
+
+下面的这个用与输出字符串的lambda表达式
+```c++
+[&os, c](const vector<string>& vs)
+{
+  for (const auto& s : vs)
+    os << s << c;
+}
+```
+
+编译器将其转换为类似下面这样的仿函数类
+
+```c++
+class unnamed_lambda{
+public:
+  unnamed_lambda(ostram& \_os, char \_c):os(\_os),c(\_c) {}
+  void operator()(const vector<string>& vs) const
+  {
+    for (const auto& s : vs)
+      os << s << c;
+  }
+private:
+  ostram& os;
+  char c;
+};
+```
+
+###### C++14允许lambda函数的形式参数声明中使用类型说明符auto
+```c++
+auto lambda = [](auto x, auto y) {return x + y;}
+```
+泛型lambda函数遵循模板参数推导的规则。以上代码的作用与下面的代码相同
+```c++
+struct unnamed_lambda
+{
+  template<typename T, typename U>
+    auto operator()(T x, U y) const {return x + y;}
+};
+auto lambda = unnamed_lambda();
+```
 
 <!-- endclass -->
 <!-- endclass -->
@@ -374,7 +528,78 @@ for_each(vs.begin(), vs.end(), PrintString(cerr)); // 使用cerr输出"Hello Wor
 <!-- class="panel panel-default" -->
 <!-- class="panel-heading" -->
 <!-- class="panel-title" -->
-## std::function
+## std::function模板类
+<!-- endclass -->
+<!-- endclass -->
+<!-- class="panel-body" -->
+和其他对象一样，可调用的对象也有类型。例如，每个lambda有它自己唯一的（未命名）类类型；函数及函数指针的类型则由其返回值类型和实参类型决定，等等。然而，不同的可调用对象却可能共享同一种**调用形式**(call signature)。调用形式指明了调用返回的类型以及传递给调用的实参类型。一种调用形式对应一个函数类型，例如`int(int,int)`是一个函数类型，它接受两个int，返回一个int。
+
+std::function是一个用于表示可调用对象的模板类。一个std::function的实例，能够用于表示某种调用形式，这个实例类型的对应也可以用来存储拥有相同调用形式的不同类型的函数对象。
+```c++
+#include <functional>
+#include <iostream>
+
+struct Foo {
+    Foo(int num) : num_(num) {}
+    void print_add(int i) const { std::cout << num_+i << '\n'; }
+    int num_;
+};
+
+void print_num(int i)
+{
+    std::cout << i << '\n';
+}
+
+struct PrintNum {
+    void operator()(int i) const
+    {
+        std::cout << i << '\n';
+    }
+};
+
+int main()
+{
+    // 用于存储普通函数
+    std::function<void(int)> f_display = print_num;
+    f_display(-9);
+
+    // 储存lambda表达式
+    std::function<void()> f_display_42 = []() { print_num(42); };
+    f_display_42();
+
+    // store the result of a call to std::bind
+    std::function<void()> f_display_31337 = std::bind(print_num, 31337);
+    f_display_31337();
+
+    // 储存成员函数指针
+    std::function<void(const Foo&, int)> f_add_display = &Foo::print_add;
+    const Foo foo(314159);
+    f_add_display(foo, 1);
+
+    // 储存成员函数
+    std::function<void(const Foo&, int)> f_add_display1 = Foo::print_add;
+    const Foo foo1(1001);
+    f_add_display(&foo1, 1);
+
+    // 存储成员函数及其所属成员
+    using std::placeholders::\_1;
+    std::function<void(int)> f_add_display2= std::bind( &Foo::print_add, foo, \_1 );
+    f_add_display2(2);
+
+    // 存储成员函数及其所属成员指针
+    std::function<void(int)> f_add_display3= std::bind( &Foo::print_add, &foo, \_1 );
+    f_add_display3(3);
+
+    // 储存函数对象
+    std::function<void(int)> f_display_obj = PrintNum();
+    f_display_obj(18);
+}
+```
+
+<!-- class="panel panel-default" -->
+<!-- class="panel-heading" -->
+<!-- class="panel-title" -->
+#### 函数适配器std::bind的使用
 <!-- endclass -->
 <!-- endclass -->
 <!-- class="panel-body" -->
@@ -383,9 +608,16 @@ for_each(vs.begin(), vs.end(), PrintString(cerr)); // 使用cerr输出"Hello Wor
 <!-- endclass -->
 
 
+<!-- endclass -->
+<!-- endclass -->
+
+
 
 ### 参考文献
 * 《C++ Primer》第5版
+* [cppreference.com](http://en.cppreference.com)
 * 维基百科：[内联函数](https://zh.wikipedia.org/wiki/%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0)
+* 维基百科：[C++14](https://zh.wikipedia.org/wiki/C%2B%2B14)
 * [\[翻译\]C++教程：指向成员函数的指针](http://kelvinh.github.io/blog/2014/03/27/cpp-tutorial-pointer-to-member-function/)
 * [恼人的函数指针（二）：指向类成员的指针](http://www.cnblogs.com/AnnieKim/archive/2011/12/04/2275589.html)
+* [C++11 function](http://www.cnblogs.com/hujian/archive/2012/12/07/2807605.html)
