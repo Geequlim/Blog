@@ -1,6 +1,16 @@
-- title: C++面向对象【上】
+- title: C++面向对象：拷贝控制与运算符重载
+  publishAt: Thu Mar 31 2016 15:14:27 GMT+0800 (CST)
+  file: /assets/posts/学习笔记/cpp/C++面向对象：拷贝控制与运算符重载.md
+  categories:
+    - 技术
+    - C++
+  tags:
+    - C/C++
+    - 编程语言
+
+- title: C++面向对象：定义类
   publishAt: Sat Mar 26 2016 16:37:27 GMT+0800 (CST)
-  file: /assets/posts/学习笔记/cpp/C++面向对象上【上】.md
+  file: /assets/posts/学习笔记/cpp/C++面向对象：定义类.md
   categories:
     - 技术
     - C++
