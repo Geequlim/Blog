@@ -37,14 +37,14 @@ class PostItem extends React.Component {
       </span>
     );
 
-    const thread = encodeURI(encodeURI(this.props.post.publishAt + this.props.post.title));
+    const thread = encodeURI(this.props.post.publishAt + this.props.post.title);
     return (
       <div className="post-item">
         <div className="ui raised segments">
           <div className="ui segment">
-            <h2 className="ui medium header">
+            <Link className="ui medium header" to={`/post/${thread}`}>
               {this.props.post.title}
-            </h2>
+            </Link>
             <div className="post-item-header-tags">
               <p>
                 <span className="ui label">

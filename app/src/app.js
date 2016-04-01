@@ -8,6 +8,7 @@ class App {
     this.site = site;
     this.string = string;
     this.posts = null;
+    this.works = null;
     service.fetchText('/assets/posts.yaml')
       .then((value) => {
         this.posts = yaml.load(value);
@@ -16,6 +17,15 @@ class App {
         }
       })
       .catch((err) => console.log(err));
+
+    service.fetchText('/assets/works.yaml')
+      .then((value) => {
+        this.works = yaml.load(value);
+        if (this.onAppStateListener) {
+          this.onAppStateListener();
+        }
+      })
+      .catch((err) => { console.log(err);})
   }
 
   setOnAppStateChangedListener(callback) {
