@@ -1,0 +1,24 @@
+- title: 漫画速递
+  file: /assets/works/漫画速递.md
+  logo: /assets/images/works/漫画速递/logo.png
+  platforms:
+    - Android
+  categories:
+    - 移动APP
+    - 漫画阅读
+  frameworks:
+    - React-Native
+  cooperators:
+    - JJ
+
+- title: 阿衰全集
+  file: /assets/works/阿衰全集.md
+  logo: /assets/images/works/阿衰全集/logo.png
+  platforms:
+    - Android
+    - iOS
+  categories:
+    - 移动APP
+    - 漫画阅读
+  frameworks:
+    - SG2D

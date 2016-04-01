@@ -28,14 +28,13 @@ class Post extends React.Component {
     let post = null;
     if (query && app.posts && app.posts.length) {
       app.posts.map((p) => {
-        if (encodeURI(p.publishAt + p.title) === query) {
+        if (p.publishAt + p.title === query) {
           post = p;
         }
       });
     }
     return post;
   }
-
   render() {
     if (this.notFound) {
       return <div className="ui red message">{app.string.postNotFound}</div>;
@@ -65,7 +64,7 @@ class Post extends React.Component {
     let previous = null;
     if (curPostIndex > 0) {
       const post = app.posts[curPostIndex - 1];
-      const thread = encodeURI(encodeURI(post.publishAt + post.title));
+      const thread = encodeURI(post.publishAt + post.title);
       previous = (
         <Link className="ui large blue label nav-label" to={`/post/${thread}`}>
           {post.title}
@@ -75,7 +74,7 @@ class Post extends React.Component {
     let next = null;
     if (curPostIndex >= 0 && curPostIndex < app.posts.length - 1) {
       const post = app.posts[curPostIndex + 1];
-      const thread = encodeURI(encodeURI(post.publishAt + post.title));
+      const thread = encodeURI(post.publishAt + post.title);
       next = (
         <Link className="ui large blue label nav-label" to={`/post/${thread}`}>
           {post.title}

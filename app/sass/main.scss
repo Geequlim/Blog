@@ -164,6 +164,51 @@ body {
     }
   }
 
+  .works {
+    display: flex;
+    flex:1;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    .card{
+      .imgbg {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #264348;
+        padding: $spacing-unit;
+      }
+      .content
+      {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+  .work-info{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    .image {
+      padding: 3px;
+      @media only screen and (min-width: 500px){
+        max-width: 180px;
+        max-height: 180px;
+      }
+      @media only screen and (max-width: 500px){
+        display: flex;
+        width: 100%;
+        align-self: center;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
 }
 
 

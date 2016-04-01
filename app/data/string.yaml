@@ -2,7 +2,7 @@ home: 首页
 blog: 博客
 about: 关于
 contact: 联系
-categories: 文章分类
+categories: 分类
 tags: 文章标签
 readMore: 查看全文
 publishAt: 发表于
@@ -13,5 +13,10 @@ postNotFound: 没有找到相关文章
 loadingPostContent: 加载文章内容中
 loadingPostPreview: 加载内容预览中
 loadingPost: 加载文章信息中
+loadingWorks: 加载作品列表中
 loading: 加载中
 tweetsTagLine: 请在墙外访问此页
+works: 作品
+platforms: 平台
+cooperators: 合作者
+frameworks: 框架
