@@ -13,7 +13,7 @@ class Work extends React.Component {
     if( workid && app.works && app.works.length > 0 ) {
       for (let i = 0; i < app.works.length; i++) {
         let curWork = app.works[i];
-        if(curWork.title == workid){
+        if(encodeURI(curWork.title) == workid){
           this.work = curWork;
           this.notFound = false;
           break;
@@ -42,6 +42,7 @@ class Work extends React.Component {
     }
     else{
       let work = this.work;
+      document.title = work.title;
       return (
         <div className="post-content">
           <div className="post-content ui raised segments">
