@@ -96,7 +96,7 @@ class Work extends React.Component {
       );
     }
     let status = work.status;
-
+    let time   = work.time;
     return (
       <div className='work-info'>
         <div className="image">
@@ -135,6 +135,12 @@ class Work extends React.Component {
                   <td><span className="ui purple label">{status}</span></td>
                 </tr>
               ): null}
+              {time?(
+                <tr>
+                  <td>{app.string.workTime}</td>
+                  <td><span className="ui olive label">{time}</span></td>
+                </tr>
+              ):null}
             </tbody>
           </table>
         </div>

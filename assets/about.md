@@ -84,13 +84,36 @@ SG2D是广州硕星科技有限公司内部使用的跨平台C++游戏引擎和�
 * 使用SG2D框架开发跨平台游戏
 
 ###### 代表作品
-* 漫画APP: 阿衰全集
+* 漫画APP: 麦酷漫画
 * 移动媒体APP： 宝宝爱听
+<!-- class="ui small images" -->
+![](/assets/images/works/宝宝爱听/1.jpg)
+![](/assets/images/works/宝宝爱听/3.jpg)
+<!-- endclass -->
 * 益智游戏： 100个白块
+<!-- class="ui small images" -->
+![](/assets/images/works/100个白块/1.png)
+![](/assets/images/works/100个白块/2.png)
+<!-- endclass -->
 * 菜单编辑器
+<!-- class="ui big images" -->
+![](/assets/images/works/菜单编辑器/1.png)
+<!-- endclass -->
 * 帧动画编辑器
+<!-- class="ui big images" -->
+![](/assets/images/works/帧动画编辑器/1.png)
+<!-- endclass -->
 * 多语言编辑器
+<!-- class="ui big images" -->
+![](/assets/images/works/语言盒子/1.png)
+<!-- endclass -->
 * 还有很多根据工作所需的工具
+<!-- class="ui small images" -->
+![](/assets/images/works/XML格式化工具/1.png)
+![](/assets/images/works/文件筛选器/1.png)
+![](/assets/images/works/项目资源管理器/1.png)
+![](/assets/images/works/代码转换工具/1.png)
+<!-- endclass -->
 
 <div id="proSG2D" data-percent="75" class="ui bottom attached orange progress">
   <!-- class="bar" --><!-- endclass -->
@@ -105,6 +128,11 @@ SG2D是广州硕星科技有限公司内部使用的跨平台C++游戏引擎和�
 
 ##### 代表作品
 * 休闲类手游：[维加斯旷工](http://www.mumayi.com/android-467226.html)
+<!-- class="ui medium images" -->
+![](/assets/images/works/维加斯矿工/1.png)
+![](/assets/images/works/维加斯矿工/3.png)
+![](/assets/images/works/维加斯矿工/5.png)
+<!-- endclass -->
 * 类似微信打飞机的小游戏（未上线）
 
 <div id="proCocos" data-percent="70" class="ui bottom attached olive progress">
@@ -122,6 +150,13 @@ SG2D是广州硕星科技有限公司内部使用的跨平台C++游戏引擎和�
 
 ##### 代表作品
 * 漫画APP： 漫画速递
+<!-- class="ui small images" -->
+![](/assets/images/works/漫画速递/home.jpg)
+![](/assets/images/works/漫画速递/comic.jpg)
+![](/assets/images/works/漫画速递/club.jpg)
+![](/assets/images/works/漫画速递/reader.jpg)
+![](/assets/images/works/漫画速递/search.jpg)
+<!-- endclass -->
 * 个人网站： [geequlim.com](http://geequlim.com)
 
 <div id="proReact" data-percent="65" class="ui bottom attached teal progress">
@@ -152,6 +187,9 @@ SG2D是广州硕星科技有限公司内部使用的跨平台C++游戏引擎和�
 * 熟悉Linux常用命令
 * 能够搭建基本Linux网站服务器
 * 能在纯Linux环境下展开开发工作，没有Linux办公环境会感到缺氧
+<!-- class="ui medium images" -->
+![](/assets/images/desktop_environmnet.png)
+<!-- endclass -->
 
 <div id="proLinux" data-percent="45" class="ui bottom attached pink progress">
   <!-- class="bar" --><!-- endclass -->
@@ -164,6 +202,7 @@ SG2D是广州硕星科技有限公司内部使用的跨平台C++游戏引擎和�
 * 了解Python爬虫编程技术
 * 能够使用Python编写工作中许多需要的工具来解放双手
 * 喜欢使用Python脚本写跨平台的批处理操作
+
 
 ##### 代表作品
 * 漫画速递服务端程序
@@ -181,8 +220,22 @@ SG2D是广州硕星科技有限公司内部使用的跨平台C++游戏引擎和�
 ##### 代表作品
 这里只列出使用Java开发的安卓软件和游戏，使用其他跨平台技术开发的不再列出
 * 漫画类APP： 阿衰全集第一个版本
+<!-- class="ui small images" -->
+![](/assets/images/works/阿衰全集/1.jpeg)
+![](/assets/images/works/阿衰全集/3.jpeg)
+<!-- endclass -->
 * 益智游戏：  明察秋毫
+<!-- class="ui small images" -->
+![](/assets/images/works/明察秋毫/1.jpg)
+![](/assets/images/works/明察秋毫/2.jpg)
+![](/assets/images/works/明察秋毫/3.jpg)
+<!-- endclass -->
 * 智商测试
+<!-- class="ui small images" -->
+![](/assets/images/works/智商测试/2.jpg)
+![](/assets/images/works/智商测试/3.jpg)
+![](/assets/images/works/智商测试/4.jpg)
+<!-- endclass -->
 
 <div id="proAndroid" data-percent="40" class="ui bottom attached green progress">
   <!-- class="bar" --><!-- endclass -->
@@ -195,9 +248,10 @@ SG2D是广州硕星科技有限公司内部使用的跨平台C++游戏引擎和�
 * 理解3D图形学相关数学原理
 * 了解OpenGL渲染管线
 * 对图形编程和游戏引擎有浓厚兴趣
+
 ##### 实践
-* 使用C++编写过能用于3D空间变换的数学库
-* 组织翻译国外OpenGL相关教程： LearnOpenGL-CN
+* 使用C++编写过能用于3D空间变换的[数学库](https://github.com/Geequlim/walnut/tree/master/src/math)
+* 组织翻译国外OpenGL相关教程： [LearnOpenGL-CN](https://github.com/LearnOpenGL-CN/LearnOpenGL-CN)
 
 <div id="proOpenGL" data-percent="15" class="ui bottom attached red progress">
   <!-- class="bar" --><!-- endclass -->
