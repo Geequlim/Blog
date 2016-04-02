@@ -18,7 +18,7 @@ class WorkCard extends React.Component {
           </div>
         </div>
         <div className="content">
-          <div className="header">{this.props.title}</div>
+          <div className="ui small header">{this.props.title}</div>
         </div>
       </Link>
     );

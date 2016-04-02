@@ -95,6 +95,7 @@ class Work extends React.Component {
         </p>
       );
     }
+    let status = work.status;
 
     return (
       <div className='work-info'>
@@ -128,6 +129,12 @@ class Work extends React.Component {
                   <td>{cooperators}</td>
                 </tr>
               ):null}
+              {status?(
+                <tr>
+                  <td>{app.string.status}</td>
+                  <td><span className="ui purple label">{status}</span></td>
+                </tr>
+              ): null}
             </tbody>
           </table>
         </div>

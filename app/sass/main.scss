@@ -166,24 +166,29 @@ body {
 
   .works {
     display: flex;
-    flex:1;
+    // flex:1;
     width: 100%;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     .card{
+      @media only screen and (max-width: 500px){
+        max-width: 126px;
+        max-height: 160px;
+      }
       .imgbg {
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #264348;
+        background-color: #6C7A89;
         padding: $spacing-unit;
       }
       .content
       {
-        display: flex;
+        background-color: #95A5A6;
         align-items: center;
         justify-content: center;
+        .header {color: #424242;}
       }
     }
   }
