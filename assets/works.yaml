@@ -1,24 +1,235 @@
 - title: 漫画速递
   file: /assets/works/漫画速递.md
   logo: /assets/images/works/漫画速递/logo.png
+  status: 维护中
   platforms:
     - Android
+    - iOS(未发布)
   categories:
     - 移动APP
     - 漫画阅读
   frameworks:
     - React-Native
   cooperators:
-    - JJ
+    - Fairyex
 
-- title: 阿衰全集
-  file: /assets/works/阿衰全集.md
-  logo: /assets/images/works/阿衰全集/logo.png
+- title: 维加斯矿工
+  file: /assets/works/维加斯矿工.md
+  logo: /assets/images/works/维加斯矿工/logo.png
+  status: 停止维护
   platforms:
     - Android
-    - iOS
+    - Windows
+    - OSX
+    - iOS(未上线)
+  categories:
+    - 跨平台游戏
+    - 休闲游戏
+  frameworks:
+    - C++
+    - Cocos2-dx
+
+- title: 语言盒子
+  file: /assets/works/语言盒子.md
+  logo: /assets/images/works/语言盒子/logo.png
+  status: 暂停维护
+  platforms:
+    - Windows
+    - OSX
+  categories:
+    - 跨平台开发工具
+  frameworks:
+    - C++
+    - SG2D
+
+- title: 帧动画编辑器
+  file: /assets/works/帧动画编辑器.md
+  logo: /assets/images/works/帧动画编辑器/logo.png
+  status: 维护中
+  platforms:
+    - Windows
+    - OSX
+  categories:
+    - 跨平台开发工具
+  frameworks:
+    - C++
+    - SG2D
+
+- title: 菜单编辑器
+  file: /assets/works/菜单编辑器.md
+  logo: /assets/images/works/菜单编辑器/logo.png
+  status: 维护中
+  platforms:
+    - Windows
+    - OSX
+  categories:
+    - 跨平台开发工具
+  frameworks:
+    - C++
+    - SG2D
+
+- title: 文件筛选器
+  file: /assets/works/文件筛选器.md
+  logo: /assets/images/works/文件筛选器/logo.png
+  status: 维护中
+  platforms:
+    - Android
+    - Windows
+    - OSX
+  categories:
+    - 跨平台开发工具
+  frameworks:
+    - C++
+    - SG2D
+
+- title: 项目资源管理器
+  file: /assets/works/项目资源管理器.md
+  logo: /assets/images/works/项目资源管理器/logo.png
+  status: 维护中
+  platforms:
+    - Android
+    - Windows
+    - OSX
+  categories:
+    - 跨平台开发工具
+  frameworks:
+    - C++
+    - SG2D
+
+- title: 代码转换工具
+  file: /assets/works/代码转换工具.md
+  logo: /assets/images/works/代码转换工具/logo.png
+  status: 维护中
+  platforms:
+    - Windows
+    - OSX
+  categories:
+    - 跨平台开发工具
+  frameworks:
+    - C++
+    - SG2D
+
+- title: XML格式化工具
+  file: /assets/works/XML格式化工具.md
+  logo: /assets/images/works/XML格式化工具/logo.png
+  status: 维护中
+  platforms:
+    - Windows
+    - OSX
+  categories:
+    - 跨平台开发工具
+  frameworks:
+    - C++
+    - SG2D
+
+- title: WIFI共享工具
+  file: /assets/works/WIFI共享工具.md
+  logo: /assets/images/works/WIFI共享工具/logo.png
+  status: 维护中
+  platforms:
+    - Windows
+  categories:
+    - 系统工具
+  frameworks:
+    - Windows
+    - SG2D
+
+- title: 100个白块
+  file: /assets/works/100个白块.md
+  logo: /assets/images/works/100个白块/logo.png
+  status: 停止维护
+  platforms:
+    - Android
+    - Windows
+    - OSX
+    - iOS(未上线)
+  categories:
+    - 跨平台游戏
+    - 益智游戏
+  frameworks:
+    - C++
+    - SG2D
+
+- title: 宝宝爱听
+  file: /assets/works/宝宝爱听.md
+  logo: /assets/images/works/宝宝爱听/logo.png
+  status: 停止维护
+  platforms:
+    - Android
+    - Windows
+    - OSX
+    - iOS(未上线)
+  categories:
+    - 移动APP
+    - 媒体阅读
+  frameworks:
+    - C++
+    - SG2D
+  cooperators:
+    - 李涛
+    - 骆玉滢
+
+- title: 麦酷漫画
+  file: /assets/works/麦酷漫画.md
+  logo: /assets/images/works/麦酷漫画/logo.png
+  status: 停止维护
+  platforms:
+    - Android
+    - Windows
+    - OSX
+    - iOS(未上线)
   categories:
     - 移动APP
     - 漫画阅读
   frameworks:
+    - C++
     - SG2D
+
+- title: 明察秋毫
+  file: /assets/works/明察秋毫.md
+  logo: /assets/images/works/明察秋毫/logo.png
+  status: 停止维护
+  platforms:
+    - Android
+  categories:
+    - 益智游戏
+  frameworks:
+    - Java
+    - Android
+
+- title: 阿衰全集
+  file: /assets/works/阿衰全集.md
+  logo: /assets/images/works/阿衰全集/logo.png
+  status: 维护中
+  platforms:
+    - Android
+  categories:
+    - 移动APP
+    - 漫画阅读
+  frameworks:
+    - Java
+    - Android
+
+- title: 词汇量测试
+  file: /assets/works/词汇量测试.md
+  logo: /assets/images/works/词汇量测试/logo.png
+  status: 停止维护
+  platforms:
+    - Android
+  categories:
+    - 移动APP
+  frameworks:
+    - Java
+    - Android
+
+- title: 智商测试
+  file: /assets/works/智商测试.md
+  logo: /assets/images/works/智商测试/logo.png
+  status: 停止维护
+  platforms:
+    - Android
+  categories:
+    - 移动APP
+  frameworks:
+    - Java
+    - Android
