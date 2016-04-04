@@ -39,11 +39,9 @@ class PostItem extends React.Component {
 
     const thread = encodeURI(encodeURI(this.props.post.publishAt + this.props.post.title));
     return (
-      <div className="post-item">
-        <div className="ui raised segments">
-          <div className="ui segment">
-            <Link className="ui medium header" to={`/post/${thread}`}>
-              {this.props.post.title}
+      <div className="well">
+            <Link to={`/post/${thread}`}>
+              <h2>{this.props.post.title}</h2>
             </Link>
             <div className="post-item-header-tags">
               <p>
@@ -53,30 +51,25 @@ class PostItem extends React.Component {
               </p>
               <div className="tag-group">{categories}</div>
             </div>
-          </div>
-          <div className="ui segment">
-            <div className="tag-group">{tags}</div>
-            <div className="pargraph">
-              {this.state.description ? (
-                <MarkdownArea>{this.state.description}</MarkdownArea>
-              ) : (
-                <div className="ui message">
-                  <div className="content">
-                    <br/><br/><br/>
-                    <Loader>{app.string.loadingPostContent}</Loader>
-                  </div>
+          <div className="tag-group">{tags}</div>
+          <div className="pargraph">
+            {this.state.description ? (
+              <MarkdownArea>{this.state.description}</MarkdownArea>
+            ) : (
+              <div className="ui message">
+                <div className="content">
+                  <br/><br/><br/>
+                  <Loader>{app.string.loadingPostContent}</Loader>
                 </div>
-              )}
-            </div>
+              </div>
+            )}
           </div>
-          <div className="ui segment">
-            <Link
-              className="positive ui button"
-              to={`/post/${thread}`}>
+          <Link
+            to={`/post/${thread}`}>
+            <div className="btn btn-raised btn-success">
               {app.string.readMore}
-            </Link>
-          </div>
-        </div>
+            </div>
+          </Link>
       </div>
     );
   }

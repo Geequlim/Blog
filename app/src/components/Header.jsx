@@ -57,7 +57,7 @@ class Header extends React.Component {
         <Link className={getItemStyle('/works')} to="/works">
           <div className="title">
             <i className="cubes icon"></i>
-            作品
+            {app.string.works}
           </div>
         </Link>
         <Link className={getItemStyle('/tweets')} to="/tweets">

@@ -13,6 +13,7 @@ import Work from './pages/Work.jsx';
 import {Router, Route, IndexRoute} from 'react-router';
 import createHistory from 'history/lib/createBrowserHistory';
 import app from './app';
+import $ from 'jquery';
 
 class Application extends React.Component {
   constructor(props) {
@@ -49,6 +50,7 @@ class Application extends React.Component {
         document.title = app.site.title;
         break;
     }
+    $.material.init();
   }
 
   render() {

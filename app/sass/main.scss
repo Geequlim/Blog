@@ -83,12 +83,11 @@ body {
     align-items: center;
     width: 100%;
     @media only screen and (min-width: 768px){
-      max-width: 90%;
+      max-width: 95%;
     }
     @media only screen and (min-width: 1280px){
-      max-width: 1120px;
+      max-width: 80%;
     }
-
     .tag-label {
       margin: 3px;
     }
@@ -112,7 +111,19 @@ body {
         @media (min-width: $desktop-min-width) {
           display: block;
           float: right;
-          max-width: 240px;
+          min-width: 220px;
+          max-width: 320px;
+        }
+      }
+      .post-right-panel {
+        margin: $spacing-unit;
+        text-align: center;
+        display: none;
+        @media (min-width: 769px) {
+          display: block;
+          float: right;
+          min-width: 220px;
+          max-width: 320px;
         }
       }
     }
@@ -180,7 +191,7 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #6C7A89;
+        background-color: #546e7a;
         padding: $spacing-unit;
         img{
           @media only screen and (min-width: 500px){
@@ -191,10 +202,10 @@ body {
       }
       .content
       {
-        background-color: #95A5A6;
+        background-color: #0091ea;
         align-items: center;
         justify-content: center;
-        .header {color: #424242;}
+        .header {color: #fafafa;}
       }
     }
   }
@@ -331,4 +342,14 @@ body {
   background-color: #304d48;
   font-size: 1.2em;
   text-align: center;
+}
+
+.well {
+  position: relative;
+  background: #fff;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 1rem 0;
+  padding: 1em;
+  // border: 1px solid rgba(34,36,38,.15);
+  border-radius: 2px;
 }

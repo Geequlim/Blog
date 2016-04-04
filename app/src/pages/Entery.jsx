@@ -1,10 +1,14 @@
 import React from 'react';
+
+require('../emoji');
+require('../material');
+require('../ripples');
+import $ from 'jquery';
+
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
 import SidePanel from '../components/SidePanel.jsx';
 import Home from "./Home.jsx";
-require('../emoji');
-import $ from 'jquery';
 
 class Entery extends React.Component {
   constructor(props) {
