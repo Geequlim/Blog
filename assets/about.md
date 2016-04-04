@@ -1,7 +1,6 @@
 ## Geequlim个人简历
-| Key  |  Value  |
-| :------------  |
 | 姓名 |  田黎明  |
+| :------------  |
 | 学历 | 在读本科 |
 | 专业 | 市场营销 |
 | 电话 | 150\*\*\*\*\*\*33 |
@@ -22,29 +21,30 @@
 <!-- endclass -->
 <!-- endclass -->
 <!-- class="panel-body" -->
+<!-- class="label label-primary" -->C++<!-- endclass -->
 <div class="progress">
   <div class="progress-bar progress-bar-default" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
-    C++
   </div>
 </div>
+<!-- class="label label-info" -->Javascript<!-- endclass -->
+<br/>
 <div class="progress">
   <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-    Javascript
   </div>
 </div>
+<!-- class="label label-success" -->Java<!-- endclass -->
 <div class="progress">
   <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
-    Java
   </div>
 </div>
+<!-- class="label label-danger" -->Python<!-- endclass -->
 <div class="progress">
   <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-    Python
   </div>
 </div>
+<!-- class="label label-warning" -->Lua<!-- endclass -->
 <div class="progress">
   <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-    Lua
   </div>
 </div>
 
