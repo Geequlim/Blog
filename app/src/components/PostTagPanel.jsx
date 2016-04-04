@@ -25,18 +25,22 @@ class PostTagPanel extends React.Component {
   render() {
     return (
       <div className="right-panel">
-        <div className="ui segments">
-          <h3 lassName="ui segment">{app.string.categories}</h3>
-          <div className="ui segment ui labels tag-group">
+        <div className="panel panel-primary">
+          <div className="panel-heading">
+            <h3 className="panel-title">{app.string.postCategories}</h3>
+          </div>
+          <div className="panel-body tag-group tag labels">
             <PostTag key="all">{app.string.all}</PostTag>
             {this.categories ?
               (this.categories.map((item) => <PostTag key={item} query="category">{item}</PostTag>)) : null
             }
           </div>
         </div>
-        <div className="ui segments">
-          <h3 lassName="ui segment">{app.string.tags}</h3>
-          <div className="ui segment tag-group tag labels">
+        <div className="panel panel-danger">
+          <div className="panel-heading">
+            <h3 className="panel-title">{app.string.tags}</h3>
+          </div>
+          <div className="panel-body tag-group tag labels">
             <PostTag key="all">{app.string.all}</PostTag>
             {this.tags ? (this.tags.map((item) => <PostTag key={item} query="tag">{item}</PostTag>)) : null}
           </div>

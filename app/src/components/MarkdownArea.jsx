@@ -34,8 +34,8 @@ class MarkdownArea extends React.Component {
 
   componentDidMount() {
     this.highlightCode();
-    $('table').addClass('ui celled collapsing striped table');
-    $('th').addClass('ui center aligned');
+    $('table').addClass('panel table table-striped table-hover');
+    // $('th').addClass('ui center aligned');
     $('img').addClass('ui centered rounded bordered image');
     $('.markediv').each((i, d) => $(d).emoji());
   }

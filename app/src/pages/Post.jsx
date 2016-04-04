@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 import MarkdownArea from '../components/MarkdownArea.jsx';
+import PostTagPanel from '../components/PostTagPanel.jsx';
 import timeago from '../timeago';
 import PostTag from '../components/PostTag.jsx';
 import Disqus from '../components/Disqus.jsx';
@@ -66,8 +67,8 @@ class Post extends React.Component {
       const post = app.posts[curPostIndex - 1];
       const thread = encodeURI(encodeURI(post.publishAt + post.title));
       previous = (
-        <Link className="ui large blue label nav-label" to={`/post/${thread}`}>
-          {post.title}
+        <Link to={`/post/${thread}`}>
+          <p className="btn btn-raised btn-info">{post.title}→</p>
         </Link>
       );
     }
@@ -76,43 +77,50 @@ class Post extends React.Component {
       const post = app.posts[curPostIndex + 1];
       const thread = encodeURI(encodeURI(post.publishAt + post.title));
       next = (
-        <Link className="ui large blue label nav-label" to={`/post/${thread}`}>
-          {post.title}
+        <Link to={`/post/${thread}`}>
+          <p className="btn btn-raised btn-info">←{post.title}</p>
         </Link>
       );
     }
 
     document.title = this.post.title;
     return (
-      <div className="post-content">
-        <div className="post-content ui raised segments">
-          <div className="ui segment">
-            <h1>{this.post.title}</h1>
-            <div className="post-item-header-tags">
-              <p>
-                <span className="ui label">
-                  {app.string.publishAt}{timeago(this.post.publishAt)}
-                </span>
-              </p>
-              <div className="tag-group">{categories}</div>
-            </div>
-            <div className="ui large label tag-group">{"\t"}{tags}</div>
-          </div>
-          <div className="ui segment MarkdownArea">
-            {
-              this.state.content ? (
-                <div className="MarkdownArea">
-                  <MarkdownArea>{this.state.content}</MarkdownArea>
-                </div>
-              ) : <Loader size="big">{app.string.loadingPostContent}</Loader>
-            }
-          </div>
-          <div className={`ui stacked segment nav-post ${window.innerWidth >= 768 ? 'row' : ''}`}>
-            {next}
-            {previous}
-          </div>
+      <div className="posts-page">
+        <div className="post-right-panel">
+          <PostTagPanel/>
         </div>
-        {this.state.content ? <Disqus thread={this.thread}/> : null}
+        <div className="posts-list">
+          <div className="post-content well">
+              <h1>{this.post.title}</h1>
+              <div className="post-item-header-tags">
+                <p>
+                  <span className="ui label">
+                    {app.string.publishAt}{timeago(this.post.publishAt)}
+                  </span>
+                </p>
+                <div className="tag-group">{categories}</div>
+              </div>
+              <div className="tag-group">{"\t"}{tags}</div>
+            <div className="MarkdownArea">
+              {
+                this.state.content ? (
+                  <MarkdownArea>{this.state.content}</MarkdownArea>
+                ) : <Loader size="big">{app.string.loadingPostContent}</Loader>
+              }
+            </div>
+            <div className={`nav-post ${window.innerWidth >= 768 ? 'row' : ''}`}>
+              {next}
+              {previous}
+            </div>
+          </div>
+          {this.state.content ?(
+            <div className="well">
+              <h2>文章评论</h2>
+              <Disqus  thread={this.thread}/>
+            </div>
+            ): null
+          }
+        </div>
       </div>
     );
   }

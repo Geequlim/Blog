@@ -3,7 +3,7 @@ import app from '../app';
 import service from '../service';
 import Loader from '../components/LoadingFlag.jsx';
 import MarkdownArea from '../components/MarkdownArea.jsx';
-
+import Disqus from '../components/Disqus.jsx';
 
 class Work extends React.Component {
   constructor(props) {
@@ -16,6 +16,7 @@ class Work extends React.Component {
         if(encodeURI(curWork.title) == workid){
           this.work = curWork;
           this.notFound = false;
+          this.thread = workid;
           break;
         }
       }
@@ -45,16 +46,20 @@ class Work extends React.Component {
       document.title = work.title;
       return (
         <div className="post-content">
-          <div className="post-content ui raised segments">
-            <div className="ui segment"><h1>{work.title}</h1></div>
-            <div className="ui segment MarkdownArea">
+          <div className="post-content well">
+            <h1>{work.title}</h1>
+            <div className="MarkdownArea">
               {this.renderInfo()}
             </div>
             {this.state.detail?(
-              <div className="ui segment MarkdownArea">
+              <div className="MarkdownArea">
                 <MarkdownArea>{this.state.detail}</MarkdownArea>
               </div>
             ): null}
+          </div>
+          <div className="well">
+            <h2>作品评论</h2>
+            <Disqus  thread={this.thread}/>
           </div>
         </div>
       );

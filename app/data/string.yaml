@@ -3,6 +3,7 @@ blog: 博客
 about: 关于
 contact: 联系
 categories: 分类
+postCategories: 文章分类
 tags: 文章标签
 readMore: 查看全文
 publishAt: 发表于

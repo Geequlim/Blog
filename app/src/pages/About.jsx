@@ -19,7 +19,7 @@ class About extends React.Component {
   render() {
     return (
       <div className="post-content">
-        <div className="ui segment MarkdownArea">
+        <div className="well">
           {
             this.state.aboutText ? (
               <div className="MarkdownArea">
@@ -29,7 +29,7 @@ class About extends React.Component {
           }
         </div>
 
-        <div className="panel panel-default">
+        <div className="well">
           <div className="panel-heading">
             <h3 className="panel-title">给我留言</h3>
           </div>
