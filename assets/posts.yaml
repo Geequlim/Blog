@@ -1,3 +1,12 @@
+- title: 【转】Git 版本管理：Git Flow 模型
+  publishAt: 2016-05-02T10:35:55.575Z
+  file: /assets/posts/【转】Git 版本管理：Git Flow 模型.md
+  categories:
+    - git
+    - 技术
+  tags:
+    - 版本控制
+
 - title: C++面向对象：拷贝控制与运算符重载
   publishAt: Thu Mar 31 2016 15:14:27 GMT+0800 (CST)
   file: /assets/posts/学习笔记/cpp/C++面向对象：拷贝控制与运算符重载.md
