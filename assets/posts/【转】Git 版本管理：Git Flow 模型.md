@@ -1,4 +1,5 @@
 本文转自  [伯乐在线](http://blog.jobbole.com/100264/) ，原作[陶邦仁](http://www.jobbole.com/members/wx2513953400) 。本人转载用于方便学习和日后回顾，如有疑问请[与我联系](mailto:geequlim@gmail.com)。
+<!-- more -->
 
 <!-- class="panel panel-success" -->
 <!-- class="panel-heading" -->
