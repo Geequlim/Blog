@@ -1,3 +1,16 @@
+- title: Flappy Bird
+  file: /assets/works/FlappyBird.md
+  logo: /assets/images/works/FlappyBird.png
+  status: 维护中
+  time: 2016年4月
+  platforms:
+    - Linux
+    - Android
+  categories:
+    - 跨平台游戏
+  frameworks:
+    - Godot
+
 - title: 漫画速递
   file: /assets/works/漫画速递.md
   logo: /assets/images/works/漫画速递/logo.png
