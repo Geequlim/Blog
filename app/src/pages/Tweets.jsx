@@ -9,7 +9,7 @@ class Tweets extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="column fill">
         <Timeline
           username={app.site.author.twitter_username}
           widgetId={app.site.author.twitter_embedded_id}
