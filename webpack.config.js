@@ -10,6 +10,20 @@ module.exports = {
     path: 'assets',
     filename: '[name].js'
   },
+  externals: {
+    "jquery": '$',
+    "lodash":   "_",
+    "js-yaml": "jsyaml",
+    "immutable": "Immutable",
+    "dynamics": "dynamics",
+    "marked": "marked",
+    "react": 'React',
+    "react-dom": "ReactDOM",
+    'redux': 'Redux',
+    "react-router": "ReactRouter",
+    'history': "History",
+    'jss': "jss"
+  },
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
