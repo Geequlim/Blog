@@ -10,7 +10,7 @@ marked.setOptions({
   smartLists: true,
   smartypants: true
 });
-// import $ from 'jquery';
+import $ from 'jquery';
 
 class MarkdownArea extends React.Component {
   constructor(props) {

@@ -1,4 +1,6 @@
 import React from 'react';
+import LoadingFlag from './LoadingFlag.jsx'
+import {Link} from 'react-router';
 
 let timelineDidMount = function(d, s, id) {
   var js,
@@ -59,9 +61,9 @@ var Timeline = React.createClass({
   render: function() {
     return (
       <div className="twitter-iframe-container">
-        <a className="twitter-timeline" href={this.props.username} data-widget-id={this.props.widgetId}>
-          {this.props.tagLine}
-        </a>
+        <Link className="twitter-timeline" to="/" data-widget-id={this.props.widgetId}>
+          <LoadingFlag>{this.props.tagLine}</LoadingFlag>
+        </Link>
       </div>
     );
   }
