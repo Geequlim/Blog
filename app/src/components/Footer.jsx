@@ -30,7 +30,7 @@ class Footer extends React.Component {
             <div className="center">
               { app.site.author.github_username ?
                 (
-                  <p className="ui label icon-btn">
+                  <p className="ui pink label icon-btn">
                     <a href={`https://github.com/${app.site.author.github_username}`}>
                       <i className="big github icon"/>
                     </a>
