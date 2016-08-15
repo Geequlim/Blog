@@ -1,0 +1,70 @@
+@import "base";
+
+.footer {
+  background: $framework_bg_color;
+  color: #4a4a4a;
+  padding: $spacing-unit;
+  border-top-width: 2px;
+  border-color: #f2f2f2;
+  border-top-style: solid;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  text-align: left;
+  .title {
+    font-size: 1.5 * $base-font-size;
+    color: inherit;
+  }
+  .subtitle {
+    font-size: 1.2 * $base-font-size;
+    color: inherit;
+  }
+  .inline {
+    display: inline-block;
+  }
+  .first {
+    padding: $spacing-unit;
+    text-align: center;
+  }
+  .medium {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+  }
+  .last {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: $spacing-unit;
+    .center {
+      display: flex;
+      flex-direction: row;
+      align-self: center;
+      align-items: center;
+      justify-content: center;
+      margin-top: $spacing-unit/2;
+    }
+  }
+
+  .icon-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    border: 2px #eeeeee solid;
+    width: 60px;
+    height: 60px;
+    margin: 6px;
+  }
+
+  img {
+    border: 0px;
+  }
+}

@@ -11,14 +11,14 @@ class WorkCard extends React.Component {
   render() {
     let workid = encodeURI(encodeURI(this.props.title));
     return (
-      <Link className="card" to={`/work/${workid}`}>
-        <div className="imgbg">
+      <Link className="card column" to={`/work/${workid}`}>
+        <div className="imgbg fill">
           <div className="image">
             <img src={this.props.logo}/>
           </div>
         </div>
-        <div className="content">
-          <div className="ui small header">{this.props.title}</div>
+        <div className="title_content">
+          <div className="ui small header center">{this.props.title}</div>
         </div>
       </Link>
     );
