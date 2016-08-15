@@ -1,0 +1,87 @@
+@import "base";
+
+.home-cover {
+  display: flex;
+  flex: 1;
+  flex-direction: column;;
+  background-size: cover;
+  min-height: 360px;
+  @media (min-height: 768px){
+    min-height: 520px;
+  }
+  background-image: url("/assets/images/home/background.jpg");
+  color: #ffffff;
+  .filter {
+    display: flex;
+    flex: 1;
+    flex-direction: column;;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(22,100,156,0.7);
+    padding: 2em;
+    align-items: center;
+    justify-content: space-around;
+    .title {
+      color: #ffffff;
+    }
+  }
+}
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  padding: 2 * $spacing-unit;
+  @media only screen and (min-width: $desktop-min-width) {
+    padding: 4*$spacing-unit;
+  }
+  @media only screen and (min-width: 1280px) {
+    padding-left: 8*$spacing-unit;
+    padding-right: 8*$spacing-unit;
+  }
+  .bottom-card {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    p {
+      color: #b3b3b3;
+      font-size: $base-font-size;
+    }
+  }
+  .align-bottom {
+    color: #ffffff;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px 40px 0px 40px;
+    background: linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%);
+  }
+  .feature {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    background-size: cover;
+    min-height: 280px;
+  }
+  .design {
+    background-image: url("/assets/images/home/mp_design.png");
+  }
+  .card2d {
+    background-image: url("/assets/images/home/2d.jpg");
+  }
+  .editor {
+    background-image: url("/assets/images/home/editor.jpg");
+  }
+  .script {
+    background-image: url("/assets/images/home/script.png");
+  }
+  .card3d {
+    background-image: url("/assets/images/home/3d.jpg");
+  }
+  .deploy {
+    background-image: url("/assets/images/home/deploy.jpg");
+  }
+}

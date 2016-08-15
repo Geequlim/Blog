@@ -1,5 +1,12 @@
 @import "base";
-@import "highligh-tomorrow-night-eighties";
+@import "highligh-atom-one-dark";
+@import "content";
+@import "post";
+@import "home";
+@import "feature";
+@import "header";
+@import "footer";
+@import "user";
 
 body {
   display: flex;
@@ -7,315 +14,17 @@ body {
   flex-direction: column;
 }
 
-.post-content {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  width: 100%;
-  @mixin cal-header($baseSize) {
-    $shadow-size: 0.5px;
-    @if $baseSize >= 20px {
-      $shadow-size: 1px;
-    }
-    font-size: $baseSize;
-    text-shadow: $shadow-size $shadow-size $shadow-size #575757;
-    @media (min-width: $desktop-min-width) {
-      font-size: $baseSize+6;
-    }
-  };
-  h1 {
-    @include cal-header(30px);
-  }
-  h2 {
-    @include cal-header(26px);
-  }
-
-  h3 {
-    @include cal-header(22px);
-  }
-
-  h4 {
-    @include cal-header(18px);
-  }
-
-  h5 {
-    @include cal-header(16px);
-  }
-
-  h6 {
-    @include cal-header(14px);
-  }
-
-  .MarkdownArea {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    @media only screen and (min-width: $desktop-min-width) {
-      padding: 2*$spacing-unit;
-    }
-  }
-}
-
-.post-item {
-  margin: 10px;
-}
-
-.content {
-  display: flex;
-  min-height: 100%;
-  flex-direction: column;
-  .main-body {
-    display: flex;
-    flex: 1;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: $spacing-unit;
-  }
-  .pagination {
-    display: flex;
-    align-self: center;
-  }
-
-  .page-body {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    @media only screen and (min-width: 768px){
-      max-width: 95%;
-    }
-    @media only screen and (min-width: 1280px){
-      max-width: 80%;
-    }
-    .tag-label {
-      margin: 3px;
-    }
-
-    .pargraph {
-      padding: 5px;
-    }
-
-    .posts-page {
-      width: 100%;
-      justify-content: space-around;
-      .posts-list {
-        display: flex;
-        flex: 1;
-        flex-direction: column;
-      }
-      .right-panel {
-        margin: $spacing-unit;
-        text-align: center;
-        display: none;
-        @media (min-width: $desktop-min-width) {
-          display: block;
-          float: right;
-          min-width: 220px;
-          max-width: 320px;
-        }
-      }
-      .post-right-panel {
-        margin: $spacing-unit;
-        text-align: center;
-        display: none;
-        @media (min-width: 769px) {
-          display: block;
-          float: right;
-          min-width: 220px;
-          max-width: 320px;
-        }
-      }
-    }
-    .post-item-header-tags {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-    .tag-group {
-      display: flex;
-      align-items: baseline;
-      flex-direction: row;
-      flex-wrap: wrap;
-      margin: 2px;
-    }
-    .rich-editor-content {
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      width: 100%;
-      min-height: 168px;
-    }
-  }
-
-  .tag-button {
-    margin: 2px;
-  }
-
-  .left-panel {
-    display: flex;
-  }
-
-  .nav-post {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-content: baseline;
-    align-items: flex-start;
-    @media only screen and (min-width: 768px) {
-      flex-direction: row;
-    }
-    .nav-label {
-      display: flex;
-      margin: 3px 0px;
-      @media only screen and (min-width: 768px) {
-        margin: 0px 3px;
-      }
-    }
-  }
-
-  .works {
-    display: flex;
-    // flex:1;
-    width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    .card{
-      @media only screen and (max-width: 500px){
-        max-width: 126px;
-        max-height: 160px;
-      }
-      .imgbg {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #546e7a;
-        padding: $spacing-unit;
-        img{
-          @media only screen and (min-width: 500px){
-            width: 200px;
-            height: 200px;
-          }
-        }
-      }
-      .content
-      {
-        background-color: #0091ea;
-        align-items: center;
-        justify-content: center;
-        .header {color: #fafafa;}
-      }
-    }
-  }
-  .work-info{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    .image {
-      padding: 3px;
-      @media only screen and (min-width: 500px){
-        max-width: 180px;
-        max-height: 180px;
-      }
-      @media only screen and (max-width: 500px){
-        display: flex;
-        width: 100%;
-        align-self: center;
-        align-items: center;
-        justify-content: center;
-      }
-    }
-  }
-}
-
-
 .touchable {
   cursor: pointer;
 }
 
-.header-panel {
-  background: #34495E;
-  color: #ededed;
-  .title {
-    color: #eeeeee;
-    font-size: 1.3 * $base-font-size;
-  }
-}
-
-.footer {
-  background: #2C3E50;
-  color: #e4e4e4;
-  padding: $spacing-unit;
-  border-top-width: 2px;
-  border-color: #545454;
-  border-top-style: solid;
-  text-align: center;
-}
-
-.footer-container {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  text-align: left;
-  .title {
-    font-size: 1.5 * $base-font-size;
-    color: inherit;
-  }
-  .subtitle {
-    font-size: 1.2 * $base-font-size;
-    color: inherit;
-  }
-  .inline {
-    display: inline-block;
-  }
-  .first {
-    padding: $spacing-unit;
-    text-align: center;
-  }
-  .medium {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-  }
-  .last {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    margin-right: $spacing-unit;
-    .center {
-      display: flex;
-      flex-direction: row;
-      align-self: center;
-      align-items: center;
-      justify-content: center;
-      margin-top: $spacing-unit/2;
-    }
-  }
-
-  .icon-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 30px;
-    border: 2px #eeeeee solid;
-    width: 60px;
-    height: 60px;
-    margin: 6px;
-  }
-}
-
-
 .row {
   display: flex;
   flex-direction: row;
+}
+
+.center {
+  align-items: center;
 }
 
 .column {
@@ -323,13 +32,26 @@ body {
   flex-direction: column;
 }
 
-
-.home-page {
+.fill {
   display: flex;
   flex: 1;
-  background-size: cover;
-  background-image: url("/assets/images/cover.jpg");
-  min-height: 320px;
+}
+
+.fillW {
+  width: 100%;
+}
+
+.fillH {
+  height: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.space {
+  padding: 10px;
 }
 
 .mainloading {
@@ -338,8 +60,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #e8e8e8;
-  background-color: #304d48;
+  color: #f1f1f1;
+  background-color: #25252a;
   font-size: 1.2em;
   text-align: center;
 }
@@ -352,4 +74,19 @@ body {
   padding: 1em;
   // border: 1px solid rgba(34,36,38,.15);
   border-radius: 2px;
+}
+
+.link-card {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 10px;
+  align-self: flex-start;
+  max-width: 400px;
+  min-height: 200px;
+}
+
+img.emoji.ui.centered.rounded.bordered.image {
+  display: inline;
+  border: 0px;
 }

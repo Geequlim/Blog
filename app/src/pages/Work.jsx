@@ -52,7 +52,7 @@ class Work extends React.Component {
               {this.renderInfo()}
             </div>
             {this.state.detail?(
-              <div className="MarkdownArea">
+              <div className="column center">
                 <MarkdownArea>{this.state.detail}</MarkdownArea>
               </div>
             ): null}

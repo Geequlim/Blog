@@ -1,0 +1,25 @@
+@import "base";
+
+.header-panel {
+  background: $framework_bg_color;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.19);
+  .mobile-title-bar {
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .title {
+    color: #383838;
+    font-size: 1.4 * $base-font-size;
+  }
+  .logo {
+    height: 30px;
+    border: 0px solid rgba(0,0,0,.1);
+  }
+  img.ui.bordered.image {
+    border: 0px solid rgba(0,0,0,.1);
+  }
+}
