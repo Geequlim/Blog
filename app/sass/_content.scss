@@ -23,10 +23,10 @@
     align-items: center;
     width: 100%;
     @media only screen and (min-width: 768px){
-      max-width: 95%;
+      max-width: 86%;
     }
     @media only screen and (min-width: 1280px){
-      max-width: 80%;
+      max-width: 66%;
     }
     .tag-label {
       margin: 3px;
@@ -51,8 +51,14 @@
         @media (min-width: $desktop-min-width) {
           display: block;
           float: right;
+          min-width: 160px;
+          max-width: 220px;
+        }
+        @media (min-width: $wide-desktop-min-width) {
+          display: block;
+          float: right;
           min-width: 220px;
-          max-width: 320px;
+          max-width: 280px;
         }
       }
       .post-right-panel {
@@ -62,8 +68,14 @@
         @media (min-width: 769px) {
           display: block;
           float: right;
+          min-width: 160px;
+          max-width: 220px;
+        }
+        @media (min-width: $wide-desktop-min-width) {
+          display: block;
+          float: right;
           min-width: 220px;
-          max-width: 320px;
+          max-width: 280px;
         }
       }
     }

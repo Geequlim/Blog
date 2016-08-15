@@ -1,6 +1,5 @@
 import React from 'react';
 import Disqus from '../components/Disqus.jsx';
-// import RichTextEditor from '../components/RichTextEditor.jsx';
 import MarkdownArea from '../components/MarkdownArea.jsx';
 import Loader from '../components/LoadingFlag.jsx';
 import app from '../app';
