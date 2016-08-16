@@ -1,7 +1,7 @@
 import React from 'react';
-import MarkdownArea from '../components/MarkdownArea.jsx';
-import utils from '../../utils';
 import {ModalContainer, ModalDialog} from 'react-modal-dialog';
+import MarkdownArea from '../components/MarkdownArea.jsx';
+// import utils from '../../utils';
 import helpText from 'raw!./RichEditorHelp.md';
 
 const insertStr = (str, index, value) => {
@@ -29,9 +29,9 @@ class RichTextEditor extends React.Component {
       uploading: false,
       curTextUrl: null
     };
-    this.editorId = "editor" + (new Date).getTime() + utils.getRandomInt(0, 9999999);
-    this.previewerId = "previewer" + (new Date).getTime() + utils.getRandomInt(0, 9999999);
-    this.fileUploadId = "file"+ (new Date).getTime() + utils.getRandomInt(0, 9999999);
+    this.editorId = "editor";
+    this.previewerId = "previewer";
+    // this.fileUploadId = "file"+ (new Date).getTime() + utils.getRandomInt(0, 9999999);
   }
 
   componentDidUpdate() {
@@ -134,17 +134,17 @@ class RichTextEditor extends React.Component {
   }
 
   uploadFile(){
-    const self = this;
-    self.setState({curImageUrl:null, uploading:true});
-    const fileUploadControl = $(`#${this.fileUploadId}`)[0];
-    utils.uploadFile(fileUploadControl).then((url) => {
-      console.log("上传成功", url);
-      self.refs.inputImageUrl.value = url;
-      self.setState({curImageUrl:url, uploading:false});
-    }).catch((err) => {
-      self.setState({curImageUrl:null, uploading:false});
-      console.log("上传失败",err);
-    });
+    // const self = this;
+    // self.setState({curImageUrl:null, uploading:true});
+    // const fileUploadControl = $(`#${this.fileUploadId}`)[0];
+    // utils.uploadFile(fileUploadControl).then((url) => {
+    //   console.log("上传成功", url);
+    //   self.refs.inputImageUrl.value = url;
+    //   self.setState({curImageUrl:url, uploading:false});
+    // }).catch((err) => {
+    //   self.setState({curImageUrl:null, uploading:false});
+    //   console.log("上传失败",err);
+    // });
   }
 
   render() {
@@ -160,14 +160,7 @@ class RichTextEditor extends React.Component {
                 <div className="column center">
                   <h2>插入图片</h2>
                   <div className={`ui ${this.state.uploading?"loading":""} form column`}>
-                    <div className="ui action input">
-                      <input type="file" id={this.fileUploadId} placeholder="选择图片"/>
-                      <button
-                        className="ui teal button" onClick={this.uploadFile.bind(this)}>
-                        上传
-                      </button>
-                    </div>
-                    <div style={{maxWidth:"78%", marginTop:10}} className="ui labeled input">
+                    <div style={{maxWidth:"70%", marginTop:10}} className="ui labeled input">
                       <div className="ui label">图片链接</div>
                       <input
                         ref="inputImageUrl"
