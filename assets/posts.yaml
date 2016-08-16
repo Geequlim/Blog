@@ -1,3 +1,13 @@
+- title: Scons使用指南
+  publishAt: 2016-08-16 16:50:00
+  file: /assets/posts/学习笔记/Scons使用指南.md
+  categories:
+    - 技术
+    - C++
+  tags:
+    - 构建系统
+    - C/C++
+
 - title: 【转】Git 版本管理：Git Flow 模型
   publishAt: 2016-05-02T10:35:55.575Z
   file: /assets/posts/【转】Git 版本管理：Git Flow 模型.md
