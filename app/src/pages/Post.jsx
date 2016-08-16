@@ -89,7 +89,7 @@ class Post extends React.Component {
         <div className="post-right-panel">
           <PostTagPanel/>
         </div>
-        <div className="posts-list">
+        <div className="column fill">
           <div className="post-content well">
               <h1>{this.post.title}</h1>
               <div className="post-item-header-tags">
