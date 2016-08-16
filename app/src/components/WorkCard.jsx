@@ -9,7 +9,11 @@ class WorkCard extends React.Component {
   }
 
   render() {
-    let workid = encodeURI(encodeURI(this.props.title));
+    let workid = ""
+    if(this.props.id && this.props.id.length > 0)
+      workid = this.props.id
+    else
+      workid = encodeURI(encodeURI(this.props.title));
     return (
       <Link className="card column" to={`/work/${workid}`}>
         <div className="imgbg fill">
