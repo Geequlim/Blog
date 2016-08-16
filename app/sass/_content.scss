@@ -9,7 +9,10 @@
     flex: 1;
     flex-direction: row;
     justify-content: space-around;
-    padding: $spacing-unit;
+    // padding: $spacing-unit;
+    // @media only screen and (max-width: 767px){
+    //   padding: 0px;
+    // }
   }
   .pagination {
     display: flex;
@@ -129,7 +132,7 @@
 
   .works {
     display: flex;
-    // flex:1;
+    padding: 1em;
     width: 100%;
     flex-direction: row;
     flex-wrap: wrap;
