@@ -8,6 +8,7 @@ import Disqus from '../components/Disqus.jsx';
 import app from '../app';
 import Loader from '../components/LoadingFlag.jsx';
 import service from '../service';
+import $ from 'jquery';
 
 class Post extends React.Component {
   constructor(props) {
@@ -36,6 +37,16 @@ class Post extends React.Component {
     }
     return post;
   }
+
+  genOutline(outlines) {
+    const outline = $("#page-outline");
+    outline.append(`<a class="H1" href="#${this.post.title}">${this.post.title}</a>`)
+    for (let i = 0; i < outlines.length; i++) {
+      const h = outlines[i]
+      outline.append(`<a class="${h.get(0).nodeName}" href="#${h.text()}">${h.text()}</a>`)
+    }
+  }
+
   render() {
     if (this.notFound) {
       return <div className="ui red message">{app.string.postNotFound}</div>;
@@ -85,13 +96,13 @@ class Post extends React.Component {
 
     document.title = this.post.title;
     return (
-      <div className="posts-page">
-        <div className="post-right-panel">
-          <PostTagPanel/>
+      <div id="posts-page" className="posts-page">
+        <div className="post-right-panel column fill">
+          <div className="outline panel" id="page-outline"></div>
         </div>
         <div className="column fill">
           <div className="post-content well">
-              <h1>{this.post.title}</h1>
+              <h1 id={this.post.title}>{this.post.title}</h1>
               <div className="post-item-header-tags">
                 <p>
                   <span className="ui label">
@@ -104,7 +115,9 @@ class Post extends React.Component {
             <div className="MarkdownArea">
               {
                 this.state.content ? (
-                  <MarkdownArea>{this.state.content}</MarkdownArea>
+                  <MarkdownArea onOutlineLoaded={this.genOutline.bind(this)}>
+                    {this.state.content}
+                  </MarkdownArea>
                 ) : <Loader size="big">{app.string.loadingPostContent}</Loader>
               }
             </div>

@@ -15,7 +15,10 @@ import $ from 'jquery';
 class MarkdownArea extends React.Component {
   constructor(props) {
     super(props);
-    this.state ={content: props.children ? this._getParsedText(props.children) : ''}
+    this.state ={
+      content: props.children ? this._getParsedText(props.children) : '',
+      outlines: []
+    }
   }
 
   _getParsedText(text=""){
@@ -53,8 +56,24 @@ class MarkdownArea extends React.Component {
     $('.markediv').each((i, d) => $(d).emoji());
   }
 
+  // 加载outline
+  _loadOutline() {
+    const elements = $(".markediv").find("*")
+    for (let i = 0; i < elements.length; i++) {
+      const e = $(elements[i]);
+      if(["H1","H2","H3","H4","H5","H6"].indexOf(elements[i].tagName) != -1) {
+        e.attr("id",e.text());
+        this.state.outlines.push(e);
+      }
+    }
+    if( this.props.onOutlineLoaded ) {
+      this.props.onOutlineLoaded(this.state.outlines);
+    }
+  }
+
   componentDidMount() {
     this._loadStyle();
+    this._loadOutline();
   }
 
   render() {
