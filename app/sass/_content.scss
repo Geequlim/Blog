@@ -69,7 +69,7 @@
         margin: $spacing-unit;
         text-align: center;
         display: none;
-        @media (min-width: 769px) {
+        @media (min-width: 960px) {
           display: block;
           float: right;
           min-width: 160px;
@@ -80,6 +80,24 @@
           float: right;
           min-width: 220px;
           max-width: 280px;
+        }
+      }
+      .outline {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        align-self: center;
+        text-align: left;
+        padding: 10px;
+        margin-right: 15px;
+        .H1 { font-size: $base-font-size + 6px}
+        .H2 { margin-left: 8px;  font-size: $base-font-size + 5px}
+        .H3 { margin-left: 16px; font-size: $base-font-size + 3px}
+        .H4 { margin-left: 24px; font-size: $base-font-size + 1px}
+        .H5 { margin-left: 32px; font-size: $base-font-size }
+        .H6 { margin-left: 40px; font-size: $base-font-size - 2px}
+        * {
+          margin-top: 3px;
         }
       }
     }
