@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
-
+import app from '../app';
 
 class WorkCard extends React.Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class WorkCard extends React.Component {
     if(this.props.id && this.props.id.length > 0)
       workid = this.props.id
     else
-      workid = encodeURI(encodeURI(this.props.title));
+      workid = app.encodeURI(this.props.title);
     return (
       <Link className="card column" to={`/work/${workid}`}>
         <div className="imgbg fill">

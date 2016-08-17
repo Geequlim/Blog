@@ -13,7 +13,7 @@ class Work extends React.Component {
     if( workid && app.works && app.works.length > 0 ) {
       for (let i = 0; i < app.works.length; i++) {
         let curWork = app.works[i];
-        if(encodeURI(curWork.title) == workid){
+        if(app.encodeURI(curWork.title) == workid){
           this.work = curWork;
           this.notFound = false;
           this.thread = workid;
@@ -24,6 +24,7 @@ class Work extends React.Component {
     if(this.work && this.work.file)
     {
       let self = this;
+      document.title = this.work.title;
       service.fetchText(this.work.file)
       .then((value) => self.setState({detail:value}))
       .catch((err) => console.log("Load work detail failed",err));
