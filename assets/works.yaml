@@ -12,6 +12,7 @@
     - Javascript
 
 - title: Flappy Bird
+  id: flappy-bird
   file: /assets/works/FlappyBird.md
   logo: /assets/images/works/FlappyBird.png
   status: 维护中
@@ -25,6 +26,7 @@
     - Godot
 
 - title: 漫画速递
+  id: comicexpress
   file: /assets/works/漫画速递.md
   logo: /assets/images/works/漫画速递/logo.png
   status: 维护中
@@ -41,6 +43,7 @@
     - Fairyex
 
 - title: 维加斯矿工
+  id: gold-miner-vegas
   file: /assets/works/维加斯矿工.md
   logo: /assets/images/works/维加斯矿工/logo.png
   status: 停止维护
@@ -58,6 +61,7 @@
     - Cocos2-dx
 
 - title: 语言盒子
+  id: language-box
   file: /assets/works/语言盒子.md
   logo: /assets/images/works/语言盒子/logo.png
   status: 暂停维护
@@ -72,6 +76,7 @@
     - SG2D
 
 - title: 帧动画编辑器
+  id: FAEditor
   file: /assets/works/帧动画编辑器.md
   logo: /assets/images/works/帧动画编辑器/logo.png
   status: 维护中
@@ -86,6 +91,7 @@
     - SG2D
 
 - title: 菜单编辑器
+  id: menu-designer
   file: /assets/works/菜单编辑器.md
   logo: /assets/images/works/菜单编辑器/logo.png
   status: 维护中
@@ -100,6 +106,7 @@
     - SG2D
 
 - title: 文件筛选器
+  id: file-filter
   file: /assets/works/文件筛选器.md
   logo: /assets/images/works/文件筛选器/logo.png
   status: 维护中
@@ -115,6 +122,7 @@
     - SG2D
 
 - title: 项目资源管理器
+  id: sg2d-resource-manager
   file: /assets/works/项目资源管理器.md
   logo: /assets/images/works/项目资源管理器/logo.png
   status: 维护中
@@ -130,6 +138,7 @@
     - SG2D
 
 - title: 代码转换工具
+  id: sg2d-code-converter
   file: /assets/works/代码转换工具.md
   logo: /assets/images/works/代码转换工具/logo.png
   status: 维护中
@@ -144,6 +153,7 @@
     - SG2D
 
 - title: XML格式化工具
+  id: sg2d-xml-formater
   file: /assets/works/XML格式化工具.md
   logo: /assets/images/works/XML格式化工具/logo.png
   status: 维护中
@@ -158,6 +168,7 @@
     - SG2D
 
 - title: WIFI共享工具
+  id: net-share-tool
   file: /assets/works/WIFI共享工具.md
   logo: /assets/images/works/WIFI共享工具/logo.png
   status: 维护中
@@ -171,6 +182,7 @@
     - SG2D
 
 - title: 100个白块
+  id: 100-white-blocks
   file: /assets/works/100个白块.md
   logo: /assets/images/works/100个白块/logo.png
   status: 停止维护
@@ -188,6 +200,7 @@
     - SG2D
 
 - title: 宝宝爱听
+  id: app-baby-story
   file: /assets/works/宝宝爱听.md
   logo: /assets/images/works/宝宝爱听/logo.png
   status: 停止维护
@@ -208,6 +221,7 @@
     - 骆玉滢
 
 - title: 麦酷漫画
+  id: app-maicool-comic
   file: /assets/works/麦酷漫画.md
   logo: /assets/images/works/麦酷漫画/logo.png
   status: 停止维护
@@ -225,6 +239,7 @@
     - SG2D
 
 - title: 明察秋毫
+  id: game-mingchaqiuhao
   file: /assets/works/明察秋毫.md
   logo: /assets/images/works/明察秋毫/logo.png
   status: 停止维护
@@ -238,6 +253,7 @@
     - Android
 
 - title: 阿衰全集
+  id: app-comic-as
   file: /assets/works/阿衰全集.md
   logo: /assets/images/works/阿衰全集/logo.png
   status: 维护中
@@ -252,6 +268,7 @@
     - Android
 
 - title: 词汇量测试
+  id: app-english-words-test
   file: /assets/works/词汇量测试.md
   logo: /assets/images/works/词汇量测试/logo.png
   status: 停止维护
@@ -265,6 +282,7 @@
     - Android
 
 - title: 智商测试
+  id: app-iq-test
   file: /assets/works/智商测试.md
   logo: /assets/images/works/智商测试/logo.png
   status: 停止维护

@@ -37,7 +37,7 @@ class PostItem extends React.Component {
       </span>
     );
 
-    const thread = app.encodeURI(this.props.post.title);
+    const thread = app.encodeURI(this.props.post.id);
     return (
       <div className="well">
             <Link to={`/post/${thread}`}>

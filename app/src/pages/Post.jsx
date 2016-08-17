@@ -29,7 +29,7 @@ class Post extends React.Component {
     let post = null;
     if (query && app.posts && app.posts.length) {
       app.posts.map((p) => {
-        if (app.encodeURI(p.title) === query) {
+        if (app.encodeURI(p.id) === query) {
           post = p;
         }
       });
@@ -65,7 +65,7 @@ class Post extends React.Component {
     let previous = null;
     if (curPostIndex > 0) {
       const post = app.posts[curPostIndex - 1];
-      const thread = app.encodeURI(post.title);
+      const thread = app.encodeURI(post.id);
       previous = (
         <Link to={`/post/${thread}`}>
           <p className="btn btn-raised btn-info">{post.title}→</p>
@@ -75,7 +75,7 @@ class Post extends React.Component {
     let next = null;
     if (curPostIndex >= 0 && curPostIndex < app.posts.length - 1) {
       const post = app.posts[curPostIndex + 1];
-      const thread = app.encodeURI(post.title);
+      const thread = app.encodeURI(post.id);
       next = (
         <Link to={`/post/${thread}`}>
           <p className="btn btn-raised btn-info">←{post.title}</p>

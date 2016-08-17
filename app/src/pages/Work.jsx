@@ -13,7 +13,7 @@ class Work extends React.Component {
     if( workid && app.works && app.works.length > 0 ) {
       for (let i = 0; i < app.works.length; i++) {
         let curWork = app.works[i];
-        if(app.encodeURI(curWork.title) == workid){
+        if(app.encodeURI(curWork.id) == workid){
           this.work = curWork;
           this.notFound = false;
           this.thread = workid;
