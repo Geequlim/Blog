@@ -1,3 +1,13 @@
+- title: 通过AUR搭建Android开发环境
+  id: 2016-09-14-android-ide-with-aur
+  publishAt: 2016-09-14 16:45:00
+  file: /assets/posts/android/通过AUR搭建Android开发环境.md
+  categories:
+    - 技术
+  tags:
+    - 开发环境
+    - Android
+
 - title: Scons使用指南
   id: 2016-08-16-scons-user-guide
   publishAt: 2016-08-16 16:50:00
