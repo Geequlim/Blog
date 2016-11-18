@@ -4,7 +4,7 @@
   "description": "Geequlim's blog site",
   "main": "index.js",
   "scripts": {
-    "start": "sudo node server.js"
+    "start": "node server.js"
   },
   "keywords": [
     "blog",

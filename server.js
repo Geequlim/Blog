@@ -1,7 +1,7 @@
 #!/usr/bin/node
 const express = require('express');
 const path    = require('path');
-const port    = 80;
+const port    = 2502;
 const app     = express();
 
 // For static assets

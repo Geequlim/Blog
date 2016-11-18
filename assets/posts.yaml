@@ -1,3 +1,13 @@
+- title: 我对Godot的理解
+  id: 2016-11-18-ThinkAboutGodotEngine
+  publishAt: 2016-11-18 23:32:00
+  file: /assets/posts/godot/我对Godot游戏引擎的理解.md
+  categories:
+    - 技术
+    - 游戏开发
+  tags:
+    - Godot
+
 - title: 通过AUR搭建Android开发环境
   id: 2016-09-14-android-ide-with-aur
   publishAt: 2016-09-14 16:45:00
