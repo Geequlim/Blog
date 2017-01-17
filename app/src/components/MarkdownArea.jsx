@@ -1,7 +1,27 @@
 import React from 'react';
 import marked from 'marked';
+
+const renderer = new marked.Renderer();
+const defaultCode = renderer.code;
+renderer.code = (code, language) => {
+  if (language === 'mermaid') {
+      let html = "";
+      var cb = (svgGraph) => {
+        html = `<div>${svgGraph}</div>`;
+      };
+      if(mermaid.parse(code)) {
+        mermaid.mermaidAPI.render('mermaid',code,cb);
+        while(html.length == 0)
+          continue;
+      }
+      return `<div>${html}</div>`;
+  } else {
+    return (new marked.Renderer()).code(code, language);
+  }
+};
+
 marked.setOptions({
-  renderer: new marked.Renderer(),
+  renderer,
   gfm: true,
   tables: true,
   breaks: false,
@@ -71,7 +91,13 @@ class MarkdownArea extends React.Component {
     }
   }
 
+  // 加载mermaid图标
+  _loadMermaid() {
+    mermaid.init({noteMargin: 10}, ".mermaid");
+  }
+
   componentDidMount() {
+    this._loadMermaid();
     this._loadStyle();
     this._loadOutline();
   }

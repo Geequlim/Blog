@@ -69,7 +69,7 @@
         margin: $spacing-unit;
         text-align: center;
         display: none;
-        @media (min-width: 769px) {
+        @media (min-width: 960px) {
           display: block;
           float: right;
           min-width: 160px;
@@ -106,6 +106,7 @@
         align-self: center;
         text-align: left;
         padding: 10px;
+        margin-right: 15px;
         .H1 { font-size: $base-font-size + 6px}
         .H2 { margin-left: 8px;  font-size: $base-font-size + 5px}
         .H3 { margin-left: 16px; font-size: $base-font-size + 3px}
