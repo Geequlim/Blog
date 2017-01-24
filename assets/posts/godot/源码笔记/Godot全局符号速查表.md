@@ -1,7 +1,3 @@
-
-Godot 全局符号速查表
-====
-
 本文列出Godot引擎C++代码中常见的全局符号及简要说明，通过阅读Godot 3.0源代码总结。
 
 <!-- more -->
@@ -48,22 +44,22 @@ Godot 全局符号速查表
 
 ### 函数
 
-|                                       函数 | 说明             |
-| ---------------------------------------: | :------------- |
+|                    函数                    | 说明             |
+| :--------------------------------------: | :------------- |
 | `unsigned int nearest_power_of_2(unsigned int x)` | 求最接近的更大的2的指数次幂 |
 | `template<class T> T nearest_power_of_2_templated(T x)` | 求最接近的更大的2的指数次幂 |
 | `unsigned int nearest_shift(unsigned int p_number)` | 求最接近的位移次数      |
 | `int get_shift_from_power_of_2(unsigned int p_pixel)` | 从2的指数次幂中获取位移次数 |
-|           `uint16_t BSWAP16(uint16_t x)` | 交换16位整数位顺序     |
-|           `uint32_t BSWAP32(uint32_t x)` | 交换32位整数位顺序     |
-|           `uint64_t BSWAP64(uint64_t x)` | 交换64位整数位顺序     |
+|      `uint16_t BSWAP16(uint16_t x)`      | 交换16位整数位顺序     |
+|      `uint32_t BSWAP32(uint32_t x)`      | 交换32位整数位顺序     |
+|      `uint64_t BSWAP64(uint64_t x)`      | 交换64位整数位顺序     |
 
 
 
 ### 类型
 
-| 类型                                    |      作用      | 说明                     |
-| ------------------------------------- | :----------: | ---------------------- |
+|                  类型                   |      作用      | 说明                     |
+| :-----------------------------------: | :----------: | ---------------------- |
 | `template<class T> struct Comparator` | 包装无`<`操作符的类型 | 用于比较、存放于有序容器中使用        |
-| _GlobalLock                           |     全局锁      | 通过该类型变量的栈生命周期来添加/删除全局锁 |
-| Error                                 |    错误枚举类型    | Godot错误枚举类型            |
+|              _GlobalLock              |     全局锁      | 通过该类型变量的栈生命周期来添加/删除全局锁 |
+|                 Error                 |    错误枚举类型    | Godot错误枚举类型            |
