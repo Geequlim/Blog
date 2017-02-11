@@ -47,6 +47,19 @@ graph LR
 
 #### 子图表
 子图表用于给节点归组，不会创建新的id作用域
+```mermaid
+graph TB
+  subgraph one
+    a1-->a2
+    end
+  subgraph two
+    b1-->b2
+    end
+  subgraph three
+    c1-->c2
+    end
+  c1-->a2[A2]
+```
 ```@mermaid
 graph TB
   subgraph one
@@ -80,16 +93,27 @@ graph LR
 ```
 
 此外mermaid还能定义样式变量，然后再将其应用到多个节点上。
-
+```mermaid
+graph LR
+    id1(Start)-->id2(Stop)
+    classDef className fill:#f9f,stroke:#333,stroke-width:4px;
+    class id1,id2 className;
+```
 ```@mermaid
 graph LR
     id1(Start)-->id2(Stop)
-    classDef className "fill:#f9f,stroke:#333,stroke-width:4px;"
-    class id1 className;
+    classDef className fill:#f9f,stroke:#333,stroke-width:4px;
+    class id1,id2 className;
 ```
 #### FontAwesome符号支持
 Mermaid支持在标签中使用[FontAwesome](http://fontawesome.io)提供的的图标字体。
-
+```mermaid
+graph TD
+    B["fa:fa-twitter for peace"]
+    B-->C[fa:fa-ban forbidden]
+    B-->D(fa:fa-spinner);
+    B-->E(A fa:fa-camera-retro perhaps?);
+```
 ```@mermaid
 graph TD
     B["fa:fa-twitter for peace"]

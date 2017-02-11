@@ -3,6 +3,8 @@ import {ModalContainer, ModalDialog} from 'react-modal-dialog';
 import MarkdownArea from '../components/MarkdownArea.jsx';
 // import utils from '../../utils';
 import helpText from 'raw!./RichEditorHelp.md';
+import $ from 'jquery';
+require("../emoji");
 
 const insertStr = (str, index, value) => {
   return str.substr(0, index) + value + str.substr(index);
