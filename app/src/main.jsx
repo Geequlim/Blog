@@ -11,6 +11,7 @@ import Tweets from './pages/Tweets.jsx';
 import Works from './pages/Works.jsx';
 import Work from './pages/Work.jsx';
 import MDEditor from './pages/MDEditor.jsx';
+import EyeTest from './pages/EyeTest.jsx';
 import {Router, Route, IndexRoute} from 'react-router';
 import createHistory from 'history/lib/createBrowserHistory';
 import app from './app';
@@ -66,6 +67,7 @@ class Application extends React.Component {
           <Route path="post/:thread" component={Post}></Route>
           <Route path="works" component={Works}></Route>
           <Route path="work/mdeditor" component={MDEditor}></Route>
+          <Route path="work/eyetest" component={EyeTest}></Route>
           <Route path="work/:workid" component={Work}></Route>
           <Route path="tweets" component={Tweets}></Route>
           <Route path="search" component={Search}></Route>
