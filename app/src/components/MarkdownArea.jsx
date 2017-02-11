@@ -4,7 +4,7 @@ import marked from 'marked';
 const renderer = new marked.Renderer();
 const defaultCode = renderer.code;
 renderer.code = (code, language) => {
-  if (language === 'mermaid') {
+  if (language === '@mermaid') {
       let html = "";
       var cb = (svgGraph) => {
         html = `<div>${svgGraph}</div>`;
@@ -31,6 +31,7 @@ marked.setOptions({
   smartypants: true
 });
 import $ from 'jquery';
+require("../emoji");
 
 class MarkdownArea extends React.Component {
   constructor(props) {

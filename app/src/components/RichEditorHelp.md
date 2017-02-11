@@ -27,6 +27,25 @@
 关于emoji标签符号名称，可以[在这里找到](http://unicode.org/emoji/charts/full-emoji-list.html)。
 <!-- endclass -->
 
+<!-- class="panel panel-info" -->
+<!-- class="panel-heading" -->
+<!-- class="panel-title" -->
+#### Mermaid图表支持
+<!-- endclass -->
+<!-- endclass -->
+<!-- class="panel-body" -->
+你可以在这个编辑区中使用Mermaid语言绘制适量图表，例如
+```mermaid
+```
+
+这段代码将生成下面这样的图表
+
+```mermaid
+```
+</script>
+
+<!-- endclass -->
+<!-- endclass -->
 
 <!-- class="panel panel-default" -->
 <!-- class="panel-heading" -->
