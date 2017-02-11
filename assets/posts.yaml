@@ -1,3 +1,12 @@
+- title: Mermaid简介
+  id: 2017-02-11-MermaidIntro
+  publishAt: 2017-02-11 17:40:00
+  file: /assets/posts/Mermaid绘图语法简介.md
+  categories:
+    - 技术
+  tags:
+    - 文档设计
+
 - title: Godot全局符号速查表
   id: 2017-01-24-GlobalsOfGodotCpp
   publishAt: 2017-01-24 10:20:00
