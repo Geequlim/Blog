@@ -1,3 +1,16 @@
+- title: 视力测试
+  id: eyetest
+  logo: /assets/images/works/EyeTest/eyetest.jpg
+  status: 维护中
+  time: 2017年3月
+  platforms:
+    - Web
+  categories:
+    - Web
+  frameworks:
+    - React
+    - Javascript
+
 - title: Markdown编辑器
   id: mdeditor
   logo: /assets/images/works/MarkdownEditor/markdown.png
