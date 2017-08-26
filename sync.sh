@@ -1,1 +1,1 @@
-rsync -av assets server.js index.html bandwagonghost:servers/web/blog
+rsync -av assets server.js start.sh index.html bandwagon:servers/web/blog
