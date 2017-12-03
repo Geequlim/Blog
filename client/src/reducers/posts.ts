@@ -24,11 +24,11 @@ export default handleActions < Community.PostStoreState, Community.Post > ({
 
   [Actions.EDIT_POST]: (state, action) => {
     return state.map(post => {
-      return post.uid === action.payload.uid ? { ...post, ...(action.payload) } : post;
+      return post.object_id === action.payload.object_id ? { ...post, ...(action.payload) } : post;
     });
   },
 
   [Actions.DELETE_POST]: (state, action) => {
-    return state.filter(post => post.uid != action.payload.uid);
+    return state.filter(post => post.object_id != action.payload.object_id);
   }
 }, initialState);

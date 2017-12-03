@@ -4,6 +4,7 @@
 import os, json, yaml
 from datetime import datetime
 from flask import request, Flask
+from flask_cors import CORS
 from . import database as db
 from utils import hash256, jsonify_respose
 
@@ -14,6 +15,7 @@ PERMISSION_MASTER   = 1 << 3    # 管理员权限
 
 # Flask 应用对象
 application = Flask(__name__)
+CORS(application)
 
 # 加载权限用户组配置
 config = yaml.load(open('config.yaml'))

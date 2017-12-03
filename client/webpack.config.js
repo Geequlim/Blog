@@ -50,6 +50,11 @@ module.exports = {
         test: /\.(md|txt)$/,
         use: 'raw-loader'
       },
+      {
+        test: /\.yaml$/,
+        include: Path.resolve('data'),
+        loader: 'yaml',
+      },
       // css
       {
         test: /\.css$/,
