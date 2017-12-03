@@ -45,6 +45,10 @@ module.exports = {
             'awesome-typescript-loader',
           ]
       },
+      {
+        test: /\.(md|txt)$/,
+        use: 'raw-loader'
+      },
       // css
       {
         test: /\.css$/,
