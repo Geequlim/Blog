@@ -14,7 +14,8 @@ const externals_libs = {
   'react-dom':  'ReactDOM',
   'react-redux':  'ReactRedux',
   'react-router-dom' : 'ReactRouterDOM',
-  'antd':       'antd'
+  'antd':       'antd',
+  'marked':       'marked',
 };
 
 module.exports = {
@@ -100,8 +101,8 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       {
-        from : Path.join(__dirname, 'src/server.js'),
-        to : Path.join(__dirname, 'dist/server.js'),
+        from : Path.join(__dirname, 'src/start.js'),
+        to : Path.join(__dirname, 'dist/start.js'),
       }
     ])
   ],

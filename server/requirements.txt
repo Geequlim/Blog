@@ -1,0 +1,10 @@
+html5lib
+pyopenssl
+ndg-httpsclient
+pyasn1
+requests[security]
+beautifulsoup4
+peewee
+flask
+python-dateutil
+PyYAML

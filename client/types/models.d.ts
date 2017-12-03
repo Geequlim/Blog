@@ -48,7 +48,7 @@ declare namespace Community {
   /** 评论 */
   interface Comment extends ServerData {
     author: User|UID;
-    post: Post|UID;
+    target: Post|UID;
     content: string;
   }
 
