@@ -4,4 +4,4 @@ import Server from "./server";
 export const config = require("json-loader!yaml-loader!../../config.yaml");
 
 /** 服务器协议 */
-export const server = new Server(config.apiUrl, config.apiKey);
+export const server = new Server(config.server.apiUrl, config.server.apiKey);

@@ -1,17 +1,3 @@
-/** TodoMVC 测试模块 */
-declare namespace Todos {
-
-    interface TodoItemData {
-        id ? : TodoItemId;
-        text ? : string;
-        completed ? : boolean;
-    }
-
-    type TodoItemId = number;
-    type TodoFilterType = 'SHOW_ALL' | 'SHOW_ACTIVE' | 'SHOW_COMPLETED';
-    type TodoStoreState = TodoItemData[];
-}
-
 /** 社区模块 */
 declare namespace Community {
 
