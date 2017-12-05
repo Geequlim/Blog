@@ -7,7 +7,7 @@ export namespace NotFound {
   export interface State {}
 }
 
-export default class Home extends React.Component < NotFound.Props, NotFound.State > {
+export default class NotFound extends React.Component < NotFound.Props, NotFound.State > {
   render() {
     return (
       <div>

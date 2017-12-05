@@ -14,7 +14,8 @@ export enum QueryType {
 
 /** 查询类型 */
 export type Query = PostQuery | UserQuery | CommentQuery;
-
+/** 模型类型 */
+export type Model = Community.Post | Community.Comment | Community.User;
 /**
  * 服务器错误响应结构
  *
@@ -34,7 +35,7 @@ export interface ErrorResponse {
  * @interface QueryResult
  */
 export interface QueryResult {
-    data: Community.Model[];
+    data: Model[];
     total: number;
     page: number;
     page_size: number;

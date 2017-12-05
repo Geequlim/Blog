@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Tabs, Input} from 'antd';
 const TabPane = Tabs.TabPane;
 const TextArea = Input.TextArea;
-import MarkdownArea from "./MarkdownArea";
+import MarkdownArea from "./markdown_area";
 
 export const TAB_EDIT = "TAB_EDIT";
 export const TAB_PREVIEW = "TAB_PREVIEW";

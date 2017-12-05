@@ -5,11 +5,15 @@ import { Provider } from 'react-redux';
 import { Router, Route, Switch} from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { configureStore } from './store';
-import Home from './views/pages/home';
-import NotFound from './views/pages/NotFound';
-import Header from './views/components/Header';
-import Footer from './views/components/Footer';
 import { BackTop, Icon } from 'antd';
+
+import Home from './views/pages/home';
+import NotFound from './views/pages/not_found';
+import Header from './views/components/header';
+import Footer from './views/components/footer';
+import Post from './views/pages/post';
+import Posts from './views/pages/posts';
+import User from './views/pages/user';
 
 import * as styles from "./css/main.css";
 
@@ -24,6 +28,9 @@ ReactDOM.render(
         <div className={styles.body}>
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/post/:id" component={Post} />
+            <Route exact path="/posts" component={Posts} />
+            <Route exact path="/user/:id" component={User} />
             <Route path="*" component={NotFound}/>
           </Switch>
         </div>

@@ -40,6 +40,12 @@ export default class Server {
                 if (!ret || ('error' in ret && 'code' in ret)) {
                     throw ret;
                 }
+                for(let key of Object.keys(ret)) {
+                    const value: string = ret[key];
+                    if(typeof(value) == 'string' && ((value.startsWith('[') && value.endsWith("]")) || (value.startsWith("{") && value.endsWith("}")))) {
+                        ret[key] = JSON.parse(value);
+                    }
+                }
             } else {
                 throw {error: "Invalid content type", code: -1, url};
             }

@@ -49,6 +49,7 @@
     "antd": "^2.13.10",
     "classnames": "^2.2.5",
     "marked": "^0.3.7",
+    "query-string": "^5.0.1",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "react-redux": "^5.0.6",

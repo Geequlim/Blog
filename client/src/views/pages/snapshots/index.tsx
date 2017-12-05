@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Timeline } from 'antd';
-import MarkdownArea from '../../components/Markdown/MarkdownArea';
+import MarkdownArea from '../../components/markdown/markdown_area';
 
 export namespace Snapshots {
   export interface Props extends React.Props < void > {
