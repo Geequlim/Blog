@@ -1,16 +1,19 @@
 /** 数据模型类型 */
 export enum ModelType {
     User = "user",
-        Post = "post",
-        Comment = "comment",
+    Post = "post",
+    Comment = "comment",
 }
 
 /** 条件查询类型 */
 export enum QueryType {
     User = "users",
-        Post = "posts",
-        Comment = "comments",
+    Post = "posts",
+    Comment = "comments",
 }
+
+/** 查询类型 */
+export type Query = PostQuery | UserQuery | CommentQuery;
 
 /**
  * 服务器错误响应结构
@@ -20,8 +23,8 @@ export enum QueryType {
  */
 export interface ErrorResponse {
     code: number,
-        error: string,
-        url: string
+    error: string,
+    url: string
 }
 
 /**
@@ -40,7 +43,7 @@ export interface QueryResult {
 }
 
 /** 查询器 */
-export interface Query {
+export interface QueryBase {
     model: QueryType;
     page ? : number;
     page_size ? : number;
@@ -48,20 +51,20 @@ export interface Query {
 }
 
 /** 文章查询器 */
-export interface PostQuery extends Query {
+export interface PostQuery extends QueryBase {
     author ? : string;
     tag ? : string;
     title ? : string;
 }
 
 /** 评论查询器 */
-export interface CommentQuery extends Query {
+export interface CommentQuery extends QueryBase {
     author ? : string;
     target ? : string;
 }
 
 /** 用户查询器 */
-export interface UserQuery extends Query {}
+export interface UserQuery extends QueryBase {}
 
 
 /**

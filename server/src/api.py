@@ -72,10 +72,10 @@ def resolve_query_result(table, query, page, pageSize):
         query: 查询器
     '''
     models = []
-    for m in qr.order_by(table.updated_at.desc()).paginate(page, pageSize):
+    for m in query.order_by(table.updated_at.desc()).paginate(page, pageSize):
         models.append(api.db.model_to_dict(m))
     if len(models):
-        total = qr.count()
+        total = query.count()
         return jsonify_respose({
             "data": models,
             "total":  total,
@@ -128,7 +128,7 @@ def get_posts():
 
 # ================================= 评论 =======================================
 @application.route('/api/v1/comments', methods=['GET'])
-def get_posts():
+def get_comments():
     '''查询评论
         page: 页码
         page_size: 每页数据长度
@@ -150,7 +150,7 @@ def get_posts():
 
 # ================================= 用户 =======================================
 @application.route('/api/v1/users', methods=['GET'])
-def get_posts():
+def get_users():
     '''查询用户
         page: 页码
         page_size: 每页数据长度

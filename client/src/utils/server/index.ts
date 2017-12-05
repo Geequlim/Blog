@@ -74,12 +74,13 @@ export default class Server {
      * @memberof Server
      */
     public async query_model(query : types.Query) : Promise <types.QueryResult> {
-        let url = "";
+        let params = "";
         for (let key of Object.keys(query)) {
-          url += url.length ? "&" : "?";
-          url += `${key}=${query[key]}`;
+            if(key === 'model') continue;
+            params += params.length ? "&" : "?";
+            params += `${key}=${query[key]}`;
         }
-        const result : types.QueryResult = await this.fetch_json(url);
+        const result : types.QueryResult = await this.fetch_json(`${query.model}${params}`);
         return result;
     }
 };

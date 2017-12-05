@@ -55,7 +55,7 @@ def query_users(keyword=''):
     '''
     q = User.select()
     if len(keyword):
-        q = q.where(Comment.name.contains(keyword)|Comment.nick.contains(keyword))
+        q = q.where(User.name.contains(keyword)|User.nick.contains(keyword))
     else:
         # TODO: 其他用户查询条件
         pass
@@ -93,14 +93,13 @@ def query_posts(title='', author='', tag='', keyword=''):
     q = Post.select()
     if len(keyword):
         q = q.where(Post.title.contains(keyword)|Post.tags.contains(keyword)|Post.content.contains(keyword))
-    else:
-        if len(title):
-            q = q.where(Post.title.contains(title))
-        if len(author):
-            # FIXME: 通过作者发表
-            q = q.where(Post.author.contains(author))
-        if len(tag):
-            q = q.where(Post.tags.contains(tag))
+    if len(title):
+        q = q.where(Post.title.contains(title))
+    if len(author):
+        # FIXME: 通过作者发表
+        q = q.where(Post.author.contains(author))
+    if len(tag):
+        q = q.where(Post.tags.contains(tag))
     return q
 
 # ================================= 评论 =======================================
@@ -130,10 +129,9 @@ def query_comments(target='', author='', keyword=''):
     q = Comment.select()
     if len(keyword):
         q = q.where(Comment.content.contains(keyword))
-    else:
-        if len(target):
-            q = q.where(Comment.target == target)
-        if len(author):
-            # FIXME: 通过作者发表
-            q = q.where(Comment.author.contains(author))
+    if len(target):
+        q = q.where(Comment.target == target)
+    if len(author):
+        # FIXME: 通过作者发表
+        q = q.where(Comment.author.contains(author))
     return q
