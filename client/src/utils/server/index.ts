@@ -65,4 +65,21 @@ export default class Server {
         }
         return model;
     }
+
+    /**
+     * 查询数据模型
+     *
+     * @param {types.Query} query 查询器
+     * @returns {Promise<types.QueryResult>} 查询结果
+     * @memberof Server
+     */
+    public async query_model(query : types.Query) : Promise <types.QueryResult> {
+        let url = "";
+        for (let key of Object.keys(query)) {
+          url += url.length ? "&" : "?";
+          url += `${key}=${query[key]}`;
+        }
+        const result : types.QueryResult = await this.fetch_json(url);
+        return result;
+    }
 };
