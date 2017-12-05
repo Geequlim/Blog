@@ -1,6 +1,7 @@
 import peewee
 from .core.database import BaseModel, LARGE_TEXT_LENGTH, DBServer
 
+# ============================== 在线配置 =======================================
 class Config(BaseModel):
     '''数据表基类'''
     key   = peewee.CharField()
@@ -21,8 +22,10 @@ def get_config(key):
         return q.get()
     return None
 
+
+# ================================= 用户 =======================================
 class User(BaseModel):
-    '''漫画基础信息'''
+    '''用户基础信息'''
     name     = peewee.CharField(default    = "")
     nick     = peewee.CharField(default    = "")
     avatar   = peewee.CharField(default    = "")
@@ -43,6 +46,22 @@ class User(BaseModel):
             elif key == 'actived': self.actived = value
         return self
 
+def query_users(keyword=''):
+    '''
+    查询用户，参数留空保留该类所有用户
+    author: 文章作者
+    keyword: 关键字
+    target: 目标
+    '''
+    q = User.select()
+    if len(keyword):
+        q = q.where(Comment.name.contains(keyword)|Comment.nick.contains(keyword))
+    else:
+        # TODO: 其他用户查询条件
+        pass
+    return q
+
+# ================================= 文章 =======================================
 class Post(BaseModel):
     '''文章基础信息'''
     author   = peewee.CharField(default = "")
@@ -63,8 +82,30 @@ class Post(BaseModel):
             elif key == 'comments': self.comments = value
         return self
 
+def query_posts(title='', author='', tag='', keyword=''):
+    '''
+    查询文章，参数留空保留该类所有文章
+    title: 文章标题
+    author: 文章作者
+    tag: 标签
+    keyword: 关键字
+    '''
+    q = Post.select()
+    if len(keyword):
+        q = q.where(Post.title.contains(keyword)|Post.tags.contains(keyword)|Post.content.contains(keyword))
+    else:
+        if len(title):
+            q = q.where(Post.title.contains(title))
+        if len(author):
+            # FIXME: 通过作者发表
+            q = q.where(Post.author.contains(author))
+        if len(tag):
+            q = q.where(Post.tags.contains(tag))
+    return q
+
+# ================================= 评论 =======================================
 class Comment(BaseModel):
-    '''漫画基础信息'''
+    '''评论信息'''
     author   = peewee.CharField(default = "")
     target   = peewee.CharField(default = "")
     content  = peewee.CharField(default = "")
@@ -78,3 +119,21 @@ class Comment(BaseModel):
             elif key == 'target': self.target = value
             elif key == 'content': self.content = value
         return self
+
+def query_comments(target='', author='', keyword=''):
+    '''
+    查询评论，参数留空保留该类所有评论
+    author: 文章作者
+    keyword: 关键字
+    target: 目标
+    '''
+    q = Comment.select()
+    if len(keyword):
+        q = q.where(Comment.content.contains(keyword))
+    else:
+        if len(target):
+            q = q.where(Comment.target == target)
+        if len(author):
+            # FIXME: 通过作者发表
+            q = q.where(Comment.author.contains(author))
+    return q

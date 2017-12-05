@@ -17,6 +17,8 @@ api = API([
     database.Comment
 ])
 
+# ============================== 通用模板 =======================================
+
 @application.route('/api/v1/function/<func>', methods=['GET'])
 def call_func(func):
     '''执行动作'''
@@ -25,7 +27,6 @@ def call_func(func):
     if func == "time":
         return datetime.now().isoformat()
     return not_found(None)
-
 
 @application.route('/api/v1/<tableName>/<uid>', methods=['GET', 'POST'])
 def get_object(tableName, uid):
@@ -63,7 +64,28 @@ def get_object(tableName, uid):
             obj.load_dict(data).save()
     return jsonify_respose(api.db.model_to_dict(obj)) if obj else not_found(None)
 
+def resolve_query_result(table, query, page, pageSize):
+    '''解析查询结果用于返回
+        page: 当前页
+        pageSize: 每页最大条目数
+        table: 查询的模型类型
+        query: 查询器
+    '''
+    models = []
+    for m in qr.order_by(table.updated_at.desc()).paginate(page, pageSize):
+        models.append(api.db.model_to_dict(m))
+    if len(models):
+        total = qr.count()
+        return jsonify_respose({
+            "data": models,
+            "total":  total,
+            "page": page,
+            "page_size": pageSize,
+            "page_count": int(total / pageSize) + (1 if total % pageSize else 0)
+        })
+    return not_found(None)
 
+# ============================== 在线配置 =======================================
 @application.route('/api/v1/config/<key>', methods=['GET', 'POST'])
 def get_config(key):
     '''在线配置存取'''
@@ -78,3 +100,68 @@ def get_config(key):
         obj.value = json.dumps(request.json, ensure_ascii=False)
         obj.save()
     return jsonify_respose(obj.value) if obj else not_found(None)
+
+
+# ================================= 文章 =======================================
+@application.route('/api/v1/posts', methods=['GET'])
+def get_posts():
+    '''查询文章
+        page: 页码
+        page_size: 每页数据长度
+        title: 名称筛选
+        author: 作者筛选
+        tag: 标签（分类）筛选
+        keyword: 关键字筛选
+    '''
+    if not check_permission(request, PERMISSION_READ): return no_permission(None)
+    return resolve_query_result(
+        database.Post,
+        database.query_posts(
+            title=str(request.args.get('title', '')),
+            author=str(request.args.get('author', '')),
+            tag=str(request.args.get('tag', '')),
+            keyword=str(request.args.get('keyword', '')),
+        ),
+        int(request.args.get('page', 1)),
+        int(request.args.get('page_size', 20))
+    )
+
+# ================================= 评论 =======================================
+@application.route('/api/v1/comments', methods=['GET'])
+def get_posts():
+    '''查询评论
+        page: 页码
+        page_size: 每页数据长度
+        target: 评论目标
+        author: 评论作者
+        keyword: 关键字筛选
+    '''
+    if not check_permission(request, PERMISSION_READ): return no_permission(None)
+    return resolve_query_result(
+        database.Comment,
+        database.query_comments(
+            target=str(request.args.get('target', '')),
+            author=str(request.args.get('author', '')),
+            keyword=str(request.args.get('keyword', '')),
+        ),
+        int(request.args.get('page', 1)),
+        int(request.args.get('page_size', 20))
+    )
+
+# ================================= 用户 =======================================
+@application.route('/api/v1/users', methods=['GET'])
+def get_posts():
+    '''查询用户
+        page: 页码
+        page_size: 每页数据长度
+        keyword: 关键字筛选
+    '''
+    if not check_permission(request, PERMISSION_READ): return no_permission(None)
+    return resolve_query_result(
+        database.User,
+        database.query_users(
+            keyword=str(request.args.get('keyword', '')),
+        ),
+        int(request.args.get('page', 1)),
+        int(request.args.get('page_size', 20))
+    )
