@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Alert, Spin, Tag } from 'antd';
+import { Alert, Spin, Tag, Card } from 'antd';
 import MarkdownArea from '../../components/markdown/markdown_area';
 import {CoreTypes, server} from '../../../utils/global';
-const styles = require("./style.css");
+const styles = require("../../../css/main.css");
 
 
 export namespace Post {
@@ -56,21 +56,21 @@ export default class Post extends React.Component < Post.Props, Post.State > {
   }
 
   renderPost(post: Community.Post) {
-      return (
-          <div>
-              <h1>{post.title}</h1>
-              <div>
-                  {post.tags.map(tag => <Tag color="red">{tag}</Tag> )}
-                  <Tag style={{borderStyle: 'dashed' }}>{post.created_at.toDateString()}</Tag>
-              </div>
-              <MarkdownArea markdown={post.content} />
-          </div>
-      );
+        return (
+            <div className={styles.flex_column_fill} style={{padding: '1em'}}>
+                <div>
+                        <h1>{post.title}</h1>
+                        {post.tags.map(tag => <Tag color="red">{tag}</Tag> )}
+                        <Tag style={{borderStyle: 'dashed' }}>{post.created_at.toDateString()}</Tag>
+                </div>
+                <MarkdownArea markdown={post.content} />
+            </div>
+        );
   }
 
   render() {
     return (
-      <div className={styles.post}>
+      <div className={styles.page_content}>
         {this.state.loading ? <Spin size="large" /> : null}
         {this.state.post ? this.renderPost(this.state.post) : null}
         {this.state.failed ? this.renderNotFound() : null}

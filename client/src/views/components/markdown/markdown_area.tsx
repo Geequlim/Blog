@@ -36,6 +36,8 @@ export default class MarkdownArea extends React.Component < MarkdownArea.Props, 
   private renderMarkdown(markdown: string): string {
     let html = marked(markdown);
     html = emoji(html);
+    html = html.replace(/<!-- class="(.*)" -->/g, '<div class="$1">');
+    html = html.replace(/<!-- endclass -->/g, '</div>');
     return html;
   }
 

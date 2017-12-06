@@ -68,7 +68,6 @@ class Post(BaseModel):
     title    = peewee.CharField(default = "")
     content  = peewee.CharField(default = "")
     tags     = peewee.CharField(default = "")
-    comments = peewee.CharField(default = "")
 
     def load_dict(self, data):
         '''读取json对象中的数据'''
@@ -79,7 +78,6 @@ class Post(BaseModel):
             elif key == 'title': self.title = value
             elif key == 'content': self.content = value
             elif key == 'tags': self.tags = value
-            elif key == 'comments': self.comments = value
         return self
 
 def query_posts(title='', author='', tag='', keyword=''):
