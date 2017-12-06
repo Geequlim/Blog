@@ -1,7 +1,6 @@
+import axios from 'axios';
 const hash256 = require("sha256");
-
 import * as types from './typedef';
-import {fetch_url} from "./fetch_api";
 
 /**
  * 服务器协议对接
@@ -11,7 +10,7 @@ import {fetch_url} from "./fetch_api";
 export default class Server {
 
     private apiUrl : string;
-    private headers : Headers;
+    private headers : Object;
     /**
      *
      * @param {string} apiUrl 服务器api地址
@@ -19,10 +18,10 @@ export default class Server {
      */
     constructor(apiUrl: string, apiKey:string) {
         this.apiUrl = apiUrl;
-        this.headers = new Headers({
+        this.headers = {
             "Content-Type": "application/json",
             "x-api-key": hash256(apiKey),
-        });
+        };
     }
 
     /**
@@ -31,26 +30,21 @@ export default class Server {
      */
     public async fetch_json(api):Promise<any> {
         const url = `${this.apiUrl}/${api}`;
-        let response = await fetch_url(url, {headers: this.headers})
-        let ret = undefined;
-        if (response) {
-            let contentType = response.headers.get("content-type");
-            if(contentType && contentType.includes("application/json")) {
-                ret = await response.json();
-                if (!ret || ('error' in ret && 'code' in ret)) {
-                    throw ret;
+        let response = await axios.request({headers: this.headers, url});
+        let contentType = response.headers["content-type"];
+        if(contentType && contentType.includes("application/json")) {
+            const ret = response.data;
+            if (!ret || ('error' in ret && 'code' in ret)) throw ret;
+            for(let key of Object.keys(ret)) {
+                const value: string = ret[key];
+                if(typeof(value) == 'string' && ((value.startsWith('[') && value.endsWith("]")) || (value.startsWith("{") && value.endsWith("}")))) {
+                    ret[key] = JSON.parse(value);
                 }
-                for(let key of Object.keys(ret)) {
-                    const value: string = ret[key];
-                    if(typeof(value) == 'string' && ((value.startsWith('[') && value.endsWith("]")) || (value.startsWith("{") && value.endsWith("}")))) {
-                        ret[key] = JSON.parse(value);
-                    }
-                }
-            } else {
-                throw {error: "Invalid content type", code: -1, url};
             }
+            return ret;
+        } else {
+            throw {error: "Invalid content type", code: -1, url};
         }
-        return ret;
     }
 
     /**

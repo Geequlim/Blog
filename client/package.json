@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "antd": "^2.13.10",
+    "axios": "^0.17.1",
     "classnames": "^2.2.5",
     "marked": "^0.3.7",
     "query-string": "^5.0.1",
