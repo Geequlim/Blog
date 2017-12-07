@@ -55,9 +55,9 @@ module.exports = {
         include: Path.resolve('data'),
         loader: 'yaml',
       },
-      // css
+      // css sass
       {
-        test: /\.css$/,
+        test: /\.(css|scss)$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
@@ -82,6 +82,12 @@ module.exports = {
                   require('postcss-browser-reporter')({ disabled: isProduction }),
                 ]
               }
+            },
+            {
+                loader: "sass-loader",
+                options: {
+                    includePaths: [Path.join(__dirname, "src/styles")]
+                }
             }
           ]
         })
@@ -109,7 +115,11 @@ module.exports = {
         from : Path.join(__dirname, 'src/start.js'),
         to : Path.join(__dirname, 'dist/start.js'),
       }
-    ])
+    ]),
+    new ExtractTextPlugin({
+        filename: "[name].[contenthash].css",
+        disable: !isProduction
+    })
   ],
   devServer: {
     contentBase: sourcePath,

@@ -1,7 +1,4 @@
 import * as React from 'react';
-import {Menu, Icon} from 'antd';
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
 import * as style from "./style.css";
 
 export namespace Footer {

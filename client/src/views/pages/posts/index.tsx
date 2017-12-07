@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import { queryString, server} from "../../../utils/global";
 import PostCard from "./card";
 import * as CoreTypes from '../../../utils/server/typedef';
-const styles = require("../../../css/main.css");
+const styles = require("../../../styles/main.scss");
 
 const PAGE_SIZE = 5;
 

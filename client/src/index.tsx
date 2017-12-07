@@ -15,7 +15,7 @@ import Post from './views/pages/post';
 import Posts from './views/pages/posts';
 import User from './views/pages/user';
 
-import * as styles from "./css/main.css";
+const styles = require("./styles/main.scss");
 
 const store = configureStore();
 const history = createBrowserHistory();
@@ -25,7 +25,7 @@ ReactDOM.render(
     <Router history={history}>
       <div className={styles.main}>
         <Header/>
-        <div className={styles.body}>
+        <div className={styles.flex_column_fill}>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/post/:id" component={Post} />

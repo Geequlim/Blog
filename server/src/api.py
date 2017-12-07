@@ -64,7 +64,7 @@ def get_object(tableName, uid):
             obj.load_dict(data).save()
     return jsonify_respose(api.db.model_to_dict(obj)) if obj else not_found(None)
 
-def resolve_query_result(table, query, page, pageSize):
+def resolve_query_result(table, query, page, pageSize, sorter = None):
     '''解析查询结果用于返回
         page: 当前页
         pageSize: 每页最大条目数
@@ -72,7 +72,8 @@ def resolve_query_result(table, query, page, pageSize):
         query: 查询器
     '''
     models = []
-    for m in query.order_by(table.updated_at.desc()).paginate(page, pageSize):
+    order = sorter if sorter else table.updated_at.desc()
+    for m in query.order_by(order).paginate(page, pageSize):
         models.append(api.db.model_to_dict(m))
     if len(models):
         total = query.count()
@@ -123,7 +124,8 @@ def get_posts():
             keyword=str(request.args.get('keyword', '')),
         ),
         int(request.args.get('page', 1)),
-        int(request.args.get('page_size', 20))
+        int(request.args.get('page_size', 20)),
+        database.Post.created_at.desc()
     )
 
 # ================================= 评论 =======================================

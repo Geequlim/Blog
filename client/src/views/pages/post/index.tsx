@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Alert, Spin, Tag, Card } from 'antd';
 import MarkdownArea from '../../components/markdown/markdown_area';
 import {CoreTypes, server} from '../../../utils/global';
-const styles = require("../../../css/main.css");
+const styles = require("../../../styles/main.scss");
 
 
 export namespace Post {
