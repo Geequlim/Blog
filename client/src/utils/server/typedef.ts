@@ -10,12 +10,13 @@ export enum QueryType {
     User = "users",
     Post = "posts",
     Comment = "comments",
+    Fragment = "fragments",
 }
 
 /** 查询类型 */
 export type Query = PostQuery | UserQuery | CommentQuery;
 /** 模型类型 */
-export type Model = Community.Post | Community.Comment | Community.User;
+export type Model = Community.Post | Community.Comment | Community.User | Community.Fragment;
 /**
  * 服务器错误响应结构
  *
@@ -66,6 +67,12 @@ export interface CommentQuery extends QueryBase {
 
 /** 用户查询器 */
 export interface UserQuery extends QueryBase {}
+
+/** 片段查询 */
+export interface FragmentQuery extends QueryBase {
+    author ? : string;
+    color ? : string;
+}
 
 
 /**

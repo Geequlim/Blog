@@ -133,3 +133,36 @@ def query_comments(target='', author='', keyword=''):
         # FIXME: 通过作者发表
         q = q.where(Comment.author.contains(author))
     return q
+
+# ================================= 片段 =======================================
+class Fragment(BaseModel):
+    '''评论信息'''
+    color    = peewee.CharField(default = "")
+    author   = peewee.CharField(default = "")
+    content  = peewee.CharField(default = "")
+
+    def load_dict(self, data):
+        '''读取json对象中的数据'''
+        super().load_dict(data)
+        for key in data:
+            value = data[key]
+            if key == 'author': self.author = value
+            elif key == 'content': self.content = value
+        return self
+
+def query_fragments(color='', author='', keyword=''):
+    '''
+    查询评论，参数留空保留该类所有评论
+    color: 颜色
+    author: 文章作者
+    keyword: 关键字
+    '''
+    q = Fragment.select()
+    if len(keyword):
+        q = q.where(Fragment.content.contains(keyword))
+    if len(color):
+        q = q.where(Fragment.color == color)
+    if len(author):
+        # FIXME: 通过作者发表
+        q = q.where(Fragment.author.contains(author))
+    return q

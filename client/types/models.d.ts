@@ -38,6 +38,13 @@ declare namespace Community {
         content: string;
     }
 
+    /** 片段 */
+    interface Fragment extends Model {
+        color: string;
+        author : User | UID;
+        content : string;
+    }
+
     /* ======= redux ============ */
 
     type UserStoreState = User;

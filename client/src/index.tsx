@@ -13,6 +13,7 @@ import Header from './views/components/header';
 import Footer from './views/components/footer';
 import Post from './views/pages/post';
 import Posts from './views/pages/posts';
+import Fragments from './views/pages/fragments';
 import User from './views/pages/user';
 
 const styles = require("./styles/main.scss");
@@ -30,6 +31,7 @@ ReactDOM.render(
             <Route exact path="/" component={Home} />
             <Route exact path="/post/:id" component={Post} />
             <Route exact path="/posts" component={Posts} />
+            <Route exact path="/fragments" component={Fragments} />
             <Route exact path="/user/:id" component={User} />
             <Route path="*" component={NotFound}/>
           </Switch>

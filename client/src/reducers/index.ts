@@ -3,11 +3,13 @@ import user from './user';
 import posts from "./posts";
 
 export interface RootState {
-  user: Community.User;
-  posts: Community.Post;
+    post : Community.Post;
+    user: Community.User[];
+    posts : Community.Post[];
+    fragments: Community.Fragment[];
 }
 
 export default combineReducers<RootState>({
-  user,
-  posts
+    user,
+    posts
 });

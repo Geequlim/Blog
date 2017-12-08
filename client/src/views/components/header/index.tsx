@@ -15,7 +15,7 @@ interface Navigator {
 const NAVIGATORS: Navigator[] = [
   { key: "home", path: "/", title: "首页", icon: 'home' },
   { key: "posts", path: "/posts", title: "博客", icon: 'solution' },
-  { key: "timeline", path: "/timeline", title: "时间轴", icon: 'profile' },
+  { key: "fragments", path: "/fragments", title: "时间轴", icon: 'profile' },
 ]
 
 export namespace Header {
