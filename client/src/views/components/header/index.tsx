@@ -31,8 +31,11 @@ export default class Header extends React.Component <Header.Props, Header.State 
 
   constructor(props?: Header.Props, context?: any) {
     super(props, context);
+    let current = window.location.pathname.replace('/', '');
+    if(!current) current = "home";
+    if(current == "post") current = "post";
     this.state = {
-      current: "home",
+      current,
       width: window.innerWidth
     }
   }

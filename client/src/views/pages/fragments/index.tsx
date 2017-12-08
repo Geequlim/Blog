@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Timeline, Icon, Alert, Spin} from 'antd';
+import {Timeline, Icon, Alert, Spin, Divider} from 'antd';
 import MarkdownArea from '../../components/markdown/markdown_area';
 import { server, CoreTypes } from "../../../utils/global";
 const styles = require("../../../styles/main.scss");
@@ -22,6 +22,7 @@ export default class Fragment extends React.Component <Fragment.Props,Fragment.S
             failed: false,
             loading: true,
         }
+        this.loadFragments();
     }
 
     loadFragments() {
@@ -47,9 +48,8 @@ export default class Fragment extends React.Component <Fragment.Props,Fragment.S
                         {fragments.map((f)=>(
                             <Timeline.Item
                                 key={f.object_id}
-                                dot={<i className="fa fa-circle-o" style={{ fontSize: '12px' }} />}
-                                color={f.color}>
-                                {f.created_at.toLocaleDateString()}
+                                dot={<i className="fa fa-circle-o" style={{fontSize: '12px'}} />}>
+                                {f.created_at}
                                 <MarkdownArea markdown={f.content} />
                             </Timeline.Item>
                         ))}

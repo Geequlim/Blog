@@ -14,7 +14,8 @@ api = API([
     database.Config,
     database.User,
     database.Post,
-    database.Comment
+    database.Comment,
+    database.Fragment,
 ])
 
 # ============================== 通用模板 =======================================
@@ -51,6 +52,8 @@ def get_object(tableName, uid):
         table = database.Post
     elif tableName == "comment":
         table = database.Comment
+    elif tableName == "fragment":
+        table = database.Fragment
     elif tableName == "config":
         return get_config(uid)
     obj = api.db.get_object_by_id(table, uid)
@@ -162,6 +165,28 @@ def get_users():
     return resolve_query_result(
         database.User,
         database.query_users(
+            keyword=str(request.args.get('keyword', '')),
+        ),
+        int(request.args.get('page', 1)),
+        int(request.args.get('page_size', 20))
+    )
+
+# ================================= 片段 =======================================
+@application.route('/api/v1/fragments', methods=['GET'])
+def get_fragments():
+    '''查询用户
+        keyword: 关键字筛选
+        color: 颜色
+        author: 作者
+        page: 页码
+        page_size: 每页数据长度
+    '''
+    if not check_permission(request, PERMISSION_READ): return no_permission(None)
+    return resolve_query_result(
+        database.Fragment,
+        database.query_fragments(
+            color=str(request.args.get('color', '')),
+            author=str(request.args.get('author', '')),
             keyword=str(request.args.get('keyword', '')),
         ),
         int(request.args.get('page', 1)),

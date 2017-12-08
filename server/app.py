@@ -1,5 +1,5 @@
 import os
-from src.api import api, config
+from src.api import api, config, database
 
 def main():
     debug = False
@@ -31,4 +31,5 @@ def import_posts(root, author):
 
 if __name__ == '__main__':
     # import_posts("/home/geequlim/Documents/Workspace/Develop/Web/Blog/v1", "3641a55bf8e94f9fb5238d26f1911a52")
+    # api.db.database.create_table(database.Fragment)
     main()

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Alert, Spin, Tag, Card } from 'antd';
+import { Alert, Spin, Tag, Card, Divider } from 'antd';
 import MarkdownArea from '../../components/markdown/markdown_area';
 import {CoreTypes, server} from '../../../utils/global';
 const styles = require("../../../styles/main.scss");
@@ -60,9 +60,10 @@ export default class Post extends React.Component < Post.Props, Post.State > {
             <div className={styles.flex_column_fill} style={{padding: '1em'}}>
                 <div>
                         <h1>{post.title}</h1>
-                        {post.tags.map(tag => <Tag color="red">{tag}</Tag> )}
+                        {post.tags.map(tag => <Tag key={tag} color="red">{tag}</Tag> )}
                         <Tag style={{borderStyle: 'dashed' }}>{post.created_at.toDateString()}</Tag>
                 </div>
+                <Divider />
                 <MarkdownArea markdown={post.content} />
             </div>
         );
