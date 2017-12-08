@@ -38,6 +38,22 @@ export default class MarkdownArea extends React.Component < MarkdownArea.Props, 
     html = emoji(html);
     html = html.replace(/<!-- class="(.*)" -->/g, '<div class="$1">');
     html = html.replace(/<!-- endclass -->/g, '</div>');
+
+    // 导航提取
+    // const id_list = []
+    // let text = "";
+    // for(let line of html.split('\n')) {
+    //     const ret = /\<h(\d)\sid="(.*?)"\>(.*)<\/h/.exec(line);
+    //     if(ret) {
+    //         var tag = ret[1];
+    //         var title = ret[3];
+    //         text += `<h${tag} id=${title}><a href={"#${title}"}>${title}</a></h${tag}>\n`;
+    //     } else {
+    //         text += line + "\n";
+    //     }
+    // }
+    // html = text;
+
     return html;
   }
 

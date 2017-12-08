@@ -4,6 +4,7 @@ import {Menu, Icon} from 'antd';
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 import {config} from '../../../utils/global';
+const styles = require("../../../styles/main.scss");
 
 interface Navigator {
   key: string;
@@ -33,7 +34,8 @@ export default class Header extends React.Component <Header.Props, Header.State 
     super(props, context);
     let current = window.location.pathname.replace('/', '');
     if(!current) current = "home";
-    if(current == "post") current = "post";
+    if(current.startsWith("post")) current = "posts";
+
     this.state = {
       current,
       width: window.innerWidth
@@ -52,7 +54,11 @@ export default class Header extends React.Component <Header.Props, Header.State 
   render() {
     const mode = (this.state.width < 768) ? "inline" : "horizontal";
     return (
-      <Menu onClick={this.handleClick.bind(this)} selectedKeys={[this.state.current]} mode={mode}>
+      <Menu
+        className={styles.dark_area}
+        theme="dark"
+        onClick={this.handleClick.bind(this)}
+        selectedKeys={[this.state.current]} mode={mode}>
         {
           (mode == 'inline') ? (
             <SubMenu key="mobile_sub" title={<span><Icon type="home" /><span>{config.title}</span></span>}>

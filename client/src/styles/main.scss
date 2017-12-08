@@ -1,3 +1,5 @@
+$drak_color: #404040;
+
 .main {
     width: 100%;
     min-height: 100%;
@@ -10,10 +12,13 @@
     flex: 1;
     align-self: center;
     flex-direction: column;
-    max-width: 1080px;
     margin: 10px;
     padding: 10px;
     height: 100%;
+    max-width: 100%;
+    @media (min-width: 1080px){
+        max-width: 1080px;
+    }
 }
 
 .flex_column {
@@ -60,7 +65,7 @@ pre {
     border-width: 1px;
     padding: 1px;
     border-radius: 5px;
-
+    max-width: 100%;
     code {
         border-radius: 5px;
         white-space: pre;
@@ -76,4 +81,41 @@ blockquote {
     border-left: 3px solid #c4ccce;
     padding-left: 0.8em;
     margin-left: 1em;
+}
+
+
+.home_cover {
+    display: flex;
+    flex: 1;
+    flex-direction: column;;
+    background-size: cover;
+    min-height: 360px;
+    @media (min-height: 768px){
+      min-height: 520px;
+    }
+    background-image: url("/static/assets/images/home/background.jpg");
+    color: #ffffff;
+
+}
+
+.home_filter {
+    display: flex;
+    flex: 1;
+    flex-direction: column;;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(22,100,156,0.45);
+    padding: 2em;
+    align-items: center;
+    justify-content: space-around;
+    .title {
+      color: #ffffff;
+    }
+  }
+
+
+
+.dark_area {
+    background-color: $drak_color;
+    color: #fff;
 }
