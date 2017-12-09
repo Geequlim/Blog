@@ -6,12 +6,11 @@ import PostCard from "./card";
 import * as CoreTypes from '../../../utils/server/typedef';
 const styles = require("../../../styles/main.scss");
 
-const PAGE_SIZE = 5;
+const PAGE_SIZE = 6;
 
 export namespace Posts {
   export interface Props extends React.Props < void > {}
   export interface State {
-     params: CoreTypes.PostQuery;
      posts: CoreTypes.Model[];
      total: number;
      page: number;
@@ -22,27 +21,43 @@ export namespace Posts {
 }
 
 export default class Posts extends React.Component < Posts.Props, Posts.State > {
+
+    private params:  CoreTypes.PostQuery;
+
     constructor(props: Posts.Props) {
         super(props);
         let p : any = props;
-        const params: CoreTypes.PostQuery = queryString.parse(p.location.search);
-        params.model = CoreTypes.QueryType.Post;
+
+        this.params = queryString.parse(window.location.search) as CoreTypes.PostQuery;
+        this.params.model = CoreTypes.QueryType.Post;
+
         this.state = {
-            params,
             posts: [],
-            page: params.page ? params.page : 1,
+            page: this.params.page ? this.params.page : 1,
             page_size: 5,
             total: 0,
             loading: true,
             failed: false
         };
+        const self = this;
+
+        p.history.listen((location, action) => {
+            self.loadPosts();
+        });
+    }
+
+    componentDidMount() {
         this.loadPosts();
     }
 
     loadPosts() {
         const self = this;
-        this.state.params.page_size = this.state.page_size;
-        server.query_model(this.state.params).then(r=>{
+
+        this.params = queryString.parse(window.location.search) as CoreTypes.PostQuery;
+        this.params.model = CoreTypes.QueryType.Post;
+        this.params.page_size = PAGE_SIZE;
+
+        server.query_model(this.params).then(r=>{
             self.setState({posts: r.data, failed: false, loading: false, page: r.page, total: r.total, page_size: r.page_size})
         }).catch(e=>{
             self.setState({ posts: [], failed: true, loading: false})
@@ -52,12 +67,12 @@ export default class Posts extends React.Component < Posts.Props, Posts.State > 
     onPageChanged(page, pageSize) {
         const props: any = this.props;
         const params = {
-            ...(this.state.params),
+            ...(this.params),
             page: page,
             page_size: this.state.page_size,
         }
         const self = this;
-        this.setState({ params, page, loading: true }, ()=>{
+        this.setState({ page, loading: true }, ()=>{
             props.history.push(`/posts?${queryString.stringify(params)}`);
             self.loadPosts();
         });

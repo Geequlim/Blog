@@ -1,7 +1,9 @@
 import * as React from 'react';
-import {Timeline, Icon, Alert, Spin, Divider} from 'antd';
+import {Timeline, Icon, Alert, Spin} from 'antd';
 import MarkdownArea from '../../components/markdown/markdown_area';
 import { server, CoreTypes } from "../../../utils/global";
+import * as moment from 'moment';
+moment.locale('zh-cn');
 const styles = require("../../../styles/main.scss");
 
 export namespace Fragment {
@@ -47,9 +49,8 @@ export default class Fragment extends React.Component <Fragment.Props,Fragment.S
                     <Timeline>
                         {fragments.map((f)=>(
                             <Timeline.Item
-                                key={f.object_id}
-                                dot={<i className="fa fa-circle-o" style={{fontSize: '12px'}} />}>
-                                {f.created_at}
+                                key={f.object_id}>
+                                {moment(f.created_at).calendar()}
                                 <MarkdownArea markdown={f.content} />
                             </Timeline.Item>
                         ))}

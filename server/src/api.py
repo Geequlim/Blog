@@ -176,7 +176,6 @@ def get_users():
 def get_fragments():
     '''查询用户
         keyword: 关键字筛选
-        color: 颜色
         author: 作者
         page: 页码
         page_size: 每页数据长度
@@ -185,7 +184,6 @@ def get_fragments():
     return resolve_query_result(
         database.Fragment,
         database.query_fragments(
-            color=str(request.args.get('color', '')),
             author=str(request.args.get('author', '')),
             keyword=str(request.args.get('keyword', '')),
         ),

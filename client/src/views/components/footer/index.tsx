@@ -17,15 +17,8 @@ export default class Footer extends React.Component <Footer.Props, Footer.State 
   render() {
     return (
       <div className={style.footer}>
-        <ul className={style.block}>
-          <li>111111</li>
-          <li>222222</li>
-        </ul>
-        <ul className={style.block}>
-          <li>3333333</li>
-          <li>4444444</li>
-        </ul>
-    </div>
+        © 2017 Geequlim.
+      </div>
     );
   }
 }

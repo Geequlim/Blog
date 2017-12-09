@@ -2,11 +2,15 @@ import * as React from 'react';
 const marked = require('marked');
 const Prism = require('../../../utils/prism');
 import emoji from '../../../utils/emoji';
+const highlightjs = require('highlight.js');
 
 marked.setOptions({
-  highlight: function (code: string, lang: string) {
-    const language = Prism.languages[lang];
-    return language ? Prism.highlight(code, language) : code;
+  highlight: function (code: string, language: string) {
+
+    // Check whether the given language is valid for highlight.js.
+    const validLang = !!(language && highlightjs.getLanguage(language));
+    // Highlight only if the language is valid.
+    return validLang ? highlightjs.highlight(language, code).value : code;
   }
 });
 

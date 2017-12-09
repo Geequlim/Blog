@@ -20,7 +20,9 @@ const NAVIGATORS: Navigator[] = [
 ]
 
 export namespace Header {
-  export interface Props {}
+  export interface Props {
+    history: any
+  }
 
   export interface State {
     current: string;
@@ -32,24 +34,25 @@ export default class Header extends React.Component <Header.Props, Header.State 
 
   constructor(props?: Header.Props, context?: any) {
     super(props, context);
+    let p : any = props;
+
+    this.state = { current: this.parseCureent(), width: window.innerWidth }
+    const self = this;
+    p.history.listen((location, action) => {
+        self.setState({current: self.parseCureent()});
+    });
+  }
+
+  parseCureent() {
     let current = window.location.pathname.replace('/', '');
     if(!current) current = "home";
     if(current.startsWith("post")) current = "posts";
-
-    this.state = {
-      current,
-      width: window.innerWidth
-    }
+    return current;
   }
 
   componentDidMount() {
     window.addEventListener('resize', () => this.setState({width: window.innerWidth}) );
   }
-
-  handleClick(e) {
-    this.setState({current: e.key});
-  }
-
 
   render() {
     const mode = (this.state.width < 768) ? "inline" : "horizontal";
@@ -57,7 +60,6 @@ export default class Header extends React.Component <Header.Props, Header.State 
       <Menu
         className={styles.dark_area}
         theme="dark"
-        onClick={this.handleClick.bind(this)}
         selectedKeys={[this.state.current]} mode={mode}>
         {
           (mode == 'inline') ? (

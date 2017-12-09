@@ -63,15 +63,20 @@ pre {
     margin-top: 5px;
     margin-bottom: 5px;
     border-width: 1px;
-    padding: 1px;
     border-radius: 5px;
     max-width: 100%;
+    // color: #abb2bf;
+    // background: #282c34;
+    color: #383a42;
+    background: #fafafa;
+    padding: 4px;
     code {
         border-radius: 5px;
         white-space: pre;
         word-spacing: normal;
         word-wrap: normal;
         word-break: keep-all;
+
     }
 }
 
@@ -83,6 +88,9 @@ blockquote {
     margin-left: 1em;
 }
 
+table {
+    max-width: 100%;
+}
 
 .home_cover {
     display: flex;

@@ -25,7 +25,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <div className={styles.main}>
-        <Header/>
+        <Header history={history}/>
         <div className={styles.flex_column_fill}>
           <Switch>
             <Route exact path="/" component={Home} />

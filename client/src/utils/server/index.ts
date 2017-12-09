@@ -24,6 +24,16 @@ export default class Server {
         };
     }
 
+
+    private normalizeModel(raw: object) {
+        for(let key of Object.keys(raw)) {
+            const value: string = raw[key];
+            if(typeof(value) == 'string' && ((value.startsWith('[') && value.endsWith("]")) || (value.startsWith("{") && value.endsWith("}")))) {
+                raw[key] = JSON.parse(value);
+            }
+        }
+    }
+
     /**
      * 获取指定路径的json对象
      * @param api 请求的API地址,相对路径
@@ -35,12 +45,7 @@ export default class Server {
         if(contentType && contentType.includes("application/json")) {
             const ret = response.data;
             if (!ret || ('error' in ret && 'code' in ret)) throw ret;
-            for(let key of Object.keys(ret)) {
-                const value: string = ret[key];
-                if(typeof(value) == 'string' && ((value.startsWith('[') && value.endsWith("]")) || (value.startsWith("{") && value.endsWith("}")))) {
-                    ret[key] = JSON.parse(value);
-                }
-            }
+            this.normalizeModel(ret);
             return ret;
         } else {
             throw {error: "Invalid content type", code: -1, url};
@@ -81,6 +86,9 @@ export default class Server {
             params += `${key}=${query[key]}`;
         }
         const result : types.QueryResult = await this.fetch_json(`${query.model}${params}`);
+        for(let m of result.data) {
+            this.normalizeModel(m);
+        }
         return result;
     }
 };

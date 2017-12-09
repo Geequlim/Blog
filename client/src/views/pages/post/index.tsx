@@ -1,9 +1,11 @@
 import * as React from 'react';
-import { Alert, Spin, Tag, Card, Divider } from 'antd';
+import { Alert, Spin, Tag, Card } from 'antd';
+import { Link } from "react-router-dom";
 import MarkdownArea from '../../components/markdown/markdown_area';
 import {CoreTypes, server} from '../../../utils/global';
 const styles = require("../../../styles/main.scss");
-
+import * as moment from 'moment';
+moment.locale('zh-cn');
 
 export namespace Post {
   export interface Props extends React.Props < void > {
@@ -56,15 +58,20 @@ export default class Post extends React.Component < Post.Props, Post.State > {
   }
 
   renderPost(post: Community.Post) {
+        const self = this;
         return (
             <div className={styles.flex_column_fill} style={{padding: '1em'}}>
-                <div>
-                        <h1>{post.title}</h1>
-                        {post.tags.map(tag => <Tag key={tag} color="red">{tag}</Tag> )}
-                        <Tag style={{borderStyle: 'dashed' }}>{post.created_at.toDateString()}</Tag>
-                </div>
-                <Divider />
-                <MarkdownArea markdown={post.content} />
+                <Card>
+                    <div>
+                            <h1>{post.title}</h1>
+                            <Tag style={{borderStyle: 'dashed' }}>{moment(post.created_at).calendar()}</Tag>
+                            {post.tags.map(tag=> (
+                                <Tag key={tag} color="blue"><Link to={`/posts?tag=${tag}`}>{tag}</Link></Tag>
+                            ))}
+                    </div>
+                    <hr/>
+                    <MarkdownArea markdown={post.content} />
+                </Card>
             </div>
         );
   }

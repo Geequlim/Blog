@@ -9,13 +9,15 @@ const outPath = Path.join(__dirname, './dist');
 const sourcePath = Path.join(__dirname, './src');
 
 const externals_libs = {
-  'react':      'React',
-  'redux':      'Redux',
-  'react-dom':  'ReactDOM',
-  'react-redux':  'ReactRedux',
-  'react-router-dom' : 'ReactRouterDOM',
-  'antd':       'antd',
-  'marked':       'marked',
+  'react':            'React',
+  'redux':            'Redux',
+  'react-dom':        'ReactDOM',
+  'react-redux':      'ReactRedux',
+  'react-router-dom': 'ReactRouterDOM',
+  'antd':             'antd',
+  'marked':           'marked',
+  "highlight.js":     'hljs',
+  "moment":           'moment',
 };
 
 module.exports = {

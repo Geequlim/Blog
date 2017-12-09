@@ -137,7 +137,6 @@ def query_comments(target='', author='', keyword=''):
 # ================================= 片段 =======================================
 class Fragment(BaseModel):
     '''评论信息'''
-    color    = peewee.CharField(default = "")
     author   = peewee.CharField(default = "")
     content  = peewee.CharField(default = "")
 
@@ -153,15 +152,12 @@ class Fragment(BaseModel):
 def query_fragments(color='', author='', keyword=''):
     '''
     查询评论，参数留空保留该类所有评论
-    color: 颜色
     author: 文章作者
     keyword: 关键字
     '''
     q = Fragment.select()
     if len(keyword):
         q = q.where(Fragment.content.contains(keyword))
-    if len(color):
-        q = q.where(Fragment.color == color)
     if len(author):
         # FIXME: 通过作者发表
         q = q.where(Fragment.author.contains(author))
