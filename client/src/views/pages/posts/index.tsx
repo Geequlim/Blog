@@ -60,7 +60,8 @@ export default class Posts extends React.Component < Posts.Props, Posts.State > 
         server.query_model(this.params).then(r=>{
             self.setState({posts: r.data, failed: false, loading: false, page: r.page, total: r.total, page_size: r.page_size})
         }).catch(e=>{
-            self.setState({ posts: [], failed: true, loading: false})
+            self.setState({ posts: [], failed: true, loading: false});
+            console.error(e);
         });
     }
 

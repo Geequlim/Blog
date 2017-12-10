@@ -5,6 +5,7 @@
   "description": "A frontend boilerplate with React, Redux and Typescript",
   "main": "index.js",
   "scripts": {
+    "clean": "rm -rf dist",
     "start": "webpack-dev-server --debug --devtool cheap-module-source-map --output-pathinfo --history-api-fallback --hot --inline --progress --colors --port 3000 --open --watch-poll",
     "build": "webpack -p --progress --colors && cp -r src/static dist"
   },
