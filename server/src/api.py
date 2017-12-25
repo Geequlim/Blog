@@ -29,7 +29,7 @@ def call_func(func):
         return datetime.now().isoformat()
     return not_found(None)
 
-@application.route('/api/v1/<tableName>/<uid>', methods=['GET', 'POST'])
+@application.route('/api/v1/<tableName>/<uid>', methods=['GET', 'POST', 'DELETE'])
 def get_object(tableName, uid):
     '''
     通过对象的 `object_id` 获取、修改、添加对象
@@ -65,6 +65,11 @@ def get_object(tableName, uid):
             data['object_id'] = uid
             obj = obj if obj else table.create()
             obj.load_dict(data).save()
+    elif request.method == "DELETE":
+        if not check_permission(request, PERMISSION_WRITE):
+            return no_permission(None)
+        if obj != None:
+            obj.delete_instance()
     return jsonify_respose(api.db.model_to_dict(obj)) if obj else not_found(None)
 
 def resolve_query_result(table, query, page, pageSize, sorter = None):
