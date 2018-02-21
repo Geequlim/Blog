@@ -57,12 +57,17 @@ export default class Post extends React.Component < Post.Props, Post.State > {
     return (<Alert message="找不到文章" type="error" />);
   }
 
+  renderContent(content: any) {
+    return (window.innerWidth >= 720) ? (<Card>{content}</Card>): content;
+  }
+
   renderPost(post: Community.Post) {
         const self = this;
         return (
             <div className={styles.flex_column_fill} style={{padding: '1em'}}>
-                <Card>
-                    <div>
+                {this.renderContent(
+                    (<div>
+                        <div>
                             <h1>{post.title}</h1>
                             <Tag style={{borderStyle: 'dashed' }}>{moment(post.created_at).calendar()}</Tag>
                             {post.tags.map(tag=> (
@@ -71,7 +76,8 @@ export default class Post extends React.Component < Post.Props, Post.State > {
                     </div>
                     <hr/>
                     <MarkdownArea markdown={post.content} />
-                </Card>
+                    </div>)
+                )}
             </div>
         );
   }
