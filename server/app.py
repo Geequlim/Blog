@@ -8,7 +8,7 @@ def main():
 		debug = True
 		host = '127.0.0.1'
 		print(config)
-	api.app.run(host=host, debug=debug)
+	api.app.run(host=host, debug=debug, ssl_context=('cert/server.crt', 'cert/server.key'))
 
 
 def import_posts(root, author):
