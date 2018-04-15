@@ -1,15 +1,22 @@
+#! /usr/sbin/env python3
 import os
 from src.api import api, config, database
+from gevent.wsgi import WSGIServer
+from gevent import monkey
+monkey.patch_all()
 
 def main():
 	debug = False
 	host  = '0.0.0.0'
+	ssl_key = 'cert/server.key'
+	ssl_cert = 'cert/server.crt'
 	if os.getenv("SERVER_DEBUG") != None:
 		debug = True
 		host = '127.0.0.1'
 		print(config)
-	api.app.run(host=host, debug=debug, ssl_context=('cert/server.crt', 'cert/server.key'))
-
+		api.app.run(host=host, debug=debug, ssl_context=(ssl_cert, ssl_key))
+	else:
+		WSGIServer((host, 5000), api.app, keyfile=ssl_key, certfile=ssl_cert).serve_forever()
 
 def import_posts(root, author):
 	import yaml
