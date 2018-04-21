@@ -52,6 +52,7 @@
     "antd": "^2.13.11",
     "axios": "^0.17.1",
     "classnames": "^2.2.5",
+    "disqus-react": "^1.0.5",
     "highlight.js": "^9.12.0",
     "marked": "^0.3.7",
     "moment": "^2.19.3",

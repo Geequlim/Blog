@@ -2,10 +2,11 @@ import * as React from 'react';
 import { Alert, Spin, Tag, Card } from 'antd';
 import { Link } from "react-router-dom";
 import MarkdownArea from '../../components/markdown/markdown_area';
-import {CoreTypes, server} from '../../../utils/global';
+import {CoreTypes, server, config} from '../../../utils/global';
 const styles = require("../../../styles/main.scss");
 import * as moment from 'moment';
 moment.locale('zh-cn');
+import Disqus from 'disqus-react';
 
 export namespace Post {
   export interface Props extends React.Props < void > {
@@ -81,6 +82,23 @@ export default class Post extends React.Component < Post.Props, Post.State > {
             </div>
         );
   }
+  renderComment() {
+    const disqusShortname = config.disqus_short_name;
+    const disqusConfig = {
+        url: window.location.href,
+        identifier: this.state.post.object_id,
+        title: this.state.post.title,
+    };
+
+    return (
+        <Card style={{margin: '1em'}}>
+            <h2>文章评论</h2>
+            <Disqus.CommentCount shortname={disqusShortname} config={disqusConfig}>
+            </Disqus.CommentCount>
+            <Disqus.DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
+        </Card>
+    );
+  }
 
   render() {
     return (
@@ -88,6 +106,7 @@ export default class Post extends React.Component < Post.Props, Post.State > {
         {this.state.loading ? <Spin size="large" /> : null}
         {this.state.post ? this.renderPost(this.state.post) : null}
         {this.state.failed ? this.renderNotFound() : null}
+        {this.state.post ? this.renderComment(): null}
       </div>
     );
   }
