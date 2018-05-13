@@ -1,9 +1,9 @@
 #! /usr/sbin/env python3
 import os
-from src.api import api, config, database
-from gevent.wsgi import WSGIServer
 from gevent import monkey
 monkey.patch_all()
+from src.api import api, config, database
+from gevent.pywsgi import WSGIServer
 
 def main():
 	debug = False
