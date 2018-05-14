@@ -9,4 +9,4 @@ flask
 flask_cors
 python-dateutil
 PyYAML
-gevent
+tornado

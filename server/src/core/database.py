@@ -71,9 +71,6 @@ class BaseModel(peewee.Model):
 
     def __init__(self, *args,**kwargs):
         super().__init__(*args,**kwargs)
-        self.object_id  = utils.uid32()
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
 
     def load_dict(self, data):
         '''读取json对象中的数据'''
